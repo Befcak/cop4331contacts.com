@@ -1,0 +1,41 @@
+html, body {
+   height: 100%;
+   width: 100%;
+   position: relative;
+}
+
+.nav-link.active{
+  background-color: green!important;
+}
+
+.nav-link {
+  color: white;
+  padding-top: 15px;
+}
+
+.row {
+  padding-top: 10px;
+}
+
+.col-3 {
+  background-color: #2c8c25;
+}
+
+.col-5 {
+  background-color: #aee5be;
+}
+
+.col-4 {
+  background-color: #52b770;
+}
+
+.display-4 {
+  text-align: center;
+  color: white;
+}
+
+#v-pills-logout-tab {
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 15px;
+}
