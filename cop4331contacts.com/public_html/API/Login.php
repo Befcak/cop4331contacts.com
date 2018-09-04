@@ -60,7 +60,7 @@ SELECT userID, firstName, lastName, login FROM users WHERE login = '<login>' AND
 					}
 				}
 
-				returnWithInfo($firstName, $lastName, $userID, $date);
+				returnWithInfo($firstName, $lastName, $userID);
 			}
 			
 			else
@@ -89,9 +89,9 @@ SELECT userID, firstName, lastName, login FROM users WHERE login = '<login>' AND
 		sendResultInfoAsJson( $retValue );
 	}
 	
-	function returnWithInfo( $firstName, $lastName, $userID, $date )
+	function returnWithInfo( $firstName, $lastName, $userID)
 	{
-		$retValue = '{"userID":' . $userID . ',"firstName":"' . $firstName . '","lastName":"' . $lastName . '","dateLastLoggedIn":'. $date .',"error":""}';
+		$retValue = '{"userID":' . $userID . ',"firstName":"' . $firstName . '","lastName":"' . $lastName . '","error":""}';
 		sendResultInfoAsJson( $retValue );
 	}
 	
