@@ -26,26 +26,29 @@ SELECT userID, firstName, lastName, login FROM users WHERE login = '<login>' AND
 		$sql = "SELECT userID, firstName, lastName, login FROM users WHERE login = ? AND password = ?";
 		
 		
-		$stmt = $conn->prepare($sql);/*creates the prepared statement*/
-		$stmt->bind_param('ss', $inData["password"], $inData["password"]);/*Binds params to markers*/
-		$stmt->execute();
-		
-		$result	= $stmt->get_result();
-		//$result = $conn->query($sql);
-		
-		if ($result->num_rows > 0)
+		if($stmt = $conn->prepare($sql))
 		{
-			$row = $result->fetch_assoc();
-			$firstName = $row["firstName"];
-			$lastName = $row["lastName"];
-			$userID = $row["userID"];
-			//$login = $row["login"];
-			
-			returnWithInfo($firstName, $lastName, $userID);
-		}
-		else
-		{
-			returnWithError( "No Records Found" );
+			/*creates the prepared statement*/
+			$stmt->bind_param('ss', $inData["password"], $inData["password"]);/*Binds params to markers*/
+			$stmt->execute();
+
+			$result	= $stmt->get_result();
+			//$result = $conn->query($sql);
+
+			if ($result->num_rows > 0)
+			{
+				$row = $result->fetch_assoc();
+				$firstName = $row["firstName"];
+				$lastName = $row["lastName"];
+				$userID = $row["userID"];
+				//$login = $row["login"];
+
+				returnWithInfo($firstName, $lastName, $userID);
+			}
+			else
+			{
+				returnWithError( "No Records Found" );
+			}
 		}
 		$conn->close();
 	}
