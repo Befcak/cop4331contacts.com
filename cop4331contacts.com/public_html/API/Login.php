@@ -11,6 +11,7 @@ SELECT userID, firstName, lastName, login FROM users WHERE login = '<login>' AND
 	$userID = 0;
 	$firstName = "";
 	$lastName = "";
+	
 	//$login = filter_var($inData["login"], FILTER_SANITIZE_STRING);
 
 	$conn = new mysqli("localhost", "root", "orlando", "contactBook");
@@ -42,14 +43,32 @@ SELECT userID, firstName, lastName, login FROM users WHERE login = '<login>' AND
 				$lastName = $row["lastName"];
 				$userID = $row["userID"];
 				//$login = $row["login"];
+				
+				$sql = "UPDATE users SET dateLastLoggedIn=? WHERE userID=?";
+				$date = date("Y-m-d h:i:sa");
 
-				returnWithInfo($firstName, $lastName, $userID);
+				if($stmt = $conn->prepare($sql))
+				{
+					/*creates the prepared statement*/
+					$stmt->bind_param('ss', $date, $userID);/*Binds params to markers*/
+					$stmt->execute();
+					$result	= $stmt->get_result();
+				
+					if( $result = $conn->query($sql) != TRUE )
+					{
+						returnWithError( $conn->error );
+					}
+				}
+
+				returnWithInfo($firstName, $lastName, $userID, $date);
 			}
+			
 			else
 			{
 				returnWithError( "No Records Found" );
 			}
 		}
+		
 		$conn->close();
 	}
 	
@@ -70,9 +89,9 @@ SELECT userID, firstName, lastName, login FROM users WHERE login = '<login>' AND
 		sendResultInfoAsJson( $retValue );
 	}
 	
-	function returnWithInfo( $firstName, $lastName, $userID )
+	function returnWithInfo( $firstName, $lastName, $userID, $date )
 	{
-		$retValue = '{"userID":' . $userID . ',"firstName":"' . $firstName . '","lastName":"' . $lastName . '","error":""}';
+		$retValue = '{"userID":' . $userID . ',"firstName":"' . $firstName . '","lastName":"' . $lastName . '","dateLastLoggedIn":'. $date .',"error":""}';
 		sendResultInfoAsJson( $retValue );
 	}
 	
