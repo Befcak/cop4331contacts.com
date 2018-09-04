@@ -22,7 +22,7 @@ SELECT userID, firstName, lastName, login FROM users WHERE login = '<login>' AND
 	else
 	{
 		/*Login is the weak point for SQL injection, assuming the password is sent hashed*/
-		$sql = "SELECT userID, firstName, lastName, login FROM users WHERE login = '".$inData["login"]."' AND password = '".$inData["password"]."'";
+		$sql = "SELECT userID, firstName, lastName, login FROM users; /*WHERE login = '".$inData["login"]."' AND password = '".$inData["password"]."'";*/
 		
 		$result = $conn->query($sql);
 		
