@@ -11,7 +11,7 @@ INSERT INTO USERS (firstName, lastName, login, password) VALUES ('<firstName>', 
 	$inData = getRequestInfo();
 	
 	
-	$conn = new mysqli("167.99.12.10", "claudie", "orlando", "contactBook");
+	$conn = new mysqli("localhost", "root", "orlando");
 	
 	if ($conn->connect_error) 
 	{
@@ -30,8 +30,7 @@ INSERT INTO USERS (firstName, lastName, login, password) VALUES ('<firstName>', 
 		}
 		$conn->close();
 	}
-	
-	returnWithError("");
+
 	
 	function getRequestInfo()
 	{
