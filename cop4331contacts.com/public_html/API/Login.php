@@ -24,12 +24,12 @@ SELECT userID, firstName, lastName, login FROM users WHERE login = '<login>' AND
 		/*Login is the weak point for SQL injection, assuming the password is sent hashed*/
 		/*$sql = "SELECT userID, firstName, lastName, login FROM users WHERE login = '".$login."' AND password = '".$inData["password"]."'";*/
 		$sql = "SELECT userID, firstName, lastName, login FROM users WHERE login = ? AND password = ?";
-		
+		$stmt = 0;
 		
 		if($stmt = $conn->prepare($sql))
 		{
 			/*creates the prepared statement*/
-			$stmt->bind_param('ss', $inData["password"], $inData["password"]);/*Binds params to markers*/
+			$stmt->bind_param('ss', $inData["login"], $inData["password"]);/*Binds params to markers*/
 			$stmt->execute();
 
 			$result	= $stmt->get_result();
