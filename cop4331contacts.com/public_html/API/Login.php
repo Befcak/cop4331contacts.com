@@ -11,7 +11,7 @@ SELECT userID, firstName, lastName, login FROM users WHERE login = '<login>' AND
 	$userID = 0;
 	$firstName = "";
 	$lastName = "";
-	//$login = "";
+	$login = filter_var($inData["login"], FILTER_SANITIZE_STRING);
 
 	$conn = new mysqli("localhost", "root", "orlando", "contactBook");
 	
@@ -22,7 +22,7 @@ SELECT userID, firstName, lastName, login FROM users WHERE login = '<login>' AND
 	else
 	{
 		/*Login is the weak point for SQL injection, assuming the password is sent hashed*/
-		$sql = "SELECT userID, firstName, lastName, login FROM users WHERE login = '".$inData["login"]."' AND password = '".$inData["password"]."'";
+		$sql = "SELECT userID, firstName, lastName, login FROM users WHERE login = '".$login."' AND password = '".$inData["password"]."'";
 		
 		$result = $conn->query($sql);
 		
