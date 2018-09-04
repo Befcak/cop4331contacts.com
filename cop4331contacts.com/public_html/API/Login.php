@@ -44,7 +44,7 @@ SELECT userID, firstName, lastName, login FROM users WHERE login = '<login>' AND
 				$userID = $row["userID"];
 				//$login = $row["login"];
 				
-				$sql = "UPDATE users SET dateLastLoggedIn=? WHERE userID=?";
+				/*$sql = "UPDATE users SET dateLastLoggedIn=? WHERE userID=?";
 				$date = date("Y-m-d h:i:sa");
 
 				if($stmt = $conn->prepare($sql))
@@ -58,7 +58,7 @@ SELECT userID, firstName, lastName, login FROM users WHERE login = '<login>' AND
 					{
 						returnWithError( $conn->error );
 					}
-				}
+				}*/
 
 				returnWithInfo($firstName, $lastName, $userID);
 			}
