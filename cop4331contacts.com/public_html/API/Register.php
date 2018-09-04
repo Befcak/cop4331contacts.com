@@ -21,13 +21,27 @@ INSERT INTO USERS (firstName, lastName, login, password) VALUES ('<firstName>', 
 	{
 		/*Need to check duplicate users?*/
 		/*firstName, lastName, and login are weakpoints that could be be SQL injected assumming password is hashed*/
-		$sql = "INSERT INTO users (firstName, lastName, login, password) VALUES ('".$inData["firstName"]."', '".$inData["lastName"]."', '".$inData["login"]."', '".$inData["password"]."');";
+		/*$sql = "INSERT INTO users (firstName, lastName, login, password) VALUES ('".$inData["firstName"]."', '".$inData["lastName"]."', '".$inData["login"]."', '".$inData["password"]."');";*/
+		$sql = "INSERT INTO USERS (firstName, lastName, login, password) VALUES (?, ?, ?, ?)";
+		$stmt = 0;
 		
-		
-		if( $result = $conn->query($sql) != TRUE )
+		if($stmt = $conn->prepare($sql))
 		{
-			returnWithError( $conn->error );
+			/*creates the prepared statement*/
+			$stmt->bind_param('ssss',$inData["firstName"], $inData["lastName"],$inData["login"], $inData["password"]);/*Binds params to markers*/
+			$stmt->execute();/*executes the query*/
+			
+			$result	= $stmt->get_result();
+			
+			
+			if( $result = $conn->query($sql) != TRUE )
+			{
+				returnWithError( $conn->error );
+			}
+				
 		}
+		
+		
 		$conn->close();
 	}
 
