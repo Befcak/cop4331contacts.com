@@ -13,7 +13,7 @@ SELECT userID, firstName, lastName, login FROM users WHERE login = '<login>' AND
 	$lastName = "";
 	//$login = "";
 
-	$conn = new mysqli("localhost", "root", "orlando");
+	$conn = new mysqli("localhost", "root", "orlando", "contactBook");
 	
 	if ($conn->connect_error) 
 	{
