@@ -11,7 +11,7 @@ INSERT INTO USERS (firstName, lastName, login, password) VALUES ('<firstName>', 
 	$inData = getRequestInfo();
 	
 	
-	$conn = new mysqli("localhost", "root", "orlando");
+	$conn = new mysqli("localhost", "root", "orlando", "contactBook");
 	
 	if ($conn->connect_error) 
 	{
