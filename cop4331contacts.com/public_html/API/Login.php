@@ -26,7 +26,7 @@ SELECT userID, firstName, lastName, login FROM users WHERE login = '<login>' AND
 		
 		$result = $conn->query($sql);
 		
-		if ($result->num_rows >= 0)
+		if ($result->num_rows > 0)
 		{
 			$row = $result->fetch_assoc();
 			$firstName = $row["firstName"];
