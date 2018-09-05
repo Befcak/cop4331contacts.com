@@ -9,63 +9,93 @@
   </head>
 
   <body>
+    <!-- Main row -->
     <div class="container">
       <div class="row">
+
+        <!-- Create New Contact Modal -->
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1>Contact Adder</h1>
+            <form>
+              <div class="row">
+                <div class="col-6"><input class="form-control mr-sm-2" type="text" name="firstname" placeholder="First Name"></div>
+                <div class="col-6"><input class="form-control mr-sm-2"type="text" name="lastname" placeholder="Last Name"></div>
+              </div><br>
+              <div><input class="form-control mr-sm-2"type="text" name="phone" placeholder="Phone"></div><br>
+              <div><input class="form-control mr-sm-2"type="text" name="email" placeholder="Email"></div><br>
+              <div><input class="form-control mr-sm-2"type="text" name="streetAddress" placeholder="Street Address"></div><br>
+              <div class="row">
+                <div class="col-4"><input class="form-control mr-sm-2" type="text" name="city" placeholder="City"></div>
+                <div class="col-4"><input class="form-control mr-sm-2" type="text" name="state" placeholder="State"></div>
+                <div class="col-4"><input class="form-control mr-sm-2" type="text" name="zip" placeholder="ZIP"></div>
+              </div><br>
+              <div><input class="form-control mr-sm-2" type="text" name="birth" placeholder="Birthday"></div><br>
+              <div><input class="form-control mr-sm-2" type="text" name="note" placeholder="Notes"></div><br>
+
+              <button onclick="makeContact()" class="btn btn-success my-2 my-sm-0" id="newContact">Create</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Tool Bar -->
         <div class="col-3">
           <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+            <a onclick="goHome()" class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
               <p><span class="glyphicon glyphicon-home"></span> Home</p>
             </a>
-            <a class="nav-link" id="v-pills-addContact-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+            <a onclick="addContact()" class="nav-link" id="v-pills-addContact-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
               <p><span class="glyphicon glyphicon-plus"></span> Add</p>
             </a>
             <a class="nav-link" id="v-pills-logout-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Logout</a>
           </div>
         </div>
 
+        <!-- Contact List/ Search -->
         <div class="col-5">
-
           <h1 class="display-4">Contacts</h1>
 
           <nav class="navbar navbar-light bg-light">
             <form class="form-inline">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              <input class="form-control mr-sm-2 col-8" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
             </form>
           </nav>
-          <div class="jumbotron">
-            <div data-spy="scroll" data-target="#navbar-example3" data-offset="0">
-              <div class="list-group">
 
-          <a href="#" class="list-group-item list-group-item-action">FirstName LastName</a>
-          <a href="#" class="list-group-item list-group-item-action">A simple secondary list group item</a>
-          <a href="#" class="list-group-item list-group-item-action">A simple success list group item</a>
-          <a href="#" class="list-group-item list-group-item-action">A simple danger list group item</a>
-          <a href="#" class="list-group-item list-group-item-action ">A simple warning list group item</a>
-          <a href="#" class="list-group-item list-group-item-action">A simple info list group item</a>
-          <a href="#" class="list-group-item list-group-item-action ">A simple light list group item</a>
-          <a href="#" class="list-group-item list-group-item-action ">A simple dark list group item</a>
-          </div>
-</div>
+          <div class="jumbotron">
+            <div class="list-group">
+              <a href="#" class="list-group-item list-group-item-action">FirstName LastName</a>
+              <a href="#" class="list-group-item list-group-item-action">A simple secondary list group item</a>
+              <a href="#" class="list-group-item list-group-item-action">A simple success list group item</a>
+              <a href="#" class="list-group-item list-group-item-action">A simple danger list group item</a>
+              <a href="#" class="list-group-item list-group-item-action ">A simple warning list group item</a>
+              <a href="#" class="list-group-item list-group-item-action">A simple info list group item</a>
+            </div>
           </div>
         </div>
 
-        <div class="col-4">
+        <!-- Information Display -->
+        <div class="col-4" id="infoDis">
           <h1 class="display-4">Info Display</h1>
-            <div class="jumbotron">
+            <div class="jumbotron" id="mainDisplay">
+              <p>UserID</p>
               <p>FirstName LastName</p>
-              <p>Home Phone</p>
-              <p>Work Phone</p>
+              <p>Phone</p>
               <p>Email</p>
-              <p>Address</p>
-              <p>Relationship</p>
+              <p>StreetAddress</p>
+              <p>City State ZIP</p>
+              <p>Birthday</p>
+              <p>Notes</p>
             </div>
         </div>
+
       </div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<script src="index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
   </body>
 
 </html>
