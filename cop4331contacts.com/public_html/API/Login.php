@@ -50,11 +50,13 @@ SELECT userID, firstName, lastName, login FROM users WHERE login = '<login>' AND
 					$stmt2->bind_param('si',$date,$userID);
 					$stmt2->execute();
 					$result = $stmt2->get_result();
+					
+					if($result->num_rows < 1)
+					{
+						returnWithError("Date Update Failed");
+					}
 				}
-				else
-				{
-					returnWithError( "Date update failed" );
-				}
+				
 			
 
 				returnWithInfo($firstName, $lastName, $userID);
