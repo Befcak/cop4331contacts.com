@@ -47,7 +47,7 @@ function doLogin()
 			return;
 		}
 
-		window.location.href = "html/contactManager.html"
+		window.location.href = "html/contactManager.html";
 
 		// Grabbing json reply with firstName and lastName.
 		firstName = jsonObject.firstName;
