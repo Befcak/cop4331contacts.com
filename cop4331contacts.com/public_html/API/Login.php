@@ -42,15 +42,21 @@ SELECT userID, firstName, lastName, login FROM users WHERE login = '<login>' AND
 				$firstName = $row["firstName"];
 				$lastName = $row["lastName"];
 				$userID = $row["userID"];
-				//$login = $row["login"];
+				$sql2 = "UPDATE users SET dateLastLoggedIn=? WHERE userID=?";
 				
-				$date = date("Y-m-d h:i:sa");
-				$sql2 = "UPDATE users SET dateLastLoggedIn='".$date."' WHERE userID=".$userID."";
-				
-				if($result = $conn->query($sql2) != TRUE)
+				if($stmt2 = $conn->prepare($sql))
 				{
-					returnWithError($conn->error);
+					$stmt2->bind_param('si',".date("Y-m-d h:i:sa").",$userID);
+					$stmt2->execute();
+					$result = $stmt2->get_result();
+					
+					if($result->num_rows < 1)
+					{
+						returnWithError("Date Update Failed");
+					}
 				}
+				
+			
 
 				returnWithInfo($firstName, $lastName, $userID);
 			}
