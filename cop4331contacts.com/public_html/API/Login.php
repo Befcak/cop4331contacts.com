@@ -49,7 +49,7 @@ SELECT userID, firstName, lastName, login FROM users WHERE login = '<login>' AND
 				
 				if($result = $conn->query($sql2) != TRUE)
 				{
-					returnWithError($conn->error);
+					echo "date update failed"
 				}
 
 				returnWithInfo($firstName, $lastName, $userID);
