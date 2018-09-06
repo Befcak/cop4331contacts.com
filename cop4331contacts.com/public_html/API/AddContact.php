@@ -38,7 +38,8 @@
 
 		if( $result = $conn->query($sql) != TRUE )
 		{
-			returnWithError( $conn->error );
+			//returnWithError( $conn->error );
+			returnWithError($sql);
 		}
 		$conn->close();
 	}
