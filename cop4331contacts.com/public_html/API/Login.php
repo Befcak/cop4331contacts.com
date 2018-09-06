@@ -42,19 +42,9 @@ SELECT userID, firstName, lastName, login FROM users WHERE login = '<login>' AND
 				$firstName = $row["firstName"];
 				$lastName = $row["lastName"];
 				$userID = $row["userID"];
-				$sql2 = "UPDATE users SET dateLastLoggedIn = ? WHERE userID = ?";
-				$date = "2018-09-06 15:49:13";
-				if($stmt2 = $conn->prepare($sql))
-				{
-					$stmt2->bind_param('si','2018-09-06 15:49:13',3);
-					$stmt2->execute();
-					$result = $stmt2->get_result();
-					
-					if($result->num_rows < 1)
-					{
-						returnWithError("Date Update Failed");
-					}
-				}
+				$sql2 = "UPDATE users SET dateLastLoggedIn = '".date("Y-m-d h:i:sa")."' WHERE userID = ".$userID.";
+				
+				
 				
 			
 
