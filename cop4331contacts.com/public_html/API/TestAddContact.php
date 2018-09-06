@@ -20,7 +20,7 @@
 	$lastName = "Contact";
 	$streetAddress = "12345 Add Ct.";
 	$city = "Adlington";
-	$state = "CT";
+	$state = "";
 	$zip = 12345;
 	$phone = 1234567890;
 	$email = "acontact@fakeemailnotreal.org";
