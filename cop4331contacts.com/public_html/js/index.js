@@ -15,58 +15,60 @@ function doLogin()
 	lastName = "";
 	var username = document.getElementById("username").value;
 	var password = document.getElementById("password").value;
-	
+
 	document.getElementById("loginResult").innerHTML = "";
-	
+
 	// Add the MD5 hashing to password.
-	
-	
+
+
 	// Creating the json payload to be sent.
 	var jsonPayload = '{"login" : "' + username + '", "password" : "' + password + '"}';
 	var url = urlBase + '/Login.' + extension;
-	
+
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, false);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	
+
 	try
 	{
 		// Send the json package.
 		xhr.send(jsonPayload);
-		
+
 		// Json response.
 		var jsonObject = JSON.parse( xhr.responseText );
-		
+
 		// Grabbing json replay with userID.
 		userId = jsonObject.userID;
-		
+
 		// If userID is return less than 1, error logging in.
 		if( userId < 1 )
 		{
 			document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
 			return;
 		}
-		
+
+		window.location.href = "html/contactManager.html"
+
 		// Grabbing json reply with firstName and lastName.
 		firstName = jsonObject.firstName;
 		lastName = jsonObject.lastName;
 
-		
+
 		document.getElementById("userName").innerHTML = firstName + " " + lastName;
-		
+
 		document.getElementById("loginName").value = "";
 		document.getElementById("loginPassword").value = "";
-		
-		
-		
+
+
+
 	}
 	catch(err)
 	{
 		document.getElementById("loginResult").innerHTML = err.message;
 	}
-	
-	
-	
+
+
+
 }
 
 function doLogout()
