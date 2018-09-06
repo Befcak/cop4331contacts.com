@@ -31,7 +31,7 @@
 	
 	if ($conn->connect_error) 
 	{
-		returnWithError( $conn->connect_error );
+		returnWithError( $sql );
 	} 
 	else
 	{
@@ -41,7 +41,8 @@
 
 		if( $result = $conn->query($sql) != TRUE )
 		{
-			returnWithError( $conn->error );
+			//returnWithError( $conn->error );
+			returnWithError($sql);
 		}
 		$conn->close();
 	}
