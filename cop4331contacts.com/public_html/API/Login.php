@@ -49,7 +49,7 @@ SELECT userID, firstName, lastName, login FROM users WHERE login = '<login>' AND
 				
 				if($result = $conn->query($sql) != TRUE)
 				{
-					returnWithError(4conn->error);
+					returnWithError(conn->error);
 				}
 
 				returnWithInfo($firstName, $lastName, $userID);
