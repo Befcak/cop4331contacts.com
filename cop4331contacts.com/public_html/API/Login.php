@@ -47,10 +47,10 @@ SELECT userID, firstName, lastName, login FROM users WHERE login = '<login>' AND
 				$date = date("Y-m-d h:i:sa");
 				$sql2 = "UPDATE users SET dateLastLoggedIn='".$date."' WHERE userID=".$userID."";
 				
-				if($result = $conn->query($sql2) != TRUE)
+				/*if($result = $conn->query($sql2) != TRUE)
 				{
-					returnWithError($conn->error);
-				}
+					returnWithError("Update failed");
+				}*/
 
 				returnWithInfo($firstName, $lastName, $userID);
 			}
