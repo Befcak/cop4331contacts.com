@@ -35,7 +35,10 @@
 	} 
 	else
 	{
-		$sql = "INSERT INTO contacts (userID, firstName, lastName, streetAddress, city, state, zip, phone, email, birthday, notes) VALUES (userID, firstName, lastName, streetAddress, city, state, zip, phone, email, birthday, notes);";
+		/*$sql = "INSERT INTO contacts (userID, firstName, lastName, streetAddress, city, state, zip, phone, email, birthday, notes) VALUES (" . $userID . ", firstName, lastName, streetAddress, city, state, zip, phone, email, birthday, notes);";*/
+
+		$sql = "INSERT INTO contacts (userID, firstName, lastName, streetAddress, city, state, zip, phone, email, birthday, notes) VALUES (".$userID.", ".$firstName.", ".$lastName.", ".$streetAddress.", ".$city.", ".$state.", ".$zip.", ".$phone.", ".$email.", ".$birthday.", ".$notes.");";
+
 		if( $result = $conn->query($sql) != TRUE )
 		{
 			returnWithError( $conn->error );
