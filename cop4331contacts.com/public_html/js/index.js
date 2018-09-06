@@ -1,4 +1,4 @@
-var url = 'http://167.99.12.10/API;
+var url = 'http://167.99.12.10/API';
 var extension = ".php";
 
 var userId = 0;
