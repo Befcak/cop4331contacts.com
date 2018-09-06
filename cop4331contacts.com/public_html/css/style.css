@@ -2,6 +2,7 @@ html, body {
    height: 100%;
    width: 100%;
    position: relative;
+   display: block;
 }
 
 .nav-link.active{
@@ -32,6 +33,7 @@ html, body {
 .display-4 {
   text-align: center;
   color: white;
+  font-weight: 700;
 }
 
 #v-pills-logout-tab {
@@ -89,4 +91,61 @@ html, body {
     font-size: 40px;
     color: white;
     font-weight: 700;
+}
+
+/* Include the padding and border in an element's total width and height */
+* {
+    box-sizing: border-box;
+}
+
+/* Remove margins and padding from the list */
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the list items */
+ul li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    background: #eee;
+    font-size: 18px;
+    transition: 0.2s;
+
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+ul li:nth-child(odd) {
+    background: #f9f9f9;
+}
+
+/* Darker background-color on hover */
+ul li:hover {
+    background: #ddd;
+}
+
+.form-inline {
+  padding-left: 50px;
+  padding-bottom: 10px;
+}
+
+.scrollbar {
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 20px;
+    float: left;
+    height: 400px;
+    width: 400px;
+    background: #fff;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+.force-overflow {
+    min-height: 500px;
 }

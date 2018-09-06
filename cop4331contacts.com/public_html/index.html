@@ -18,23 +18,24 @@
           <div class="modal-content">
             <span class="close">&times;</span>
             <h1>Contact Adder</h1>
-            <form>
+            <form id="builder">
               <div class="row">
-                <div class="col-6"><input class="form-control mr-sm-2" type="text" name="firstname" placeholder="First Name"></div>
-                <div class="col-6"><input class="form-control mr-sm-2"type="text" name="lastname" placeholder="Last Name"></div>
+                <div class="col-6"><input class="form-control mr-sm-2" type="text" id="firstName" placeholder="First Name"></div>
+                <div class="col-6"><input class="form-control mr-sm-2"type="text" id="lastName" placeholder="Last Name"></div>
               </div><br>
-              <div><input class="form-control mr-sm-2"type="text" name="phone" placeholder="Phone"></div><br>
-              <div><input class="form-control mr-sm-2"type="text" name="email" placeholder="Email"></div><br>
-              <div><input class="form-control mr-sm-2"type="text" name="streetAddress" placeholder="Street Address"></div><br>
+              <div><input class="form-control mr-sm-2"type="text" id="phone" placeholder="Phone"></div><br>
+              <div><input class="form-control mr-sm-2"type="text" id="email" placeholder="Email"></div><br>
+              <div><input class="form-control mr-sm-2"type="text" id="streetAddress" placeholder="Street Address"></div><br>
               <div class="row">
-                <div class="col-4"><input class="form-control mr-sm-2" type="text" name="city" placeholder="City"></div>
-                <div class="col-4"><input class="form-control mr-sm-2" type="text" name="state" placeholder="State"></div>
-                <div class="col-4"><input class="form-control mr-sm-2" type="text" name="zip" placeholder="ZIP"></div>
+                <div class="col-4"><input class="form-control mr-sm-2" type="text" id="city" placeholder="City"></div>
+                <div class="col-4"><input class="form-control mr-sm-2" type="text" id="state" placeholder="State"></div>
+                <div class="col-4"><input class="form-control mr-sm-2" type="text" id="zip" placeholder="ZIP"></div>
               </div><br>
-              <div><input class="form-control mr-sm-2" type="text" name="birth" placeholder="Birthday"></div><br>
-              <div><input class="form-control mr-sm-2" type="text" name="note" placeholder="Notes"></div><br>
+              <!-- YYYY-MM-DD-->
+              <div><input class="form-control mr-sm-2" type="text" id="birth" placeholder="Birthday"></div><br>
+              <div><input class="form-control mr-sm-2" type="text" id="note" placeholder="Notes"></div><br>
 
-              <button onclick="makeContact()" class="btn btn-success my-2 my-sm-0" id="newContact">Create</button>
+              <span onclick="makeContact()" class="btn btn-success my-2 my-sm-0" id="newContact">Create</span>
             </form>
           </div>
         </div>
@@ -56,22 +57,18 @@
         <div class="col-5">
           <h1 class="display-4">Contacts</h1>
 
-          <nav class="navbar navbar-light bg-light">
+          <div>
             <form class="form-inline">
               <input class="form-control mr-sm-2 col-8" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
             </form>
-          </nav>
+          </div>
 
-          <div class="jumbotron">
-            <div class="list-group">
-              <a href="#" class="list-group-item list-group-item-action">FirstName LastName</a>
-              <a href="#" class="list-group-item list-group-item-action">A simple secondary list group item</a>
-              <a href="#" class="list-group-item list-group-item-action">A simple success list group item</a>
-              <a href="#" class="list-group-item list-group-item-action">A simple danger list group item</a>
-              <a href="#" class="list-group-item list-group-item-action ">A simple warning list group item</a>
-              <a href="#" class="list-group-item list-group-item-action">A simple info list group item</a>
-            </div>
+          <div class="scrollbar scrollbar-primary">
+            <div class="force-overflow">
+            <ul class="list-group" id="myUL" style="list-style-type:none">
+            </ul>
+          </div>
           </div>
         </div>
 
@@ -79,7 +76,6 @@
         <div class="col-4" id="infoDis">
           <h1 class="display-4">Info Display</h1>
             <div class="jumbotron" id="mainDisplay">
-              <p>UserID</p>
               <p>FirstName LastName</p>
               <p>Phone</p>
               <p>Email</p>
