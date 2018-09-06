@@ -43,7 +43,7 @@ SELECT userID, firstName, lastName, login FROM users WHERE login = '<login>' AND
 				$lastName = $row["lastName"];
 				$userID = $row["userID"];
 				$sql2 = "UPDATE users SET dateLastLoggedIn = ? WHERE userID = ?";
-				$date = ".date("Y-m-d h:i:sa").";
+				$date = "2018-09-06 15:49:13";
 				if($stmt2 = $conn->prepare($sql))
 				{
 					$stmt2->bind_param('si',$date,$userID);
