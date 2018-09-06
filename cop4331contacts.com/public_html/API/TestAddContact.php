@@ -15,7 +15,7 @@
 	$notes = $inData["notes"];
 	$conn = new mysqli("localhost", "root", "orlando");*/
 
-	$userId = 2;
+	$userID = 2;
 	$firstName = "Add";
 	$lastName = "Contact";
 	$streetAddress = "12345 Add Ct.";
@@ -31,13 +31,13 @@
 	
 	if ($conn->connect_error) 
 	{
-		returnWithError( $sql );
+		returnWithError( $conn->connect_error );
 	} 
 	else
 	{
 		/*$sql = "INSERT INTO contacts (userID, firstName, lastName, streetAddress, city, state, zip, phone, email, birthday, notes) VALUES (" . $userID . ", firstName, lastName, streetAddress, city, state, zip, phone, email, birthday, notes);";*/
 
-		$sql = "INSERT INTO contacts (userId, firstName, lastName, streetAddress, city, state, zip, phone, email, birthday, notes) VALUES (".$userId.", ".$firstName.", ".$lastName.", ".$streetAddress.", ".$city.", ".$state.", ".$zip.", ".$phone.", ".$email.", ".$birthday.", ".$notes.");";
+		$sql = "INSERT INTO contacts (userID, firstName, lastName, streetAddress, city, state, zip, phone, email, birthday, notes) VALUES ('".$userID."', '".$firstName."', '".$lastName."', '".$streetAddress."', '".$city."', '".$state."', '".$zip."', '".$phone."', '".$email."', '".$birthday."', '".$notes."');";
 
 		if( $result = $conn->query($sql) != TRUE )
 		{
