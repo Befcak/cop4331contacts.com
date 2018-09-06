@@ -15,7 +15,7 @@
 	$notes = $inData["notes"];
 	$conn = new mysqli("localhost", "root", "orlando");*/
 
-	$userID = 2;
+	$userId = 2;
 	$firstName = "Add";
 	$lastName = "Contact";
 	$streetAddress = "12345 Add Ct.";
@@ -37,7 +37,7 @@
 	{
 		/*$sql = "INSERT INTO contacts (userID, firstName, lastName, streetAddress, city, state, zip, phone, email, birthday, notes) VALUES (" . $userID . ", firstName, lastName, streetAddress, city, state, zip, phone, email, birthday, notes);";*/
 
-		$sql = "INSERT INTO contacts (userID, firstName, lastName, streetAddress, city, state, zip, phone, email, birthday, notes) VALUES (".$userID.", ".$firstName.", ".$lastName.", ".$streetAddress.", ".$city.", ".$state.", ".$zip.", ".$phone.", ".$email.", ".$birthday.", ".$notes.");";
+		$sql = "INSERT INTO contacts (userId, firstName, lastName, streetAddress, city, state, zip, phone, email, birthday, notes) VALUES (".$userId.", ".$firstName.", ".$lastName.", ".$streetAddress.", ".$city.", ".$state.", ".$zip.", ".$phone.", ".$email.", ".$birthday.", ".$notes.");";
 
 		if( $result = $conn->query($sql) != TRUE )
 		{
