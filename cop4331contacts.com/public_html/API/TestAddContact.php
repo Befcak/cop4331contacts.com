@@ -15,7 +15,7 @@
 	$notes = $inData["notes"];
 	$conn = new mysqli("localhost", "root", "orlando");*/
 
-	$userId = 2;
+	$userID = 2;
 	$firstName = "Add";
 	$lastName = "Contact";
 	$streetAddress = "12345 Add Ct.";
