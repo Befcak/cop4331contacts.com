@@ -42,7 +42,7 @@ SELECT userID, firstName, lastName, login FROM users WHERE login = '<login>' AND
 				$firstName = $row["firstName"];
 				$lastName = $row["lastName"];
 				$userID = $row["userID"];
-				$sql2 = "UPDATE users SET dateLastLoggedIn = '".date("Y-m-d h:i:sa")."' WHERE userID = ".$userID.";
+				//$sql2 = "UPDATE users SET dateLastLoggedIn = '".date("Y-m-d h:i:sa")."' WHERE userID = ".$userID.";
 				
 				
 				
