@@ -26,7 +26,7 @@
 	$email = "acontact@fakeemailnotreal.org";
 	$birthday = "2018-12-12";
 	$notes = "This is a test contact for the AddContact function.";
-	
+
 	$conn = new mysqli("localhost", "root", "orlando");
 	
 	if ($conn->connect_error) 
@@ -35,7 +35,7 @@
 	} 
 	else
 	{
-		$sql = "INSERT INTO contacts (userID, firstName, lastName, streetAddress, city, state, zip, phone, email, birthday, notes) VALUES (<userID>, '<firstName>', '<lastName>', '<streetAddress>', '<city>', '<state>', <zip>, <phone>, '<email>', '<birthday>', '<notes>');";
+		$sql = "INSERT INTO contacts (userID, firstName, lastName, streetAddress, city, state, zip, phone, email, birthday, notes) VALUES (userID, 'firstName', 'lastName', 'streetAddress', 'city', 'state', zip, phone, 'email', 'birthday', 'notes');";
 		if( $result = $conn->query($sql) != TRUE )
 		{
 			returnWithError( $conn->error );
