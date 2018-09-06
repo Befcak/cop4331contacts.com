@@ -32,7 +32,7 @@
                 <div class="col-4"><input class="form-control mr-sm-2" type="text" id="zip" placeholder="ZIP"></div>
               </div><br>
               <!-- YYYY-MM-DD-->
-              <div><input class="form-control mr-sm-2" type="text" id="birth" placeholder="Birthday"></div><br>
+              <div><input class="form-control mr-sm-2" type="date" id="birth" placeholder="Birthday"></div><br>
               <div><input class="form-control mr-sm-2" type="text" id="note" placeholder="Notes"></div><br>
 
               <span onclick="makeContact()" class="btn btn-success my-2 my-sm-0" id="newContact">Create</span>
@@ -59,7 +59,7 @@
 
           <div>
             <form class="form-inline">
-              <input class="form-control mr-sm-2 col-8" type="search" placeholder="Search" aria-label="Search">
+              <input id="searchBar" onkeyup="search()" class="form-control mr-sm-2 col-8" placeholder="Search" aria-label="Search">
               <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
             </form>
           </div>
