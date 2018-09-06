@@ -1,4 +1,4 @@
-var url = 'http://167.99.12.10/API';
+var urlBase = 'http://167.99.12.10/API';
 var extension = ".php";
 
 var userId = 0;
@@ -20,9 +20,10 @@ function doLogin()
 	
 	// Add the MD5 hashing to password.
 	
+	
 	// Creating the json payload to be sent.
 	var jsonPayload = '{"login" : "' + username + '", "password" : "' + password + '"}';
-	var url = url + '/Login.' + extension;
+	var url = urlBase + '/Login.' + extension;
 	
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, false);
@@ -57,9 +58,7 @@ function doLogin()
 		document.getElementById("loginPassword").value = "";
 		
 		
-		hideOrShow( "loggedInDiv", true);
-		hideOrShow( "accessUIDiv", true);
-		hideOrShow( "loginDiv", false);
+		
 	}
 	catch(err)
 	{
@@ -68,6 +67,13 @@ function doLogin()
 	
 	
 	
+}
+
+function doLogout()
+{
+	userID = 0;
+	firstName = "";
+	lastName = "";
 }
 
 
