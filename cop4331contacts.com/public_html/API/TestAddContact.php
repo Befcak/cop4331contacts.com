@@ -20,7 +20,7 @@
 	$lastName = "Contact";
 	$streetAddress = "12345 Add Ct.";
 	$city = "Adlington";
-	$state = "";
+	$state = "CT";
 	$zip = 12345;
 	$phone = 1234567890;
 	$email = "acontact@fakeemailnotreal.org";
@@ -35,7 +35,7 @@
 	} 
 	else
 	{
-		$sql = "INSERT INTO contacts (userID, firstName, lastName, streetAddress, city, state, zip, phone, email, birthday, notes) VALUES (userID, 'firstName', 'lastName', 'streetAddress', 'city', 'state', zip, phone, 'email', 'birthday', 'notes');";
+		$sql = "INSERT INTO contacts (userID, firstName, lastName, streetAddress, city, state, zip, phone, email, birthday, notes) VALUES (userID, firstName, lastName, streetAddress, city, state, zip, phone, email, birthday, notes);";
 		if( $result = $conn->query($sql) != TRUE )
 		{
 			returnWithError( $conn->error );
