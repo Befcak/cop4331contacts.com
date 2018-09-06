@@ -10,7 +10,6 @@ var tempPass = "pass";
 
 function doLogin()
 {
-				document.getElementById("testModal").style.display = 'block';
 	userId = 0;
 	firstName = "";
 	lastName = "";
