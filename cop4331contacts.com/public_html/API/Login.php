@@ -46,7 +46,7 @@ SELECT userID, firstName, lastName, login FROM users WHERE login = '<login>' AND
 				
 				if($stmt2 = $conn->prepare($sql))
 				{
-					$stmt2->bind_param('si',".date("Y-m-d h:i:sa").",$userID);
+					$stmt2->bind_param('si',date("Y-m-d h:i:sa"),$userID);
 					$stmt2->execute();
 					$result = $stmt2->get_result();
 					
