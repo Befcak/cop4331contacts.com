@@ -42,12 +42,11 @@ SELECT userID, firstName, lastName, login FROM users WHERE login = '<login>' AND
 				$firstName = $row["firstName"];
 				$lastName = $row["lastName"];
 				$userID = $row["userID"];
-				$date = date("Y-m-d h:i:sa");
 				$sql2 = "UPDATE users SET dateLastLoggedIn=? WHERE userID=?";
 				
 				if($stmt2 = $conn->prepare($sql))
 				{
-					$stmt2->bind_param('si',$date,$userID);
+					$stmt2->bind_param('si',".date("Y-m-d h:i:sa").",$userID);
 					$stmt2->execute();
 					$result = $stmt2->get_result();
 					
