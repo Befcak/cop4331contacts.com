@@ -42,8 +42,9 @@ SELECT userID, firstName, lastName, login FROM users WHERE login = '<login>' AND
 				$firstName = $row["firstName"];
 				$lastName = $row["lastName"];
 				$userID = $row["userID"];
+				%currentDate= date(Y-m-d h:m:sa);
 				
-				$sql2 = "UPDATE users SET dateLastLoggedIn = '2018-09-07 14:56:33' WHERE userID = $userID";
+				$sql2 = "UPDATE users SET dateLastLoggedIn = '$currentDate' WHERE userID = $userID";
 				$conn->query($sql2);
 				
 				
