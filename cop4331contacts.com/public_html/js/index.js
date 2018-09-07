@@ -1,7 +1,7 @@
 var urlBase = 'http://167.99.12.10/API';
 var extension = ".php";
 
-var userId = 0;
+var userId = 1;
 var firstName = "";
 var lastName = "";
 
@@ -10,7 +10,7 @@ var tempPass = "pass";
 
 function doLogin()
 {
-	userId = 1;
+	userId = 0;
 	firstName = "";
 	lastName = "";
 	var username = document.getElementById("username").value;
@@ -38,7 +38,7 @@ function doLogin()
 		var jsonObject = JSON.parse( xhr.responseText );
 
 		// Grabbing json replay with userID.
-		// userId = jsonObject.userID;
+		userId = jsonObject.userID;
 
 		// If userID is return less than 1, error logging in.
 		if( userId < 1 )
@@ -100,7 +100,7 @@ function makeContact() {
 
 		document.getElementById("contactAddResult").innerHTML = "";
 
-		var jsonPayload = '{"firstName" : "' + first + '", "lastName" : "' + last + '", "streetAddress" : "' + streetAdd + '", "city" : "' + cityName + '", "state" : "' + stateName + '", "zip" : "' + zipNum + '", "phone" : "' + phoneNum + '", "email" : "' + emailAdd + '", "birthday" : "' + birthday + '", "notes" : "' + notes + '"}';
+		var jsonPayload = '{"userId" : ' + userId + ', "firstName" : "' + first + '", "lastName" : "' + last + '", "streetAddress" : "' + streetAdd + '", "city" : "' + cityName + '", "state" : "' + stateName + '", "zip" : "' + zipNum + '", "phone" : "' + phoneNum + '", "email" : "' + emailAdd + '", "birthday" : "' + birthday + '", "notes" : "' + notes + '"}';
 		var url = urlBase + '/AddContact' + extension;
 
 		var xhr = new XMLHttpRequest();
