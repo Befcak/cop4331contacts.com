@@ -47,6 +47,7 @@ function doLogin()
 			return;
 		}
 
+		window.location.href = "http://167.99.12.10/html/contactManager.html";
 		// Grabbing json reply with firstName and lastName.
 		firstName = jsonObject.firstName;
 		lastName = jsonObject.lastName;
@@ -57,15 +58,11 @@ function doLogin()
 		document.getElementById("loginName").value = "";
 		document.getElementById("loginPassword").value = "";
 
-
-
 	}
 	catch(err)
 	{
 		document.getElementById("loginResult").innerHTML = err.message;
 	}
-
-
 
 }
 
@@ -90,8 +87,8 @@ span.onclick = function() {
 
 function makeContact() {
     var li = document.createElement("li");
-    var first = document.getElementById("firstName").value;
-    var last = document.getElementById("lastName").value;
+    var first = document.getElementById("firstN").value;
+    var last = document.getElementById("lastN").value;
     var phoneNum = document.getElementById("phone").value;
     var emailAdd = document.getElementById("email").value;
     var streetAdd = document.getElementById("streetAddress").value;
@@ -101,6 +98,30 @@ function makeContact() {
     var birthday = document.getElementById("birth").value;
     var notes = document.getElementById("note").value;
 
+		document.getElementById("contactAddResult").innerHTML = "";
+
+		var jsonPayload = '{"firstName" : "' + first + '", "lastName" : "' + last + '", "streetAddress" : "' + streetAdd + '", "city" : "' + cityName + '", "state" : "' + stateName + '", "zip" : "' + zipNum + '", "phone" : "' + phoneNum + '", "email" : "' + emailAdd + '", "birthday" : "' + birthday + '", "notes" : "' + notes + '"}';
+		var url = urlBase + '/AddContact' + extension;
+
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", url, true);
+		xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+		try
+		{
+			xhr.onreadystatechange = function()
+			{
+				if (this.readyState == 4 && this.status == 200)
+				{
+					document.getElementById("contactAddResult").innerHTML = "Contact has been added";
+				}
+			};
+			xhr.send(jsonPayload);
+		}
+		catch(err)
+		{
+			document.getElementById("contactAddResult").innerHTML = err.message;
+		}
+
     var t = document.createTextNode(first +' '+ last);
     li.appendChild(t);
     if (first === '' || last === '') {
@@ -108,8 +129,8 @@ function makeContact() {
     } else {
       document.getElementById("myUL").appendChild(li);
     }
-    document.getElementById('firstName').value = firstName.defaultValue;
-    document.getElementById('lastName').value = lastName.defaultValue;
+    document.getElementById('firstName').value = firstN.defaultValue;
+    document.getElementById('lastName').value = lastN.defaultValue;
     document.getElementById('phone').value = phone.defaultValue;
     document.getElementById('email').value = email.defaultValue;
     document.getElementById('streetAddress').value = streetAddress.defaultValue;
@@ -128,20 +149,43 @@ function makeContact() {
 }
 
 function search() {
-  // Declare variables
-    var input, filter, ul, li, a, i;
-    input = document.getElementById('searchBar');
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("myUL");
-    li = ul.getElementsByTagName('li');
+	var srch = document.getElementById("searchBar").value;
+	document.getElementById("contactSearchResult").innerHTML = "";
 
-    // Loop through all list items, and hide those who don't match the search query
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
-        }
-    }
+	var contactList = document.getElementById("myUL");
+	contactList.innerHTML = "";
+
+	var jsonPayload = '{"search" : "' + srch + '"}';
+	var url = urlBase + '/SearchContacts.' + extension;
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function()
+		{
+			if (this.readyState == 4 && this.status == 200)
+			{
+				hideOrShow( "contactList", true );
+
+				document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
+				var jsonObject = JSON.parse( xhr.responseText );
+
+				var i;
+				for( i=0; i<jsonObject.results.length; i++ )
+				{
+					var opt = document.createElement("option");
+					opt.text = jsonObject.results[i];
+					opt.value = "";
+					contactList.options.add(opt);
+				}
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("colorSearchResult").innerHTML = err.message;
+	}
 }

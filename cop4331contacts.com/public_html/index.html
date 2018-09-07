@@ -63,14 +63,15 @@
 			</div>
 
 			<div class="container">
-				<form action="/html/contactManager.html">
+				<form >
 				<label for="uname"><b>Username</b></label>
 				<input type="text" class="form-control" id="username" placeholder="Enter Username" name="uname" required>
 
 				<label for="psw"><b>Password</b></label>
 					<input type="password" class="form-control" id="password" placeholder="Enter Password" name="psw" required>
 
-		 			<button onlick="doLogin()" type="submit">Login</button>
+		 			<button type="submit" id="loginButton" onclick="doLogin()">Login</button>
+					<span id="loginResult"></span>
 				<label>
 				<input type="checkbox" checked="checked" name="remember"> Remember me </label>
 			</form>
