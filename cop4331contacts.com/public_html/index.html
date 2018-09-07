@@ -1,160 +1,24 @@
 <!DOCTYPE html>
-<html lang = "en">
-
-<head>
-	<title> Login Page </title>
-
-	<meta charset="utf-8">
-
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<!-- Latest compiled JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-	<link rel="stylesheet" href="css/loginStyle.css">
-=======
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>contactBook</title>
+  <title>Ghibli App</title>
 
   <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link href="css/style.css" rel="stylesheet">
->>>>>>> Bridget-frontend
+  <link href="style.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-<<<<<<< HEAD
-			<div class="jumbotron">
-			<h1 class="text-center"> Contact Manager </h1>
-			</div>
-
-
-			<div class="container-fluid">
-
-				<div class="row">
-
-					<div class ="col-sm-4"> </div>
-
-					<div class ="col-sm-4">
-						<!-- Button to open the modal login form -->
-						<button class ="btn-block" onclick="document.getElementById('login').style.display='block'">Login</button>
-
-						<pre class="text-center"> Or </pre>
-
-						<button class ="btn-block" onclick="document.getElementById('newUser').style.display='block'">Create a New Account</button>
-					</div>
-
-					<div class ="col-sm-4"> </div>
-
-				</div>
-			</div>
-
-
-		<!-- The Modal -->
-	<div id="login" class="modal">
-
-
-		<!-- Modal Content -->
-		<form class="modal-content animate" action="/action_page.php">
-
-			<!--Header-->
-			<div class="modal-header" style="padding:35px 50px;">
-
-				<span onclick="document.getElementById('login').style.display='none'" class="close" title="Close Modal">&times;</span>
-				<h4><span class="glyphicon glyphicon-lock"></span>Login</h4>
-
-			</div>
-
-			<div class="container-fluid">
-				<form >
-				<label for="uname"><b>Username</b></label>
-				<input type="text" class="form-control" id="username" placeholder="Enter Username" name="uname" required>
-
-				<label for="psw"><b>Password</b></label>
-					<input type="password" class="form-control" id="password" placeholder="Enter Password" name="psw" required>
-
-		 			<button type="submit" id="loginButton" onclick="doLogin()">Login</button>
-					<span id="loginResult"></span>
-				<label>
-				<input type="checkbox" checked="checked" name="remember"> Remember me </label>
-			</form>
-			</div>
-
-			<div class="container-fluid" style="background-color:#f1f1f1">
-				<button type="button" onclick="document.getElementById('login').style.display='none'" class="cancelbtn">
-					<span class="glyphicon glyphicon-remove"></span>Cancel</button>
-			</div>
-
-		</form>
-
-	</div>
-
-
-	<!--	CREATE NEW USER -->
-	<div id="newUser" class="modal">
-
-
-
-		<!-- Modal Content   -->
-		<form class="modal-content animate" action="/action_page.php">
-
-			<!--Header-->
-			<div class="modal-header" style="padding:35px 50px;">
-
-				<span onclick="document.getElementById('newUser').style.display='none'" class="close" title="Close Modal">&times;</span>
-				<h4><span class="glyphicon glyphicon-lock"></span> Create Account </h4>
-
-			</div>
-
-			<div class="container-fluid">
-				<!--added first name and last name to match the API input -->
-				<label for="fname"><b>First Name</b></label>
-   				<input type="text" id="fname" name="firstname" placeholder="Your name.." required>
-
-    				<label for="lname"><b>Last Name</b></label>
-   		 		<input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
-
-
-				<label for="uname"><b>Username</b></label>
-				<input type="text" class="form-control" placeholder="Enter Username" name="uname" required>
-
-				<label for="psw"><b>Password</b></label>
-				<input type="password" placeholder="Enter Password" name="psw" required>
-
-				<label for="psw"><b>Confirm Password</b></label>
-				<input type="password" class="form-control" placeholder="Confirm Password" name="psw" required>
-
-					<button type="submit">Create Account</button>
-			</div>
-
-			<div class="container-fluid" style="background-color:#f1f1f1">
-
-				<button type="button" onclick="document.getElementById('newUser').style.display='none'" class="cancelbtn">
-					<span class="glyphicon glyphicon-remove"></span>Cancel</button>
-
-			</div>
-
-		</form>
-
-
-	</div>
-
-=======
   <div id="root">
 
     <!-- Login Page -->
-    <div class="container" id="loginDiv">
+    <div class="container" id="loginDiv" style="display:none; visibility:hidden;">
       <div class="login-section">
       <div class="card">
         <h1><span id="inner-title">contactBook</span></h1>
@@ -252,7 +116,7 @@
     	<button type="button" id="logoutButton" class="buttons" onclick="doLogout();"> Log Out </button>
     </div>
 
-    <div id="accessUIDiv" style="display:none; visibility:hidden;">
+    <div id="accessUIDiv" style="display:block; visibility:visible;">
   	<br />
 
     <!-- Main Page -->
@@ -284,8 +148,7 @@
   </div>
   </div>
 
-  <script src="js/index.js"></script>
->>>>>>> Bridget-frontend
+  <script src="scripts.js"></script>
 </body>
 
 </html>
