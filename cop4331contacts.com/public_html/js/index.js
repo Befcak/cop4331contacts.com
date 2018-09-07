@@ -156,7 +156,7 @@ function search() {
 	contactList.innerHTML = "";
 
 	var jsonPayload = '{"search" : "' + srch + '"}';
-	var url = urlBase + '/SearchContacts.' + extension;
+	var url = urlBase + '/SearchContacts' + extension;
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);

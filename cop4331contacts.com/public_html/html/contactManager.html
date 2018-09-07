@@ -59,11 +59,9 @@
           <h1 class="display-4">Contacts</h1>
 
           <div>
-            <form class="form-inline">
-              <input type="text" id="searchBar" onkeyup="search()" class="form-control mr-sm-2 col-8" placeholder="Search" aria-label="Search">
-              <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+              <input type="text" id="searchBar" class="form-control mr-sm-2 col-8" placeholder="Search" aria-label="Search">
+              <button class="btn btn-success my-2 my-sm-0" id="searchContactButton" onclick="search()">Search</button>
               	<span id="contactSearchResult"></span>
-            </form>
           </div>
 
           <div class="scrollbar scrollbar-primary">
