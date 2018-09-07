@@ -5,6 +5,8 @@
 	$userID = 2 //$inData["userID"];
 	$contactID = 11 // = $inData["contactID"];
 
+	$conn = new mysqli("localhost", "root", "orlando", "contactBook");
+	
 	if ($conn->connect_error) 
 	{
 		returnWithError( $conn->connect_error );
