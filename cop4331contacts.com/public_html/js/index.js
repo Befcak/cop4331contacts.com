@@ -1,67 +1,110 @@
-function addContact() {
-  document.getElementById('myModal').style.display = 'block';
+var urlBase = 'http://167.99.12.10/API';
+var extension = "php";
+
+var userId = 0;
+var firstName = "";
+var lastName = "";
+
+function doLogin()
+{
+	userId = 0;
+	firstName = "";
+	lastName = "";
+
+	var login = document.getElementById("loginName").value;
+	var password = document.getElementById("loginPassword").value;
+
+	document.getElementById("loginResult").innerHTML = "";
+
+	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
+	var url = urlBase + '/Login.' + extension;
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, false);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.send(jsonPayload);
+
+		var jsonObject = JSON.parse( xhr.responseText );
+
+		userId = jsonObject.id;
+
+		if( userId < 1 )
+		{
+			document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
+			return;
+		}
+
+		firstName = jsonObject.firstName;
+		lastName = jsonObject.lastName;
+
+		document.getElementById("userName").innerHTML = firstName + " " + lastName;
+
+		document.getElementById("loginName").value = "";
+		document.getElementById("loginPassword").value = "";
+
+		hideOrShow( "loggedInDiv", true);
+		hideOrShow( "accessUIDiv", true);
+		hideOrShow( "loginDiv", false);
+	}
+	catch(err)
+	{
+		document.getElementById("loginResult").innerHTML = err.message;
+	}
+
 }
 
-var span = document.getElementsByClassName("close")[0];
+function doLogout()
+{
+	userId = 0;
+	firstName = "";
+	lastName = "";
 
-span.onclick = function() {
-    document.getElementById('myModal').style.display = 'none';
+	hideOrShow( "loggedInDiv", false);
+	hideOrShow( "accessUIDiv", false);
+	hideOrShow( "loginDiv", true);
 }
 
-function makeContact() {
-    var li = document.createElement("li");
-    var first = document.getElementById("firstName").value;
-    var last = document.getElementById("lastName").value;
-    var phoneNum = document.getElementById("phone").value;
-    var emailAdd = document.getElementById("email").value;
-    var streetAdd = document.getElementById("streetAddress").value;
-    var cityName = document.getElementById("city").value;
-    var stateName = document.getElementById("state").value;
-    var zipNum = document.getElementById("zip").value;
-    var birthday = document.getElementById("birth").value;
-    var notes = document.getElementById("note").value;
+function hideOrShow( elementId, showState )
+{
+	var vis = "visible";
+	var dis = "block";
+	if( !showState )
+	{
+		vis = "hidden";
+		dis = "none";
+	}
 
-    var t = document.createTextNode(first +' '+ last);
-    li.appendChild(t);
-    if (first === '' || last === '') {
-      alert("You must write something!");
-    } else {
-      document.getElementById("myUL").appendChild(li);
-    }
-    document.getElementById('firstName').value = firstName.defaultValue;
-    document.getElementById('lastName').value = lastName.defaultValue;
-    document.getElementById('phone').value = phone.defaultValue;
-    document.getElementById('email').value = email.defaultValue;
-    document.getElementById('streetAddress').value = streetAddress.defaultValue;
-    document.getElementById('city').value = city.defaultValue;
-    document.getElementById('state').value = state.defaultValue;
-    document.getElementById('zip').value = zip.defaultValue;
-    document.getElementById('birth').value = birth.defaultValue;
-    document.getElementById('note').value = note.defaultValue;
-
-    var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
-
-    span.appendChild(txt);
-
-    document.getElementById('myModal').style.display = 'none';
+	document.getElementById( elementId ).style.visibility = vis;
+	document.getElementById( elementId ).style.display = dis;
 }
 
-function search() {
-  // Declare variables
-    var input, filter, ul, li, a, i;
-    input = document.getElementById('searchBar');
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("myUL");
-    li = ul.getElementsByTagName('li');
+function addContact()
+{
+	var first = document.getElementById("contactText").value;
+	document.getElementById("contactAddResult").innerHTML = "";
 
-    // Loop through all list items, and hide those who don't match the search query
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
-        }
-    }
+	var jsonPayload = '{"firstName" : "' + first + '", "userId" : ' + userId + '}';
+	var url = urlBase + '/AddContact.' + extension;
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function()
+		{
+			if (this.readyState == 4 && this.status == 200)
+			{
+				document.getElementById("contactAddResult").innerHTML = "contact has been added";
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("contactAddResult").innerHTML = err.message;
+	}
+
 }
