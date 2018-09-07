@@ -1,5 +1,4 @@
 var urlBase = 'http://167.99.12.10/API';
-<<<<<<< HEAD
 var extension = ".php";
 
 var userId = 1;
