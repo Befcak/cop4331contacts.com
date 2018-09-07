@@ -1,4 +1,5 @@
 var urlBase = 'http://167.99.12.10/API';
+<<<<<<< HEAD
 var extension = ".php";
 
 var userId = 1;
@@ -8,11 +9,20 @@ var lastName = "";
 var tempUser = "user";
 var tempPass = "pass";
 
+=======
+var extension = "php";
+
+var userId = 0;
+var firstName = "";
+var lastName = "";
+
+>>>>>>> Bridget-frontend
 function doLogin()
 {
 	userId = 0;
 	firstName = "";
 	lastName = "";
+<<<<<<< HEAD
 	var username = document.getElementById("username").value;
 	var password = document.getElementById("password").value;
 
@@ -24,10 +34,21 @@ function doLogin()
 	// Creating the json payload to be sent.
 	var jsonPayload = '{"login" : "' + username + '", "password" : "' + password + '"}';
 	var url = urlBase + '/Login' + extension;
+=======
+
+	var login = document.getElementById("loginName").value;
+	var password = document.getElementById("loginPassword").value;
+
+	document.getElementById("loginResult").innerHTML = "";
+
+	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
+	var url = urlBase + '/Login.' + extension;
+>>>>>>> Bridget-frontend
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, false);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+<<<<<<< HEAD
 
 	try
 	{
@@ -41,29 +62,52 @@ function doLogin()
 		userId = jsonObject.userID;
 
 		// If userID is return less than 1, error logging in.
+=======
+	try
+	{
+		xhr.send(jsonPayload);
+
+		var jsonObject = JSON.parse( xhr.responseText );
+
+		userId = jsonObject.id;
+
+>>>>>>> Bridget-frontend
 		if( userId < 1 )
 		{
 			document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
 			return;
 		}
 
+<<<<<<< HEAD
 		window.location.href = "http://167.99.12.10/html/contactManager.html";
 		// Grabbing json reply with firstName and lastName.
 		firstName = jsonObject.firstName;
 		lastName = jsonObject.lastName;
 
 
+=======
+		firstName = jsonObject.firstName;
+		lastName = jsonObject.lastName;
+
+>>>>>>> Bridget-frontend
 		document.getElementById("userName").innerHTML = firstName + " " + lastName;
 
 		document.getElementById("loginName").value = "";
 		document.getElementById("loginPassword").value = "";
 
+<<<<<<< HEAD
+=======
+		hideOrShow( "loggedInDiv", true);
+		hideOrShow( "accessUIDiv", true);
+		hideOrShow( "loginDiv", false);
+>>>>>>> Bridget-frontend
 	}
 	catch(err)
 	{
 		document.getElementById("loginResult").innerHTML = err.message;
 	}
 
+<<<<<<< HEAD
 }
 
 function doLogout()
@@ -77,14 +121,22 @@ function doLogout()
 
 function addContact() {
   document.getElementById('myModal').style.display = 'block';
+=======
+>>>>>>> Bridget-frontend
 }
 
-var span = document.getElementsByClassName("close")[0];
+function doLogout()
+{
+	userId = 0;
+	firstName = "";
+	lastName = "";
 
-span.onclick = function() {
-    document.getElementById('myModal').style.display = 'none';
+	hideOrShow( "loggedInDiv", false);
+	hideOrShow( "accessUIDiv", false);
+	hideOrShow( "loginDiv", true);
 }
 
+<<<<<<< HEAD
 function makeContact() {
     var li = document.createElement("li");
     var first = document.getElementById("firstN").value;
@@ -157,6 +209,29 @@ function search() {
 
 	var jsonPayload = '{"search" : "' + srch + '"}';
 	var url = urlBase + '/SearchContacts' + extension;
+=======
+function hideOrShow( elementId, showState )
+{
+	var vis = "visible";
+	var dis = "block";
+	if( !showState )
+	{
+		vis = "hidden";
+		dis = "none";
+	}
+
+	document.getElementById( elementId ).style.visibility = vis;
+	document.getElementById( elementId ).style.display = dis;
+}
+
+function addContact()
+{
+	var first = document.getElementById("contactText").value;
+	document.getElementById("contactAddResult").innerHTML = "";
+
+	var jsonPayload = '{"firstName" : "' + first + '", "userId" : ' + userId + '}';
+	var url = urlBase + '/AddContact.' + extension;
+>>>>>>> Bridget-frontend
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -167,6 +242,7 @@ function search() {
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
+<<<<<<< HEAD
 				hideOrShow( "contactList", true );
 
 				document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
@@ -180,12 +256,21 @@ function search() {
 					opt.value = "";
 					contactList.options.add(opt);
 				}
+=======
+				document.getElementById("contactAddResult").innerHTML = "contact has been added";
+>>>>>>> Bridget-frontend
 			}
 		};
 		xhr.send(jsonPayload);
 	}
 	catch(err)
 	{
+<<<<<<< HEAD
 		document.getElementById("contactSearchResult").innerHTML = err.message;
 	}
+=======
+		document.getElementById("contactAddResult").innerHTML = err.message;
+	}
+
+>>>>>>> Bridget-frontend
 }
