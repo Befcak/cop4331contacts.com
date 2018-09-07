@@ -42,9 +42,10 @@ SELECT userID, firstName, lastName, login FROM users WHERE login = '<login>' AND
 				$firstName = $row["firstName"];
 				$lastName = $row["lastName"];
 				$userID = $row["userID"];
-				$currentDate= getdate(date(Y-m-d h:m:sa));
+				$currentDate= getdate();
+				$dateString = '$currentDate[year]-$currentDate[mon]-$currentDate[mday] $currentDate[hours]:$currentDate[minutes]:$currentDate[seconds]'
 				
-				$sql2 = "UPDATE users SET dateLastLoggedIn = '$currentDate[year]-$currentDate[mon]-$currentDate[mday] $currentDate[hours]:$currentDate[minutes]:$currentDate[seconds]' WHERE userID = $userID";
+				$sql2 = "UPDATE users SET dateLastLoggedIn = '$dateString' WHERE userID = $userID";
 				$conn->query($sql2);
 				
 				
