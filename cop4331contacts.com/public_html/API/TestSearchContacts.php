@@ -26,6 +26,7 @@
 
             $stmt->bind_param('isss', $inData["userID"], $inData["search"], $inData["search"], $inData["search"]);
             $stmt->execute();
+	    echo $stmt;
             $result = $stmt->get_result();
 
 //        	$result = $conn->query($sql);
@@ -61,8 +62,7 @@
 		}
 		else
 		{
-			//returnWithError( "No Records Found" );
-		  returnWithError( $sql );
+			returnWithError( "No Records Found" );
         }
         }
 		$conn->close();
