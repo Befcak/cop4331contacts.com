@@ -2,17 +2,9 @@
 	//TO DO: Link to front end (JavaScript) via getRequestInfo()
 	$inData = getRequestInfo();
 	
-	$userID = $inData["userID"];
-	$firstName = $inData["firstName"];
-	$lastName = $inData["lastName"];
-	$streetAddress = $inData["streetAddress"];
-	$city = $inData["city"];
-	$state = $inData["state"];
-	$zip = $inData["zip"];
-	$phone = $inData["phone"];
-	$email = $inData["email"];
-	$birthday = $inData["birthday"];
-	$notes = $inData["notes"];
+	$userID = 2; //$inData["userID"];
+	$contactID = 11; // = $inData["contactID"];
+
 	$conn = new mysqli("localhost", "root", "orlando", "contactBook");
 
 	if ($conn->connect_error) 
@@ -21,7 +13,8 @@
 	} 
 	else
 	{	
-		$sql = "INSERT INTO contacts (userID, firstName, lastName, streetAddress, city, state, zip, phone, email, birthday, notes) VALUES ('".$userID."', '".$firstName."', '".$lastName."', '".$streetAddress."', '".$city."', '".$state."', '".$zip."', '".$phone."', '".$email."', '".$birthday."', '".$notes."');";
+		$sql = "DELETE FROM contacts WHERE userID = ".$userID.", AND contactID = ".$contactID.";";
+
 		if( $result = $conn->query($sql) != TRUE )
 		{
 			//returnWithError( $conn->error );
