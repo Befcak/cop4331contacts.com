@@ -21,7 +21,7 @@
         OR lastName LIKE %?% OR email LIKE %?%)";
     $stmt = 0;
 
-    if($stmt = $conn->prepare($sql)
+    if($stmt = $conn->prepare($sql))
     {
 
             $stmt->bind_param('isss', $inData["userID"], $inData["search"], $inData["search"], $inData["search"]);
