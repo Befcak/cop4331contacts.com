@@ -10,7 +10,7 @@ var tempPass = "pass";
 
 function doLogin()
 {
-	userId = 0;
+	userId = 1;
 	firstName = "";
 	lastName = "";
 	var username = document.getElementById("username").value;
@@ -23,7 +23,7 @@ function doLogin()
 
 	// Creating the json payload to be sent.
 	var jsonPayload = '{"login" : "' + username + '", "password" : "' + password + '"}';
-	var url = urlBase + '/Login.' + extension;
+	var url = urlBase + '/Login' + extension;
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, false);
@@ -38,7 +38,7 @@ function doLogin()
 		var jsonObject = JSON.parse( xhr.responseText );
 
 		// Grabbing json replay with userID.
-		userId = jsonObject.userID;
+		// userId = jsonObject.userID;
 
 		// If userID is return less than 1, error logging in.
 		if( userId < 1 )
