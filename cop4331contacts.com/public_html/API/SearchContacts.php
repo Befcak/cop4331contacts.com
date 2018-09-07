@@ -1,9 +1,6 @@
 <?php
 
 	$inData = getRequestInfo();
-	
-  $inData["userID"] = 1;
-  $inData["search"] = "i";
   
 	$searchResults = "";
 	$searchCount = 0;
