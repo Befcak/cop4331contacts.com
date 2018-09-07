@@ -13,7 +13,9 @@
 	} 
 	else
 	{	
-		$sql = "DELETE FROM contacts WHERE userID = ".$userID.", AND contactID = ".$contactID.";";
+		$sql = "DELETE FROM contacts WHERE userID = ".$userID." AND contactID = ".$contactID.";";
+
+		/*"DELETE FROM contacts WHERE userID = 2, AND contactID = 11;"*/
 
 		if( $result = $conn->query($sql) != TRUE )
 		{
