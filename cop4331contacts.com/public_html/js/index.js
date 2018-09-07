@@ -1,4 +1,14 @@
 var urlBase = 'http://167.99.12.10/API';
+var extension = ".php";
+
+var userId = 1;
+var firstName = "";
+var lastName = "";
+
+var tempUser = "user";
+var tempPass = "pass";
+
+=======var urlBase = 'http://167.99.12.10/API';
 var extension = "php";
 
 var userId = 0;
