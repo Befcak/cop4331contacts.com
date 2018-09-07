@@ -1,8 +1,6 @@
 <?php
 
 	$inData = getRequestInfo();
-	$inData["userID"] = 1;
-	$inData["search"] = "b";
 
 	$searchResults = "";
 	$searchCount = 0;
@@ -46,7 +44,7 @@
                 $notes = $row["notes"];
 
                 // Building a list of contact attributes as a string
-				$searchResults = $searchResults . '"'.$contactID.'"' . $firstName . '","' . $lastName . '","' 
+				$searchResults = $searchResults . '"'.$contactID.'","' . $firstName . '","' . $lastName . '","' 
                                  . $streetAddress . '","' . $city . '","' . $state . '","' . $zip . '","' 
                                  . $phone . '","' . $email . '","' . $birthday . '","'. $notes .'"';
 			}
