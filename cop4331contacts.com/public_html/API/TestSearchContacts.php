@@ -24,7 +24,7 @@
     if($stmt = $conn->prepare($sql)
     {
 
-            $stmt->bind_param('isss', $inData["userID"], $inData["search"], $inData["search"], $inData["search"]);
+            $stmt->bind_param("isss", $inData["userID"], $inData["search"], $inData["search"], $inData["search"]);
             $stmt->execute();
             $result = $stmt->get_result();
 
