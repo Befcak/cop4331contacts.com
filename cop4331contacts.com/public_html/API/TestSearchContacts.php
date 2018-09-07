@@ -16,8 +16,8 @@
 	{
        
         $sql = "SELECT * FROM contacts WHERE userID = '".$inData["userID"]."' AND (firstName LIKE '%".$inData["search"]."%' 
-    		        OR lastName LIKE '%".$inData["search"]."%' OR email LIKE '%".$inData["search"]."%')";
-        $result = $conn->query($sql);
+    		OR lastName LIKE '%".$inData["search"]."%' OR email LIKE '%".$inData["search"]."%')";
+        	$result = $conn->query($sql);
 		
 		if ($result->num_rows > 0)
 		{
@@ -30,28 +30,29 @@
 				
 				$searchCount++;
 
-        // Create and initialize variable with contact attribute
+                // Create and initialize variable with contact attribute
 				$firstName = $row["firstName"];
 				$lastName = $row["lastName"];
-        $streetAddress = $row["streetAddress"];
-        $city = $row["city"];
-        $state = $row["state"];
-        $zip = $row["zip"];
-        $phone = $row["phone"];				
-        $email = $row["email"];
-        $birthday = $row["birthday"];
-        $notes = $row["notes"];
+                $streetAddress = $row["streetAddress"];
+                $city = $row["city"];
+                $state = $row["state"];
+                $zip = $row["zip"];
+                $phone = $row["phone"];				
+                $email = $row["email"];
+                $birthday = $row["birthday"];
+                $notes = $row["notes"];
 
-        // Building a list of contact attributes as a string
+                // Building a list of contact attributes as a string
 				$searchResults = $searchResults . '"' . $firstName . '","' . $lastName . '","' 
-                          . $streetAddress . '","' . $city . '","' . $state . '","' . $zip . '","' 
-                          . $phone . '","' . $email . '","' . $birthday . '","'. $notes .'"';
+                                 . $streetAddress . '","' . $city . '","' . $state . '","' . $zip . '","' 
+                                 . $phone . '","' . $email . '","' . $birthday . '","'. $notes .'"';
 			}
 		}
 		else
 		{
-			returnWithError( "No Records Found" );
-		}
+			//returnWithError( "No Records Found" );
+		  returnWithError( $sql );
+        }
 		$conn->close();
 	}
 	returnWithInfo( $searchResults );
