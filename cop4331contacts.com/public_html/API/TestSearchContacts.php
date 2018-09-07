@@ -17,14 +17,14 @@
 	{
        
 
-    $sql = "SELECT * FROM contacts WHERE userID = ? AND (firstName LIKE '%?%' 
-        OR lastName LIKE '%?%' OR email LIKE '%?%')";
+    $sql = "SELECT * FROM contacts WHERE userID = ? AND (firstName LIKE %?% 
+        OR lastName LIKE %?% OR email LIKE %?%)";
     $stmt = 0;
 
     if($stmt = $conn->prepare($sql)
     {
 
-            $stmt->bind_param("isss", $inData["userID"], $inData["search"], $inData["search"], $inData["search"]);
+            $stmt->bind_param('isss', $inData["userID"], $inData["search"], $inData["search"], $inData["search"]);
             $stmt->execute();
             $result = $stmt->get_result();
 
