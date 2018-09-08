@@ -20,7 +20,7 @@ function doLogin()
 	var url = urlBase + '/Login.' + extension;
 
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
+	xhr.open("POST", url, false);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try
 	{
@@ -28,7 +28,7 @@ function doLogin()
 
 		var jsonObject = JSON.parse( xhr.responseText );
 
-		userId = jsonObject.id;
+		userId = jsonObject.userID;
 			alert(userId);
 		if( userId < 1 || userId == 'undefined' || userId == null)
 		{
