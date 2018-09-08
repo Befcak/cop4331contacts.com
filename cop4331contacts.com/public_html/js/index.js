@@ -41,8 +41,8 @@ function doLogin()
 
 		document.getElementById("userName").innerHTML = firstName + " " + lastName;
 
-		document.getElementById("loginName").value = "";
-		document.getElementById("loginPassword").value = "";
+		document.getElementById("loginName").value = loginName.defaultValue;
+		document.getElementById("loginPassword").value =loginPassword.defaultValue;
 
 		hideOrShow( "loggedInDiv", true);
 		hideOrShow( "accessUIDiv", true);
