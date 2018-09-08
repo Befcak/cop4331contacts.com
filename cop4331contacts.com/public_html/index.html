@@ -118,7 +118,7 @@
     	<button type="button" id="logoutButton" class="buttons" onclick="doLogout();"> Log Out </button>
     </div>
 
-    <div id="accessUIDiv" style="display:block; visibility:visible;">
+    <div id="accessUIDiv" style="display:block; visibility:hidden;">
   	<br />
 
     <!-- Main Page -->
@@ -127,10 +127,10 @@
       <div class="card">
       <h1>Contacts</h1>
       <p>
-        <input type="text" id="searchText" placeholder="Color To Search For"/>
-        <button type="button" id="searchColorButton" class="buttons" onclick="searchColor();"> Search Color </button><br />
-        <span id="colorSearchResult"></span>
-        <select id="colorList" style="display:none; visibility:hidden;">
+        <input type="text" id="searchText" placeholder="Contact To Search For"/>
+        <button type="button" id="searchContactsButton" class="buttons" onclick="searchContacts();"> Search Color </button><br />
+        <span id="contactsSearchResult"></span>
+        <select id="contactsList" style="display:none; visibility:hidden;">
           <!-- <option value="volvo">Volvo</option> -->
         </select><br /><br />
 

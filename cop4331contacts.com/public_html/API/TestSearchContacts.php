@@ -4,57 +4,70 @@
 	
 	$searchResults = "";
 	$searchCount = 0;
-    $inData["userID"] = 1;
-    $inData["search"] = "b";
+	$inData["userID"] = 1;
+	$inData["search"] = "b";
+	$test = "%".$inData["search"]."%";
 	$conn = new mysqli("localhost", "root", "orlando", "contactBook");
 
 	if ($conn->connect_error) 
-	{
+	{	
 		returnWithError( $conn->connect_error );
 	} 
 
 	else
-	{
-       
-        $sql = "SELECT * FROM contacts WHERE userID = ".$inData["userID"]." AND (firstName LIKE '%".$inData["search"]."%' 
-    		OR lastName LIKE '%".$inData["search"]."%' OR email LIKE '%".$inData["search"]."%')";
+	{  
+	$sql = "SELECT * FROM contacts WHERE userID = ? AND (firstName LIKE ? 
+		OR lastName LIKE ? OR email LIKE ?)";
+	$stmt = 0;
 
-        	$result = $conn->query($sql);
+		if($stmt = $conn->prepare($sql))
+    		{
+
+            		$stmt->bind_param('isss', $inData["userID"],$test, $test, $test);
+            		$stmt->execute();
+
+            		$result = $stmt->get_result();
+
+	//        	$result = $conn->query($sql);
 		
-		if ($result->num_rows > 0)
-		{
-			while($row = $result->fetch_assoc())
+			if ($result->num_rows > 0)
 			{
-				if( $searchCount > 0 )
+				while($row = $result->fetch_assoc())
 				{
-					$searchResults .= ",";
-				}
+					if( $searchCount > 0 )
+					{
+						$searchResults .= ",";
+					}
 				
-				$searchCount++;
+					$searchCount++;
 
-                // Create and initialize variable with contact attribute
-				$firstName = $row["firstName"];
-				$lastName = $row["lastName"];
-                $streetAddress = $row["streetAddress"];
-                $city = $row["city"];
-                $state = $row["state"];
-                $zip = $row["zip"];
-                $phone = $row["phone"];				
-                $email = $row["email"];
-                $birthday = $row["birthday"];
-                $notes = $row["notes"];
+                			// Create and initialize variable with contact attribute
+					$firstName = $row["firstName"];
+					$lastName = $row["lastName"];
+              	  			$streetAddress = $row["streetAddress"];
+                			$city = $row["city"];
+                			$state = $row["state"];
+                			$zip = $row["zip"];
+                			$phone = $row["phone"];				
+                			$email = $row["email"];
+                			$birthday = $row["birthday"];
+                			$notes = $row["notes"];
 
-                // Building a list of contact attributes as a string
-				$searchResults = $searchResults . '"' . $firstName . '","' . $lastName . '","' 
-                                 . $streetAddress . '","' . $city . '","' . $state . '","' . $zip . '","' 
-                                 . $phone . '","' . $email . '","' . $birthday . '","'. $notes .'"';
+                			// Building a list of contact attributes as a string
+					$searchResults = $searchResults . '"' . $firstName . '","' . $lastName . '","' 
+                                 		. $streetAddress . '","' . $city . '","' . $state . '","' . $zip . '","' 
+                                 		. $phone . '","' . $email . '","' . $birthday . '","'. $notes .'"';
+				}
 			}
-		}
-		else
+			else
+			{
+				returnWithError( "No Records Found" );
+        		}
+        	}
+		else 
 		{
-			//returnWithError( "No Records Found" );
-		  returnWithError( $sql );
-        }
+			echo "fail";
+		}
 		$conn->close();
 	}
 	returnWithInfo( $searchResults );
