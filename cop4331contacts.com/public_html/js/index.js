@@ -43,10 +43,10 @@ function doLogin()
 	//
 	// 	document.getElementById("loginName").value = "";
 	// 	document.getElementById("loginPassword").value = "";
-
-		hideOrShow( "loggedInDiv", true);
-		hideOrShow( "accessUIDiv", true);
-		hideOrShow( "loginDiv", false);
+		// 
+		// hideOrShow( "loggedInDiv", true);
+		// hideOrShow( "accessUIDiv", true);
+		// hideOrShow( "loginDiv", false);
 	}
 	catch(err)
 	{
