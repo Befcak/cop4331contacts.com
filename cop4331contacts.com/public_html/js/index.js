@@ -149,6 +149,11 @@ function register()
 		document.getElementById("registerResult").innerHTML = err.message;
 	}
 
+	document.getElementById("reg_firstname").value = reg_firstname.defaultValue;
+	document.getElementById("reg_lastname").value =reg_lastname.defaultValue;
+	document.getElementById("reg_username").value =reg_username.defaultValue;
+	document.getElementById("reg_password").value =reg_password.defaultValue;
+	document.getElementById("reg_password_confirm").value =reg_password_confirm.defaultValue;
 }
 
 function searchContacts()
