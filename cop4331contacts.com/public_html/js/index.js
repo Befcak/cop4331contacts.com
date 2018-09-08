@@ -29,7 +29,7 @@ function doLogin()
 		var jsonObject = JSON.parse( xhr.responseText );
 
 		userId = jsonObject.userID;
-			alert(userId);
+
 		if( userId < 1 || userId == 'undefined' || userId == null)
 		{
 			document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
@@ -84,7 +84,7 @@ function addContact()
 	var first = document.getElementById("contactText").value;
 	document.getElementById("contactAddResult").innerHTML = "";
 
-	var jsonPayload = '{"firstName" : "' + first + '", "userId" : ' + userId + '}';
+	var jsonPayload = '{"firstName" : "' + firstName + '", "userId" : ' + userId + '}';
 	var url = urlBase + '/AddContact.' + extension;
 
 	var xhr = new XMLHttpRequest();
