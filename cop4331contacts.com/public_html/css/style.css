@@ -56,7 +56,7 @@ p {
 
 @media screen and (min-width: 600px) {
   .card {
-    flex: 1 1 calc(50% - 2rem);
+    flex: 1 1 calc(33% - 2rem);
   }
 }
 
@@ -129,7 +129,6 @@ p {
 }
 
 .center {
-  display: block;
   margin-left: auto;
   margin-right: auto;
   width: 60%;
