@@ -56,13 +56,13 @@ p {
 
 @media screen and (min-width: 600px) {
   .card {
-    flex: 1 1 calc(33% - 2rem);
+    width:100%;
   }
 }
 
 @media screen and (min-width: 900px) {
   .card {
-    flex: 1 1 calc(33% - 2rem);
+    width:100%;
   }
 }
 
@@ -117,7 +117,7 @@ p {
 .login-group {
   background: #ffffff;
   color: #999999;
-  border-radius: 8px;
+  border-radius: 5px;
   padding: 10px 20px;
 }
 .login-group-checkbox {
