@@ -29,11 +29,10 @@ function doLogin()
 		var jsonObject = JSON.parse( xhr.responseText );
 
 		userId = jsonObject.id;
-
+			alert("hit");
 		if( userId < 1 )
 		{
 			document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
-			alert("hit");
 			return;
 		}
 
