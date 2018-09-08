@@ -108,3 +108,42 @@ function addContact()
 	}
 
 }
+
+// added register function
+// works similarly to a mix of the addcolor function and the login function
+// currently follows the parameters set in the html file but can be later changed to match the php file idk
+// -Updated 9/8/2018  
+function register()
+{
+	var regUsername = document.getElementById("reg_username").value;
+	var regPassword = document.getElementById("reg_password").value;
+	var regPasswordConfirm = document.getElementById("reg_password_confirm").value;
+	var regEmail = document.getElementById("reg_email").value;
+	var regFullName = document.getElementById("reg_fullname").value;
+	document.getElementById("registerResult").innerHTML = "";
+	
+	var jsonPayload = '{"username" : "' + regUsername + '", "password" : ' + userId + '", "email" : ' + regEmail 
+	+ '", "fullname" : ' + fullname '}';
+	var url = urlBase + '/Register.' + extension;
+	
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+
+			{
+				document.getElementById("registerResult").innerHTML = "registration successful";
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("registerResult").innerHTML = err.message;
+	}
+	
+}
