@@ -81,6 +81,16 @@
             			<div class="main-login-form">
             				<div class="login-group">
 
+                      <div class="form-group">
+                        <label for="reg_firstname" class="sr-only">First Name</label>
+                        <input type="text" class="form-control" id="reg_firstname" name="reg_firstname" placeholder="first name">
+                      </div>
+
+                      <div class="form-group">
+                        <label for="reg_lastname" class="sr-only">Last Name</label>
+                        <input type="text" class="form-control" id="reg_lastname" name="reg_lastname" placeholder="last name">
+                      </div>
+
             					<div class="form-group">
             						<label for="reg_username" class="sr-only">Email address</label>
             						<input type="text" class="form-control" id="reg_username" name="reg_username" placeholder="username">
@@ -94,17 +104,12 @@
             					<div class="form-group">
             						<label for="reg_password_confirm" class="sr-only">Password Confirm</label>
             						<input type="password" class="form-control" id="reg_password_confirm" name="reg_password_confirm" placeholder="confirm password">
-            					</div>
+            					</div><br/>
 
-                      <div class="form-group">
+                      <!-- <div class="form-group">
             						<label for="reg_email" class="sr-only">Email</label>
             						<input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="email">
-            					</div>
-
-            					<div class="form-group">
-            						<label for="reg_fullname" class="sr-only">Full Name</label>
-            						<input type="text" class="form-control" id="reg_fullname" name="reg_fullname" placeholder="full name">
-            					</div><br/>
+            					</div> -->
 
                       <button type="button" id="registerButton" class="buttons" onclick="register();"> Register </button>
                       <span id="registerResult"></span>

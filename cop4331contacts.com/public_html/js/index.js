@@ -114,15 +114,15 @@ function addContact()
 // -Updated 9/8/2018
 function register()
 {
+	var regFirstName = document.getElementById("reg_firstname").value;
+	var regLastName = document.getElementById("reg_lastname").value;
 	var regUsername = document.getElementById("reg_username").value;
 	var regPassword = document.getElementById("reg_password").value;
 	var regPasswordConfirm = document.getElementById("reg_password_confirm").value;
-	var regEmail = document.getElementById("reg_email").value;
-	var regFullName = document.getElementById("reg_fullname").value;
 	document.getElementById("registerResult").innerHTML = "";
 
-	var jsonPayload = '{"username" : "' + regUsername + '", "password" : "' + userId + '", "email" : "' + regEmail
-	+ '", "fullname" : + "' + fullname +'"}';
+	var jsonPayload = '{"username" : "' + regUsername + '", "password" : "' + regPassword + '", "lastName" : "' + regLastName
+	+ '", "firstname" : + "' + regFirstName +'"}';
 	var url = urlBase + '/Register.' + extension;
 
 	var xhr = new XMLHttpRequest();
