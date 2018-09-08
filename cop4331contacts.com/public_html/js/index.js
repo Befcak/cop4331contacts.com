@@ -20,7 +20,7 @@ function doLogin()
 	var url = urlBase + '/Login.' + extension;
 
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST", url, false);
+	xhr.openRequest("POST", url, false);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try
 	{
