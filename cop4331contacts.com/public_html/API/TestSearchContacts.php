@@ -6,6 +6,7 @@
 	$searchCount = 0;
 	$inData["userID"] = 1;
 	$inData["search"] = "b";
+	$test = "%".$inData["search"]."%";
 	$conn = new mysqli("localhost", "root", "orlando", "contactBook");
 
 	if ($conn->connect_error) 
@@ -22,7 +23,7 @@
 		if($stmt = $conn->prepare($sql))
     		{
 
-            		$stmt->bind_param('isss', $inData["userID"], $inData["search"], $inData["search"], $inData["search"]);
+            		$stmt->bind_param('isss', $inData["userID"],$test, $test, $test);
             		$stmt->execute();
 
             		$result = $stmt->get_result();
