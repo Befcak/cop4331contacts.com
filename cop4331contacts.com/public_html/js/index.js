@@ -84,7 +84,7 @@ function addContact() {
   document.getElementById('myModal').style.display = 'block';
 }
 
-function createContact()
+function makeContact()
 {
 	var first = document.getElementById("contactText").value;
 	document.getElementById("contactAddResult").innerHTML = "";
