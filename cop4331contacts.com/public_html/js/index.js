@@ -99,7 +99,7 @@ function makeContact()
 	document.getElementById("contactAddResult").innerHTML = "";
 
 	var jsonPayload = '{"userId" : ' + userId + ', "firstName" : "' + first + '", "lastName" : "' + last + '", "streetAddress" : "' + streetAdd + '", "city" : "' + cityName + '", "state" : "' + stateName + '", "zip" : "' + zipNum + '", "phone" : "' + phoneNum + '", "email" : "' + emailAdd + '", "birthday" : "' + birthday + '", "notes" : "' + notes + '"}';
-	var url = urlBase + '/AddContact' + extension;
+	var url = urlBase + '/AddContact.' + extension;
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -120,8 +120,8 @@ function makeContact()
 		document.getElementById("contactAddResult").innerHTML = err.message;
 	}
 
-	document.getElementById('firstName').value = firstN.defaultValue;
-	document.getElementById('lastName').value = lastN.defaultValue;
+	document.getElementById('firstN').value = firstN.defaultValue;
+	document.getElementById('lastN').value = lastN.defaultValue;
 	document.getElementById('phone').value = phone.defaultValue;
 	document.getElementById('email').value = email.defaultValue;
 	document.getElementById('streetAddress').value = streetAddress.defaultValue;
