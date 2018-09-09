@@ -213,14 +213,40 @@ function searchContacts()
 				document.getElementById("contactsSearchResult").innerHTML = "Contacts have been found";
 				var jsonObject = JSON.parse( xhr.responseText );
 				
-				var i;
-				for( i=0; i<jsonObject.results.length; i++ )
+				var contactTable = '';
+				var rows = jsonObject.results.length;
+				var cols = 2;
+				table =+ '<tr>First Name</tr>';
+				table =+ '<tr>Last Name</tr>';
+				
+				for(var i = 0; i < rows; i++)
 				{
-					var opt = document.createElement("option");
-					opt.text = jsonObject.results[i];
-					opt.value = jsonObject.result[i].firstName;
-					contList.options.add(opt);
+					table =+ '<tr>';
+					for(var j = 0; j < cols; j++)
+					{
+						if(i == 0)
+						{
+							if(j == 0)
+								table =+ 'First Name';
+							else if(j == 1)
+								table =+ 'Last Name';
+						}
+						else
+							table += jsonObject.result[i][j];
+					}
+					table =+ '</tr>';
 				}
+				
+				document.write('<table>' + 'table' + '</table>');
+				
+//				var i;
+//				for( i=0; i<jsonObject.results.length; i++ )
+//				{
+//					var opt = document.createElement("option");
+//					opt.text = jsonObject.results[i];
+//					opt.value = jsonObject.result[i].firstName;
+//					contList.options.add(opt);
+//				}
 			}
 	 	};
 	 	xhr.send(jsonPayload);
