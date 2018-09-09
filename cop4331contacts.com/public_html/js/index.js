@@ -216,8 +216,6 @@ function searchContacts()
 				var contactTable = '';
 				var rows = jsonObject.results.length;
 				var cols = 2;
-				table += '<tr>First Name</tr>';
-				table += '<tr>Last Name</tr>';
 				
 				for(var i = 0; i < rows; i++)
 				{
