@@ -188,10 +188,7 @@ function searchContacts()
 
 	// ID from the HTML.
 	var srch = document.getElementById("searchText").value;
-
-	// The result from DB.
 	document.getElementById("contactsSearchResult").innerHTML = "";
-
 
 	var contList = document.getElementById("contactsList");
 	contList.innerHTML = "";
@@ -208,43 +205,41 @@ function searchContacts()
 	 	{
 	 		if (this.readyState == 4 && this.status == 200) 
 			{
-				//hideOrShow( "contactsList", true );
+				hideOrShow( "contactsList", true );
 				
 				document.getElementById("contactsSearchResult").innerHTML = "Contacts have been found";
 				var jsonObject = JSON.parse( xhr.responseText );
 				
-				var contactTable = '';
-				var rows = jsonObject.results.length;
-				var cols = 2;
-				
-				for(var i = 0; i < rows; i++)
+				var table = '';
+				var row = (jsonObject.results.length / 11);
+				var col = 11;
+				if(row > 0)
 				{
 					table += '<tr>';
-					for(var j = 0; j < cols; j++)
+					for(var i=0; i<jsonObject.results.length; i++ )
 					{
-						if(i == 0)
+						table += '<td>';
+						switch(jsonObject.results.length mod 11)
 						{
-							if(j == 0)
-								table += 'First Name';
-							else if(j == 1)
-								table += 'Last Name';
+							case 1:
+								table+= '<td>' + jsonObject.results[i] + '</td>';
+								break;
+							case 2:
+								table+= '<td>' + jsonObject.results[i] + '</td>';
+								break;
 						}
-						else
-							table += jsonObject.result[i][j];
+					
+					
+					
+						table += '</td>';
+					//var opt = document.createElement("option");
+					//opt.text = jsonObject.results[i];
+					//opt.value = "";
+					//contList.options.add(opt);
 					}
 					table += '</tr>';
 				}
-				
-				document.write('<table>' + 'table' + '</table>');
-				
-//				var i;
-//				for( i=0; i<jsonObject.results.length; i++ )
-//				{
-//					var opt = document.createElement("option");
-//					opt.text = jsonObject.results[i];
-//					opt.value = jsonObject.result[i].firstName;
-//					contList.options.add(opt);
-//				}
+				document.write('<table>'+ table +'</table>');
 			}
 	 	};
 	 	xhr.send(jsonPayload);
