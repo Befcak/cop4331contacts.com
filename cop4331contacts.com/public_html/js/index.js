@@ -213,32 +213,31 @@ function searchContacts()
 				var table = '';
 				var row = (jsonObject.results.length / 11);
 				var col = 11;
-				//if(row > 0)
-				//{
+				
+				
 					table += '<tr>';
 					for(var i=0; i<jsonObject.results.length; i++ )
 					{
-//						table += '<td>';
-//						switch(jsonObject.results.length mod 11)
-//						{
-//							case 1:
-//								table+= '<td>' + jsonObject.results[i] + '</td>';
-//								break;
-//							case 2:
-//								table+= '<td>' + jsonObject.results[i] + '</td>';
-//								break;
-//						}
+						table += '<td>';
+						switch(jsonObject.results.length mod 11)
+						{
+							case 1:
+								table+= '<td>' + jsonObject.results[i] + '</td>';
+								break;
+							case 2:
+								table+= '<td>' + jsonObject.results[i] + '</td>';
+								break;
 					
 					
 					
-//				table += '</td>';
+					
+					table += '</td>';
 					var opt = document.createElement("option");
 					opt.text = jsonObject.results[i];
 					opt.value = "";
 					contList.options.add(opt);
 					}
 					table += '</tr>';
-				//}
 				document.write('<table>'+ table +'</table>');
 			}
 	 	};
