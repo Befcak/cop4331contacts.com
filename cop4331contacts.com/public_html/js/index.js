@@ -210,7 +210,7 @@ function searchContacts()
 				document.getElementById("contactsSearchResult").innerHTML = "Contacts have been found";
 				var jsonObject = JSON.parse( xhr.responseText );
 				
-				var table = '';
+				var table = document.getElementById("contactTable");
 				var row = (jsonObject.results.length / 11);
 				var col = 11;
 				//if(row > 0)
@@ -241,7 +241,7 @@ function searchContacts()
 					table += '</tr>';
 				//}
 				//contList = document.write('<table>'+ table +'</table>');
-				document.getElementById("contactsList").innerHTML = '<table>'+ table +'</table>';
+				document.getElementById("contactsTable").innerHTML = table;
 			}
 	 	};
 	 	xhr.send(jsonPayload);
