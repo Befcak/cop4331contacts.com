@@ -210,7 +210,7 @@ function searchContacts()
 				//document.getElementById("contactsSearchResult").innerHTML = "Contacts have been found";
 				var jsonObject = JSON.parse( xhr.responseText );
 				
-				var table = document.getElementById("contactTable");
+				var table = '';
 				var row = (jsonObject.results.length / 11);
 				var col = 11;
 				//if(row > 0)
@@ -232,7 +232,7 @@ function searchContacts()
 					
 					
 //				table += '</td>';
-					table+= '<td>' + jsonObject.results[1] + '</td>';
+					table+= '<td>' + "bob" + '</td>';
 					var opt = document.createElement("option");
 					opt.text = jsonObject.results[i];
 					opt.value = "";
