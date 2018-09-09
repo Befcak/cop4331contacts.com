@@ -219,7 +219,7 @@ function searchContacts()
 					var opt = document.createElement("option");
 					opt.text = jsonObject.results[i];
 					opt.value = "";
-					colorList.options.add(opt);
+					contList.options.add(opt);
 				}
 			}
 	 	};
