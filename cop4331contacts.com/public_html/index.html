@@ -166,6 +166,38 @@
       </div>
     </div>
   </div>
+
+  <!-- Create New Contact Modal -->
+  <div class="card">
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h1>Contact Adder</h1>
+      <form id="builder">
+        <div class="row">
+          <div class="col-6"><input class="form-control mr-sm-2" type="text" id="firstN" placeholder="First Name"></div>
+          <div class="col-6"><input class="form-control mr-sm-2"type="text" id="lastN" placeholder="Last Name"></div>
+        </div><br>
+        <div><input class="form-control mr-sm-2"type="text" id="phone" placeholder="Phone"></div><br>
+        <div><input class="form-control mr-sm-2"type="text" id="email" placeholder="Email"></div><br>
+        <div><input class="form-control mr-sm-2"type="text" id="streetAddress" placeholder="Street Address"></div><br>
+        <div class="row">
+          <div class="col-4"><input class="form-control mr-sm-2" type="text" id="city" placeholder="City"></div>
+          <div class="col-4"><input class="form-control mr-sm-2" type="text" id="state" placeholder="State"></div>
+          <div class="col-4"><input class="form-control mr-sm-2" type="text" id="zip" placeholder="ZIP"></div>
+        </div><br>
+        <!-- YYYY-MM-DD-->
+        <div><input class="form-control mr-sm-2" type="date" id="birth" placeholder="Birthday"></div><br>
+        <div><input class="form-control mr-sm-2" type="text" id="note" placeholder="Notes"></div><br>
+
+        <span onclick="makeContact()" class="btn btn-success my-2 my-sm-0" id="newContact">Create</span>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
   </div>
 
 </body>

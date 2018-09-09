@@ -79,7 +79,11 @@ function hideOrShow( elementId, showState )
 	document.getElementById( elementId ).style.display = dis;
 }
 
-function addContact()
+function addContact() {
+  document.getElementById('myModal').style.display = 'block';
+}
+
+function createContact()
 {
 	var first = document.getElementById("contactText").value;
 	document.getElementById("contactAddResult").innerHTML = "";
