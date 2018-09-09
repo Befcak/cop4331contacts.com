@@ -205,9 +205,9 @@ function searchContacts()
 	 	{
 	 		if (this.readyState == 4 && this.status == 200) 
 			{
-				hideOrShow( "contactsList", true );
+				//hideOrShow( "contactsList", true );
 				
-				document.getElementById("contactsSearchResult").innerHTML = "Contacts have been found";
+				//document.getElementById("contactsSearchResult").innerHTML = "Contacts have been found";
 				var jsonObject = JSON.parse( xhr.responseText );
 				
 				var table = document.getElementById("contactTable");
