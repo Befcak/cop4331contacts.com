@@ -131,11 +131,6 @@ function makeContact()
 	document.getElementById('birth').value = birth.defaultValue;
 	document.getElementById('note').value = note.defaultValue;
 
-	var span = document.createElement("SPAN");
-	var txt = document.createTextNode("\u00D7");
-
-	span.appendChild(txt);
-
 	document.getElementById('myModal').style.display = 'none';
 }
 
