@@ -80,16 +80,25 @@ function hideOrShow( elementId, showState )
 }
 
 function addContact() {
-	alert("pressed!");
   document.getElementById('myModal').style.display = 'block';
 }
 
 function makeContact()
 {
-	var first = document.getElementById("contactText").value;
+	var first = document.getElementById("firstN").value;
+	var last = document.getElementById("lastN").value;
+	var phoneNum = document.getElementById("phone").value;
+	var emailAdd = document.getElementById("email").value;
+	var streetAdd = document.getElementById("streetAddress").value;
+	var cityName = document.getElementById("city").value;
+	var stateName = document.getElementById("state").value;
+	var zipNum = document.getElementById("zip").value;
+	var birthday = document.getElementById("birth").value;
+	var notes = document.getElementById("note").value;
+
 	document.getElementById("contactAddResult").innerHTML = "";
 
-	var jsonPayload = '{"firstName" : "' + firstName + '", "userId" : ' + userId + '}';
+	var jsonPayload = '{"firstName" : "' + first + '", "lastName" : "' + last + '", "streetAddress" : "' + streetAdd + '", "city" : "' + cityName + '", "state" : "' + stateName + '", "zip" : "' + zipNum + '", "phone" : "' + phoneNum + '", "email" : "' + emailAdd + '", "birthday" : "' + birthday + '", "notes" : "' + notes + '" ,"userId" : "' + userId + '"}';
 	var url = urlBase + '/AddContact.' + extension;
 
 	var xhr = new XMLHttpRequest();
@@ -101,7 +110,7 @@ function makeContact()
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
-				document.getElementById("contactAddResult").innerHTML = "contact has been added";
+				document.getElementById("contactAddResult").innerHTML = "Contact has been added";
 			}
 		};
 		xhr.send(jsonPayload);
@@ -111,6 +120,18 @@ function makeContact()
 		document.getElementById("contactAddResult").innerHTML = err.message;
 	}
 
+	document.getElementById('firstN').value = firstN.defaultValue;
+	document.getElementById('lastN').value = lastN.defaultValue;
+	document.getElementById('phone').value = phone.defaultValue;
+	document.getElementById('email').value = email.defaultValue;
+	document.getElementById('streetAddress').value = streetAddress.defaultValue;
+	document.getElementById('city').value = city.defaultValue;
+	document.getElementById('state').value = state.defaultValue;
+	document.getElementById('zip').value = zip.defaultValue;
+	document.getElementById('birth').value = birth.defaultValue;
+	document.getElementById('note').value = note.defaultValue;
+
+	document.getElementById('myModal').style.display = 'none';
 }
 
 // added register function
@@ -163,21 +184,21 @@ function register()
 
 function searchContacts()
 {
-	//SELECT * FROM contacts WHERE userID = "1" AND (firstName LIKE 'bob' OR lastName LIKE '' OR email LIKE '') 
-	
+	//SELECT * FROM contacts WHERE userID = "1" AND (firstName LIKE 'bob' OR lastName LIKE '' OR email LIKE '')
+
 	// ID from the HTML.
 	var srch = document.getElementById("searchText").value;
-	
+
 	// The result from DB.
 	document.getElementById("contactsSearchResult").innerHTML = "";
-	
-	
+
+
 	var contList = document.getElementById("contactsList");
 	contList.innerHTML = "";
-	
+
 	var jsonPayload = '{"search" : "' + srch + '"}';
 	var url = urlBase + '/SearchContacts.' + extension;
-	
+
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
@@ -188,10 +209,76 @@ function searchContacts()
 	 		if (this.readyState == 4 && this.status == 200)
 	 		{
 				hideOrShow( "contactsList", true );
-	
+
 	 			document.getElementById("contactsSearchResult").innerHTML = "Contact(s) has been retrieved";
 	 			var jsonObject = JSON.parse( xhr.responseText );
-	
+<<<<<<< HEAD
+				
+				// Check to see if result was found
+				if(jsonObject.results.length > 0)
+				{
+					var table = document.getElementById("searchTable");
+					table.style.width = '50%';	
+					table.setAttribute('border', '1');	
+					table.setAttribute('cellspacing', '0');
+					table.setAttribute('cellpadding', '5');
+					var tHead = document.createElement("thead");
+					var hRow = document.createElement("tr");
+					var col = []; 
+					for (var i = 0; i < jsonObject.results.length; i++) 
+					{
+						for (var key in jsonObject.results[i]) 
+						{
+							if (col.indexOf(key) === -1) 
+							{
+								col.push(key);
+							}
+						}
+					}
+					
+					for (var i = 0; i < col.length; i++) 
+					{
+						var th = document.createElement("th");
+						th.innerHTML = col[i];
+						hRow.appendChild(th);
+					}
+					tHead.appendChild(hRow);
+					table.appendChild(tHead);
+					
+					var tBody = document.createElement("tbody");	
+					
+					for (var i = 0; i < noOfContacts; i++) 
+					{
+						var bRow = document.createElement("tr");
+						for (var j = 0; j < col.length; j++) 
+						{
+							var td = document.createElement("td");
+							td.innerHTML = myContacts[i][col[j]];
+							bRow.appendChild(td);
+						}
+						tBody.appendChild(bRow)
+					}
+					table.appendChild(tBody);	
+					var divContainer = document.getElementById("myContacts");
+					divContainer.innerHTML = "";
+					divContainer.appendChild(table);
+					
+					var i;
+					// Parse data for table.
+					for( i=0; i<jsonObject.results.length; i++ )
+					{
+						var opt = document.createElement("option");
+						opt.text = jsonObject.results[i];
+						opt.value = "";
+						contList.options.add(opt);
+						// add a new row.
+						table.appendChild(row);
+					}
+					
+				}
+	 			
+=======
+
 	 			var i;
 	 			for( i=0; i<jsonObject.results.length; i++ )
 	 			{
@@ -200,6 +287,7 @@ function searchContacts()
 	 				opt.value = "";
 	 				contList.options.add(opt);
 	 			}
+>>>>>>> 302d3594403181164ce8cd1988d2539429abaa27
 	 		}
 	 	};
 	 	xhr.send(jsonPayload);
