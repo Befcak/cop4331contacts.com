@@ -80,6 +80,7 @@ function hideOrShow( elementId, showState )
 }
 
 function addContact() {
+	alert("pressed!");
   document.getElementById('myModal').style.display = 'block';
 }
 
