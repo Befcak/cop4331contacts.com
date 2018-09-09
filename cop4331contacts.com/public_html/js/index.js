@@ -240,7 +240,8 @@ function searchContacts()
 					}
 					table += '</tr>';
 				//}
-				contList = document.write('<table>'+ table +'</table>');
+				//contList = document.write('<table>'+ table +'</table>');
+				document.getElementById("contactsList").innerHTML = '<table>'+ table +'</table>';
 			}
 	 	};
 	 	xhr.send(jsonPayload);
