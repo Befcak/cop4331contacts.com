@@ -208,7 +208,7 @@ function searchContacts()
 	 	{
 	 		if (this.readyState == 4 && this.status == 200) 
 			{
-				hideOrShow( "contactsList", true );
+				//hideOrShow( "contactsList", true );
 				
 				document.getElementById("contactsSearchResult").innerHTML = "Contacts have been found";
 				var jsonObject = JSON.parse( xhr.responseText );
@@ -216,25 +216,25 @@ function searchContacts()
 				var contactTable = '';
 				var rows = jsonObject.results.length;
 				var cols = 2;
-				table =+ '<tr>First Name</tr>';
-				table =+ '<tr>Last Name</tr>';
+				table += '<tr>First Name</tr>';
+				table += '<tr>Last Name</tr>';
 				
 				for(var i = 0; i < rows; i++)
 				{
-					table =+ '<tr>';
+					table += '<tr>';
 					for(var j = 0; j < cols; j++)
 					{
 						if(i == 0)
 						{
 							if(j == 0)
-								table =+ 'First Name';
+								table += 'First Name';
 							else if(j == 1)
-								table =+ 'Last Name';
+								table += 'Last Name';
 						}
 						else
 							table += jsonObject.result[i][j];
 					}
-					table =+ '</tr>';
+					table += '</tr>';
 				}
 				
 				document.write('<table>' + 'table' + '</table>');
