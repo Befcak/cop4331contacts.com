@@ -80,7 +80,6 @@ function hideOrShow( elementId, showState )
 }
 
 function addContact() {
-	alert("pressed!");
   document.getElementById('myModal').style.display = 'block';
 }
 
@@ -89,7 +88,7 @@ function makeContact()
 	var first = document.getElementById("contactText").value;
 	document.getElementById("contactAddResult").innerHTML = "";
 
-	var jsonPayload = '{"firstName" : "' + firstName + '", "userId" : ' + userId + '}';
+	var jsonPayload = '{"firstName" : "' + first + '", "userId" : ' + userId + '}';
 	var url = urlBase + '/AddContact.' + extension;
 
 	var xhr = new XMLHttpRequest();
