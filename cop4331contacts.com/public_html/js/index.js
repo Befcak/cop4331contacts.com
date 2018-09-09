@@ -232,6 +232,7 @@ function searchContacts()
 					
 					
 //				table += '</td>';
+					table+= '<td>' + jsonObject.results[2] + '</td>';
 					var opt = document.createElement("option");
 					opt.text = jsonObject.results[i];
 					opt.value = "";
@@ -239,7 +240,7 @@ function searchContacts()
 					}
 					table += '</tr>';
 				//}
-				document.write('<table>'+ table +'</table>');
+				contList = document.write('<table>'+ table +'</table>');
 			}
 	 	};
 	 	xhr.send(jsonPayload);
