@@ -212,8 +212,6 @@ function searchContacts()
 
 	 			document.getElementById("contactsSearchResult").innerHTML = "Contact(s) has been retrieved";
 	 			var jsonObject = JSON.parse( xhr.responseText );
-<<<<<<< HEAD
-<<<<<<< HEAD
 				
 				// Check to see if result was found
 				if(jsonObject.results.length > 0)
@@ -277,20 +275,6 @@ function searchContacts()
 					}
 					
 				}
-	 			
-=======
-=======
->>>>>>> 302d3594403181164ce8cd1988d2539429abaa27
-
-	 			var i;
-	 			for( i=0; i<jsonObject.results.length; i++ )
-	 			{
-	 				var opt = document.createElement("option");
-	 				opt.text = jsonObject.results[i];
-	 				opt.value = "";
-	 				contList.options.add(opt);
-	 			}
->>>>>>> 302d3594403181164ce8cd1988d2539429abaa27
 	 		}
 	 	};
 	 	xhr.send(jsonPayload);
