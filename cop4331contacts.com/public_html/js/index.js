@@ -237,6 +237,7 @@ function searchContacts()
 					opt.value = "";
 					contList.options.add(opt);
 					}
+					}
 					table += '</tr>';
 				document.write('<table>'+ table +'</table>');
 			}
