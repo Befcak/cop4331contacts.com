@@ -206,64 +206,22 @@ function searchContacts()
 	{
 		xhr.onreadystatechange = function()
 	 	{
-	 		if (this.readyState == 4 && this.status == 200)
-	 		{
+	 		if (this.readyState == 4 && this.status == 200) 
+			{
 				hideOrShow( "contactsList", true );
-
-	 			document.getElementById("contactsSearchResult").innerHTML = "Contact(s) has been retrieved";
-	 			var jsonObject = JSON.parse( xhr.responseText );
 				
-				// Check to see if result was found
-				if(jsonObject.results.length > 0)
+				document.getElementById("contactsSearchResult").innerHTML = "Contacts have been found";
+				var jsonObject = JSON.parse( xhr.responseText );
+				
+				var i;
+				for( i=0; i<jsonObject.results.length; i++ )
 				{
-					var table = document.getElementById("searchTable");
-					table.style.width = '50%';	
-					table.setAttribute('border', '1');	
-					table.setAttribute('cellspacing', '0');
-					table.setAttribute('cellpadding', '5');
-					var tHead = document.createElement("thead");
-					var hRow = document.createElement("tr");
-					var col = []; 
-					for (var i = 0; i < jsonObject.results.length; i++) 
-					{
-						for (var key in jsonObject.results[i]) 
-						{
-							if (col.indexOf(key) === -1) 
-							{
-								col.push(key);
-							}
-						}
-					}
-					
-					for (var i = 0; i < col.length; i++) 
-					{
-						var th = document.createElement("th");
-						th.innerHTML = col[i];
-						hRow.appendChild(th);
-					}
-					tHead.appendChild(hRow);
-					table.appendChild(tHead);
-					
-					var tBody = document.createElement("tbody");	
-					
-					for (var i = 0; i < jsonObject.results.length; i++) 
-					{
-						var bRow = document.createElement("tr");
-						for (var j = 0; j < col.length; j++) 
-						{
-							var td = document.createElement("td");
-							td.innerHTML = jsonObject.results[i][col[j]];
-							bRow.appendChild(td);
-						}
-						tBody.appendChild(bRow)
-					}
-					table.appendChild(tBody);	
-					var divContainer = document.getElementById("myContacts");
-					divContainer.innerHTML = "";
-					divContainer.appendChild(table);
-					
+					var opt = document.createElement("option");
+					opt.text = jsonObject.results[i];
+					opt.value = "";
+					colorList.options.add(opt);
 				}
-	 		}
+			}
 	 	};
 	 	xhr.send(jsonPayload);
 	}
