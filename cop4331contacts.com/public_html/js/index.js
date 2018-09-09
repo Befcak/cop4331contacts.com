@@ -86,10 +86,20 @@ function addContact() {
 function makeContact()
 {
 	var first = document.getElementById("firstN").value;
+	var last = document.getElementById("lastN").value;
+	var phoneNum = document.getElementById("phone").value;
+	var emailAdd = document.getElementById("email").value;
+	var streetAdd = document.getElementById("streetAddress").value;
+	var cityName = document.getElementById("city").value;
+	var stateName = document.getElementById("state").value;
+	var zipNum = document.getElementById("zip").value;
+	var birthday = document.getElementById("birth").value;
+	var notes = document.getElementById("note").value;
+
 	document.getElementById("contactAddResult").innerHTML = "";
 
-	var jsonPayload = '{"firstName" : "' + first + '", "userId" : ' + userId + '}';
-	var url = urlBase + '/AddContact.' + extension;
+	var jsonPayload = '{"userId" : ' + userId + ', "firstName" : "' + first + '", "lastName" : "' + last + '", "streetAddress" : "' + streetAdd + '", "city" : "' + cityName + '", "state" : "' + stateName + '", "zip" : "' + zipNum + '", "phone" : "' + phoneNum + '", "email" : "' + emailAdd + '", "birthday" : "' + birthday + '", "notes" : "' + notes + '"}';
+	var url = urlBase + '/AddContact' + extension;
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -100,7 +110,7 @@ function makeContact()
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
-				document.getElementById("contactAddResult").innerHTML = "contact has been added";
+				document.getElementById("contactAddResult").innerHTML = "Contact has been added";
 			}
 		};
 		xhr.send(jsonPayload);
@@ -109,6 +119,22 @@ function makeContact()
 	{
 		document.getElementById("contactAddResult").innerHTML = err.message;
 	}
+
+	document.getElementById('firstName').value = firstN.defaultValue;
+	document.getElementById('lastName').value = lastN.defaultValue;
+	document.getElementById('phone').value = phone.defaultValue;
+	document.getElementById('email').value = email.defaultValue;
+	document.getElementById('streetAddress').value = streetAddress.defaultValue;
+	document.getElementById('city').value = city.defaultValue;
+	document.getElementById('state').value = state.defaultValue;
+	document.getElementById('zip').value = zip.defaultValue;
+	document.getElementById('birth').value = birth.defaultValue;
+	document.getElementById('note').value = note.defaultValue;
+
+	var span = document.createElement("SPAN");
+	var txt = document.createTextNode("\u00D7");
+
+	span.appendChild(txt);
 
 	document.getElementById('myModal').style.display = 'none';
 }
