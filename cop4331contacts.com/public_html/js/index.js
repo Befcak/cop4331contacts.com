@@ -246,13 +246,13 @@ function searchContacts()
 					
 					var tBody = document.createElement("tbody");	
 					
-					for (var i = 0; i < noOfContacts; i++) 
+					for (var i = 0; i < jsonObject.results.length; i++) 
 					{
 						var bRow = document.createElement("tr");
 						for (var j = 0; j < col.length; j++) 
 						{
 							var td = document.createElement("td");
-							td.innerHTML = myContacts[i][col[j]];
+							td.innerHTML = jsonObject.results[i][col[j]];
 							bRow.appendChild(td);
 						}
 						tBody.appendChild(bRow)
@@ -261,18 +261,6 @@ function searchContacts()
 					var divContainer = document.getElementById("myContacts");
 					divContainer.innerHTML = "";
 					divContainer.appendChild(table);
-					
-					var i;
-					// Parse data for table.
-					for( i=0; i<jsonObject.results.length; i++ )
-					{
-						var opt = document.createElement("option");
-						opt.text = jsonObject.results[i];
-						opt.value = "";
-						contList.options.add(opt);
-						// add a new row.
-						table.appendChild(row);
-					}
 					
 				}
 	 		}
