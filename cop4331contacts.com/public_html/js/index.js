@@ -163,44 +163,49 @@ function register()
 
 function searchContacts()
 {
-	// var srch = document.getElementById("searchText").value;
-	// document.getElementById("contactsSearchResult").innerHTML = "";
-	//
-	// var colorList = document.getElementById("contactsList");
-	// colorList.innerHTML = "";
-	//
-	// var jsonPayload = '{"search" : "' + srch + '"}';
-	// var url = urlBase + '/SearchContacts.' + extension;
-	//
-	// var xhr = new XMLHttpRequest();
-	// xhr.open("POST", url, true);
-	// xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	// try
-	// {
-	// 	xhr.onreadystatechange = function()
-	// 	{
-	// 		if (this.readyState == 4 && this.status == 200)
-	// 		{
-	// 			hideOrShow( "contactsList", true );
-	//
-	// 			document.getElementById("contactsSearchResult").innerHTML = "Contact(s) has been retrieved";
-	// 			var jsonObject = JSON.parse( xhr.responseText );
-	//
-	// 			var i;
-	// 			for( i=0; i<jsonObject.results.length; i++ )
-	// 			{
-	// 				var opt = document.createElement("option");
-	// 				opt.text = jsonObject.results[i];
-	// 				opt.value = "";
-	// 				colorList.options.add(opt);
-	// 			}
-	// 		}
-	// 	};
-	// 	xhr.send(jsonPayload);
-	// }
-	// catch(err)
-	// {
-	// 	document.getElementById("contactsSearchResult").innerHTML = err.message;
-	// }
-
+	//SELECT * FROM contacts WHERE userID = "1" AND (firstName LIKE 'bob' OR lastName LIKE '' OR email LIKE '') 
+	
+	// ID from the HTML.
+	var srch = document.getElementById("searchText").value;
+	
+	// The result from DB.
+	document.getElementById("contactsSearchResult").innerHTML = "";
+	
+	
+	var contList = document.getElementById("contactsList");
+	contList.innerHTML = "";
+	
+	var jsonPayload = '{"search" : "' + srch + '"}';
+	var url = urlBase + '/SearchContacts.' + extension;
+	
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function()
+	 	{
+	 		if (this.readyState == 4 && this.status == 200)
+	 		{
+				hideOrShow( "contactsList", true );
+	
+	 			document.getElementById("contactsSearchResult").innerHTML = "Contact(s) has been retrieved";
+	 			var jsonObject = JSON.parse( xhr.responseText );
+	
+	 			var i;
+	 			for( i=0; i<jsonObject.results.length; i++ )
+	 			{
+	 				var opt = document.createElement("option");
+	 				opt.text = jsonObject.results[i];
+	 				opt.value = "";
+	 				contList.options.add(opt);
+	 			}
+	 		}
+	 	};
+	 	xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("contactsSearchResult").innerHTML = err.message;
+	}
 }
