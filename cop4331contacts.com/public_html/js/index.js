@@ -85,7 +85,7 @@ function addContact() {
 
 function makeContact()
 {
-	var first = document.getElementById("contactText").value;
+	var first = document.getElementById("firstN").value;
 	document.getElementById("contactAddResult").innerHTML = "";
 
 	var jsonPayload = '{"firstName" : "' + first + '", "userId" : ' + userId + '}';
