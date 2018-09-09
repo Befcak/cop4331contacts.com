@@ -218,7 +218,7 @@ function searchContacts()
 				{
 					var opt = document.createElement("option");
 					opt.text = jsonObject.results[i];
-					opt.value = "";
+					opt.value = jsonObject.result[i].firstName;
 					contList.options.add(opt);
 				}
 			}
