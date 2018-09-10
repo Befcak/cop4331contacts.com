@@ -12,7 +12,7 @@ function doLogin()
 	lastName = "";
 
 	var login = document.getElementById("loginName").value;
-	var password = document.getElementById("loginPassword").value;
+	var password = md5(document.getElementById("loginPassword").value);
 
 	document.getElementById("loginResult").innerHTML = "";
 
