@@ -55,7 +55,7 @@
                 			$notes = $row["notes"];
 
                 			// Building a list of contact attributes as a string
-					$searchResults = $searchResults . '"' . $firstName . '","' . $lastName . '","' 
+					$searchResults = $searchResults . '"' . $contactID . '","' . $firstName . '","' . $lastName . '","' 
                                  		. $streetAddress . '","' . $city . '","' . $state . '","' . $zip . '","' 
                                  		. $phone . '","' . $email . '","' . $birthday . '","'. $notes .'"';
 				}
