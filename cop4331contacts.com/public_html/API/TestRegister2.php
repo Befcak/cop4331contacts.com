@@ -20,12 +20,17 @@ INSERT INTO USERS (firstName, lastName, login, password) VALUES ('<firstName>', 
 		if($stmt = $conn->prepare($sql))
 		{
 			/*creates the prepared statement*/
-			$stmt->bind_param('ssss', $inData["firstName"], $inData["lastName"], $inData["login"], $inData["password"]);/*Binds params to markers*/
+			$stmt->bind_param('ssss', $firstName, $lastName, $login, $password);/*Binds params to markers*/
 
-			$inData["firstName"] = "tester";
+			$firstName = "tester";
+			$lastName = "tester";
+			$login = "tester";
+			$password = "tester";
+
+			/*$inData["firstName"] = "tester";
 			$inData["lastName"] = "tester";
 			$inData["login"] = "tester";
-			$inData["password"] = "tester";
+			$inData["password"] = "tester";*/
 
 			$stmt->execute();
 			$result	= $stmt->get_result();
@@ -38,15 +43,7 @@ INSERT INTO USERS (firstName, lastName, login, password) VALUES ('<firstName>', 
 				returnWithError( $sql);
 			}
 		}
-		
-		
-			
-			
-			
-				
-		
-		
-		
+
 		$conn->close();
 	}
 	
