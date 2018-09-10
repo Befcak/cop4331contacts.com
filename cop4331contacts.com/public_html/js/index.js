@@ -164,12 +164,12 @@ function register()
 		}
 	
 
-	var jsonPayload = '{"username" : "' + regUsername + '", "password" : "' + regPassword + '", "lastName" : "' + regLastName
-	+ '", "firstname" : + "' + regFirstName +'"}';
+	var jsonPayload = '{"firstName" : "' + regFirstName + '", "lastName" : "' + regLastName + '", "login" : "' + regUsername
+	+ '", "password" : + "' + regPassword +'"}';
 	var url = urlBase + '/Register.' + extension;
 
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
+	xhr.open("POST", url, false);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try
 	{
