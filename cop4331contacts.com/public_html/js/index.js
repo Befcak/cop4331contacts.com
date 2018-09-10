@@ -146,6 +146,23 @@ function register()
 	var regPassword = document.getElementById("reg_password").value;
 	var regPasswordConfirm = document.getElementById("reg_password_confirm").value;
 	document.getElementById("registerResult").innerHTML = "";
+	
+	
+	
+	
+	
+		// added password check
+		if(regPassword != regPasswordConfirm)
+		{
+			document.getElementById("registerResult").innerHTML = "Passwords don't match!";
+			//document.getElementById("reg_firstname").value = reg_firstname.defaultValue;
+			//document.getElementById("reg_lastname").value =reg_lastname.defaultValue;
+			//document.getElementById("reg_username").value =reg_username.defaultValue;
+			document.getElementById("reg_password").value =reg_password.defaultValue;
+			document.getElementById("reg_password_confirm").value =reg_password_confirm.defaultValue;
+			return;
+		}
+	
 
 	var jsonPayload = '{"username" : "' + regUsername + '", "password" : "' + regPassword + '", "lastName" : "' + regLastName
 	+ '", "firstname" : + "' + regFirstName +'"}';
@@ -161,19 +178,24 @@ function register()
 			if (this.readyState == 4 && this.status == 200)
 
 			{
-				document.getElementById("registerResult").innerHTML = "registration successful";
+				document.getElementById("registerResult").innerHTML = "registration successful!";
 			}
 		};
 		xhr.send(jsonPayload);
-
-		hideOrShow( "loggedInDiv", true);
-		hideOrShow( "accessUIDiv", true);
-		hideOrShow( "loginDiv", false);
+		
+		// forces you to login after registration is successful, I know it seems inefficient but
+		// the register,php function is written like so 
+		// i could technically add the functionality by allowing this function to call the php.login function but we'll see for now
+		//hideOrShow( "loggedInDiv", true);
+		//hideOrShow( "accessUIDiv", true);
+		//hideOrShow( "loginDiv", false);
 	}
 	catch(err)
 	{
 		document.getElementById("registerResult").innerHTML = err.message;
 	}
+	
+
 
 	document.getElementById("reg_firstname").value = reg_firstname.defaultValue;
 	document.getElementById("reg_lastname").value =reg_lastname.defaultValue;
