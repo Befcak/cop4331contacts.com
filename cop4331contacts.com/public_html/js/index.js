@@ -84,23 +84,36 @@ function addContact() {
 }
 
 function makeContact()
-{
-	var first = document.getElementById("firstN").value;
-	var last = document.getElementById("lastN").value;
+{	
+	var first = "";	
+	var last = "";
 	//this needs to only have numbers or it doesn't work
-	var phoneNum = document.getElementById("phone").value;
-	var emailAdd = document.getElementById("email").value;
-	var streetAdd = document.getElementById("streetAddress").value;
-	var cityName = document.getElementById("city").value;
+	var phoneNum = "";
+	var emailAdd = "";
+	var streetAdd = "";
+	var cityName = "";
 	// this needs to only hold 2 letters or it doesn't work
-	var stateName = document.getElementById("state").value;
-	var zipNum = document.getElementById("zip").value;
-	var birthday = document.getElementById("birth").value;
-	var notes = document.getElementById("note").value;
+	var stateName = "";
+	var zipNum = "";
+	var birthday = "" ; 
+	var notes = "";
+
+	first = document.getElementById("firstN").value;
+	last = document.getElementById("lastN").value;
+	//this needs to only have numbers or it doesn't work
+	phoneNum = document.getElementById("phone").value;
+	emailAdd = document.getElementById("email").value;
+	streetAdd = document.getElementById("streetAddress").value;
+	cityName = document.getElementById("city").value;
+	// this needs to only hold 2 letters or it doesn't work
+	stateName = document.getElementById("state").value;
+	zipNum = document.getElementById("zip").value;
+	birthday = document.getElementById("birth").value;
+	notes = document.getElementById("note").value;
 
 	document.getElementById("contactAddResult").innerHTML = "";
 
-	//alert(userId + ',' + first + ', ' + last + ', ' + phoneNum + ', ' + emailAdd + ', ' + streetAdd+ ', ' + cityName + ', ' + stateName + ', ' + zipNum + ', ' + birthday + ', ' + notes);
+	alert(userId + ',' + first + ', ' + last + ', ' + phoneNum + ', ' + emailAdd + ', ' + streetAdd+ ', ' + cityName + ', ' + stateName + ', ' + zipNum + ', ' + birthday + ', ' + notes);
 	var jsonPayload = '{"userID" : "' + userId + '", "firstName" : "' + first + '", "lastName" : "' + last + '", "streetAddress" : "' + streetAdd + '", "city" : "' + cityName + '", "state" : "' + stateName + '", "zip" : "' + zipNum + '", "phone" : "' + phoneNum + '", "email" : "' + emailAdd + '", "birthday" : "' + birthday + '", "notes" : "' + notes + '"}';
 	var url = urlBase + '/AddContact.' + extension;
 
@@ -168,7 +181,7 @@ function register()
 
 
 	var jsonPayload = '{"firstName" : "' + regFirstName + '", "lastName" : "' + regLastName + '", "login" : "' + regUsername
-	+ '", "password" : + "' + regPassword +'"}';
+	+ '", "password" : "' + regPassword +'"}';
 	var url = urlBase + '/Register.' + extension;
 
 	var xhr = new XMLHttpRequest();

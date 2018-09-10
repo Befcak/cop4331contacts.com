@@ -1,11 +1,13 @@
 <?php
 
 	$inData = getRequestInfo();
+
+	 $inData["userID"] = 1;
+    $inData["search"] = "b";
 	
 	$searchResults = "";
 	$searchCount = 0;
-	$inData["userID"] = 1;
-	$inData["search"] = "b";
+	
 	$test = "%".$inData["search"]."%";
 	$conn = new mysqli("localhost", "root", "orlando", "contactBook");
 
