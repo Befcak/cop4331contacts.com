@@ -5,15 +5,15 @@
 */
 	$inData = getRequestInfo();
 	
-	/*$firstName = $inData["firstName"];
+	$firstName = $inData["firstName"];
 	$lastName = $inData["lastName"];
 	$login = $inData["login"];
-	$password = $inData["password"];*/
+	$password = $inData["password"];
 
-	$firstName = "Reginald";
+	/*$firstName = "Reginald";
 	$lastName = "Stir";
 	$login = "RegiStir";
-	$password = "password";
+	$password = "password";*/
 
 	$conn = new mysqli("localhost", "root", "orlando", "contactBook");
 	
