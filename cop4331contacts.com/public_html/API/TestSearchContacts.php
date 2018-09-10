@@ -42,6 +42,7 @@
 					$searchCount++;
 
                 			// Create and initialize variable with contact attribute
+					$contactID = $row["contactId"];
 					$firstName = $row["firstName"];
 					$lastName = $row["lastName"];
               	  			$streetAddress = $row["streetAddress"];
