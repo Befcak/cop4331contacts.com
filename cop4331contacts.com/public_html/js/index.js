@@ -169,7 +169,7 @@ function register()
 	var url = urlBase + '/Register.' + extension;
 
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST", url, false);
+	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try
 	{
