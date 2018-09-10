@@ -57,9 +57,9 @@
 			$notes = "This is a test contact for the AddContact function.";
 
 			$stmt->execute();
-			$result = $stmt->get_result();
+			//$result = $stmt->get_result();
 
-			if($result != true)
+			if($result = $conn->query($sql) != TRUE)
 			{
 				returnWithError( $conn->error );
 				//returnWithError($sql);
