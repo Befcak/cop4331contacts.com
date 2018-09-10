@@ -4,11 +4,6 @@
 INSERT INTO USERS (firstName, lastName, login, password) VALUES ('<firstName>', '<lastName>', '<login/email>', '<hashed password>');
 */
 	$inData = getRequestInfo();
-
-	$inData["firstName"] = "tester";
-	$inData["lastName"] = "tester";
-	$inData["login"] = "tester";
-	$inData["password"] = "tester";
 	
 	$conn = new mysqli("localhost", "root", "orlando", "contactBook");
 	
@@ -26,9 +21,16 @@ INSERT INTO USERS (firstName, lastName, login, password) VALUES ('<firstName>', 
 		{
 			/*creates the prepared statement*/
 			$stmt->bind_param('ssss', $inData["firstName"], $inData["lastName"], $inData["login"], $inData["password"]);/*Binds params to markers*/
+
+			$inData["firstName"] = "tester";
+			$inData["lastName"] = "tester";
+			$inData["login"] = "tester";
+			$inData["password"] = "tester";
+
 			$stmt->execute();
 			$result	= $stmt->get_result();
 			
+			echo $sql;
 			
 			if( $result != TRUE )
 			{
