@@ -26,12 +26,7 @@ INSERT INTO USERS (firstName, lastName, login, password) VALUES ('<firstName>', 
 		if($stmt = $conn->prepare($sql))
 		{
 			/*creates the prepared statement*/
-			//$stmt->bind_param('ssss', $inData["firstName"], $inData["lastName"], $inData["login"], $inData["password"]);/*Binds params to markers*/
-			$stmt->bind_param('ssss', $firstName, $lastName, $login, $password);/*Binds params to markers*/
-			$firstName = "tester1";
-			$lastName = "tester1";
-			$login = "tester1";
-			$password = "tester1";
+			$stmt->bind_param('ssss', $inData["firstName"], $inData["lastName"], $inData["login"], $inData["password"]);/*Binds params to markers*/
 			
 			$stmt->execute();
 			$result	= $stmt->get_result();
