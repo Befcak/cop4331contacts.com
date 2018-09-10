@@ -161,7 +161,7 @@ function register()
 	var regLastName = document.getElementById("reg_lastname").value;
 	var regUsername = document.getElementById("reg_username").value;
 	var regPassword = md5(document.getElementById("reg_password").value);
-	var regPasswordConfirm = md(document.getElementById("reg_password_confirm").value);
+	var regPasswordConfirm = md5(document.getElementById("reg_password_confirm").value);
 	document.getElementById("registerResult").innerHTML = "";
 
 
