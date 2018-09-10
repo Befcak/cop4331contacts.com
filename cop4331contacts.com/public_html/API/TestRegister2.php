@@ -20,7 +20,7 @@ INSERT INTO USERS (firstName, lastName, login, password) VALUES ('<firstName>', 
 
 		echo "echo0";
 		$stmt = $conn->prepare($sql);
-		echo $stmt;
+		$stmt->debugDumpParams();
 
 		echo "echo1";
 		if($stmt != false)
