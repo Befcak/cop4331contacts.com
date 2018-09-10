@@ -84,8 +84,8 @@ function addContact() {
 }
 
 function makeContact()
-{	
-	var first = "";	
+{
+	var first = "";
 	var last = "";
 	//this needs to only have numbers or it doesn't work
 	var phoneNum = "";
@@ -95,7 +95,7 @@ function makeContact()
 	// this needs to only hold 2 letters or it doesn't work
 	var stateName = "";
 	var zipNum = "";
-	var birthday = "" ; 
+	var birthday = "" ;
 	var notes = "";
 
 	first = document.getElementById("firstN").value;
@@ -115,7 +115,7 @@ function makeContact()
 
 	alert(userId + ',' + first + ', ' + last + ', ' + phoneNum + ', ' + emailAdd + ', ' + streetAdd+ ', ' + cityName + ', ' + stateName + ', ' + zipNum + ', ' + birthday + ', ' + notes);
 	var jsonPayload = '{"userID" : "' + userId + '", "firstName" : "' + first + '", "lastName" : "' + last + '", "streetAddress" : "' + streetAdd + '", "city" : "' + cityName + '", "state" : "' + stateName + '", "zip" : "' + zipNum + '", "phone" : "' + phoneNum + '", "email" : "' + emailAdd + '", "birthday" : "' + birthday + '", "notes" : "' + notes + '"}';
-	
+
 	var url = urlBase + '/AddContactSanitized.' + extension;
 
 	var xhr = new XMLHttpRequest();
@@ -160,8 +160,8 @@ function register()
 	var regFirstName = document.getElementById("reg_firstname").value;
 	var regLastName = document.getElementById("reg_lastname").value;
 	var regUsername = document.getElementById("reg_username").value;
-	var regPassword = document.getElementById("reg_password").value;
-	var regPasswordConfirm = document.getElementById("reg_password_confirm").value;
+	var regPassword = md5(document.getElementById("reg_password").value);
+	var regPasswordConfirm = md(document.getElementById("reg_password_confirm").value);
 	document.getElementById("registerResult").innerHTML = "";
 
 
