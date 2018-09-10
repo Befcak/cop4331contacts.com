@@ -58,13 +58,10 @@
 
 			$stmt->execute();
 			//$result = $stmt->get_result();
-
-			if($result = $conn->query($sql) != TRUE)
-			{
-				returnWithError( $conn->error );
-				//returnWithError($sql);
-			}
-			//$conn->close();
+		}
+		else
+		{
+			returnWithError($conn->error);
 		}
 
 		$conn->close();
@@ -85,5 +82,4 @@
 		$retValue = '{"error":"' . $err . '"}';
 		sendResultInfoAsJson( $retValue );
 	}
-	
 ?>
