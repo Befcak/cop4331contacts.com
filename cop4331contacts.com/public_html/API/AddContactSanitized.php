@@ -59,7 +59,7 @@
 			$stmt->execute();
 			$result = $stmt->get_result();
 
-			if( $result = $conn->query($sql) != TRUE )
+			if( $result != TRUE )
 			{
 				//returnWithError( $conn->error );
 				returnWithError($sql);
