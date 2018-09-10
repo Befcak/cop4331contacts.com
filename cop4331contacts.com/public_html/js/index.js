@@ -181,7 +181,7 @@ function register()
 
 
 	var jsonPayload = '{"firstName" : "' + regFirstName + '", "lastName" : "' + regLastName + '", "login" : "' + regUsername
-	+ '", "password" : + "' + regPassword +'"}';
+	+ '", "password" : "' + regPassword +'"}';
 	var url = urlBase + '/Register.' + extension;
 
 	var xhr = new XMLHttpRequest();
