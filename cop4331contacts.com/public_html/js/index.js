@@ -27,7 +27,7 @@ function doLogin()
 		xhr.send(jsonPayload);
 
 		var jsonObject = JSON.parse( xhr.responseText );
- 
+
 		userId = jsonObject.userID;
 
 		if( userId < 1 || userId == 'undefined' || userId == null)
@@ -87,10 +87,12 @@ function makeContact()
 {
 	var first = document.getElementById("firstN").value;
 	var last = document.getElementById("lastN").value;
+	//this needs to only have numbers or it doesn't work
 	var phoneNum = document.getElementById("phone").value;
 	var emailAdd = document.getElementById("email").value;
 	var streetAdd = document.getElementById("streetAddress").value;
 	var cityName = document.getElementById("city").value;
+	// this needs to only hold 2 letters or it doesn't work
 	var stateName = document.getElementById("state").value;
 	var zipNum = document.getElementById("zip").value;
 	var birthday = document.getElementById("birth").value;
