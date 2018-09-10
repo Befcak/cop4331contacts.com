@@ -61,8 +61,8 @@
 
 			if($result != true)
 			{
-				//returnWithError( $conn->error );
-				returnWithError($sql);
+				returnWithError( $conn->error );
+				//returnWithError($sql);
 			}
 			//$conn->close();
 		}
