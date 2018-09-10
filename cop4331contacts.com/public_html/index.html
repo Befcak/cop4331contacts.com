@@ -156,8 +156,8 @@
         <div class="card">
         <h1>Info Display</h1>
 			<table id="contactTable" >
-				
-			
+
+
 			</table>
         </div>
       </div>
@@ -171,19 +171,19 @@
       <h1>Contact Adder</h1>
       <form id="builder">
         <div class="row">
-          <div class="col-6"><input class="form-control mr-sm-2" type="text" id="firstN" placeholder="First Name"></div>
-          <div class="col-6"><input class="form-control mr-sm-2"type="text" id="lastN" placeholder="Last Name"></div>
+          <div class="col-6"><input class="form-control mr-sm-2" type="text" id="firstN" name="firstName" placeholder="First Name"></div>
+          <div class="col-6"><input class="form-control mr-sm-2"type="text" id="lastN" name="lastName" placeholder="Last Name"></div>
         </div><br>
-        <div><input class="form-control mr-sm-2"type="text" id="phone" placeholder="Phone"></div><br>
-        <div><input class="form-control mr-sm-2"type="text" id="email" placeholder="Email"></div><br>
-        <div><input class="form-control mr-sm-2"type="text" id="streetAddress" placeholder="Street Address"></div><br>
+        <div><input class="form-control mr-sm-2"type="text" id="phone" name="email" placeholder="Phone"></div><br>
+        <div><input class="form-control mr-sm-2"type="text" id="email" name="phone" placeholder="Email"></div><br>
+        <div><input class="form-control mr-sm-2"type="text" id="streetAddress" name="streetAddress" placeholder="Street Address"></div><br>
         <div class="row">
-          <div class="col-4"><input class="form-control mr-sm-2" type="text" id="city" placeholder="City"></div>
-          <div class="col-4"><input class="form-control mr-sm-2" type="text" id="state" placeholder="State"></div>
-          <div class="col-4"><input class="form-control mr-sm-2" type="text" id="zip" placeholder="ZIP"></div>
+          <div class="col-4"><input class="form-control mr-sm-2" type="text" id="city" name="city" placeholder="City"></div>
+          <div class="col-4"><input class="form-control mr-sm-2" type="text" id="state" name="state" placeholder="State"></div>
+          <div class="col-4"><input class="form-control mr-sm-2" type="text" id="zip" name="zip" placeholder="ZIP"></div>
         </div><br>
-        <div><input class="form-control mr-sm-2" type="date" id="birth" placeholder="Birthday"></div><br>
-        <div><input class="form-control mr-sm-2" type="text" id="note" placeholder="Notes"></div><br>
+        <div><input class="form-control mr-sm-2" type="date" id="birth" name="birthday" placeholder="Birthday"></div><br>
+        <div><input class="form-control mr-sm-2" type="text" id="note" name="notes" placeholder="Notes"></div><br>
 
         <span onclick="makeContact()" class="btn btn-success my-2 my-sm-0" id="newContact">Create</span>
 

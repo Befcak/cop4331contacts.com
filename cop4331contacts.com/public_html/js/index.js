@@ -27,7 +27,7 @@ function doLogin()
 		xhr.send(jsonPayload);
 
 		var jsonObject = JSON.parse( xhr.responseText );
-
+ 
 		userId = jsonObject.userID;
 
 		if( userId < 1 || userId == 'undefined' || userId == null)
