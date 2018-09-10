@@ -54,8 +54,6 @@
 
                     <button type="button" id="loginButton" class="buttons" onclick="doLogin()">Login</button>
 	                  <span id="loginResult"></span>
-                    <p id="hiddenMessage" style="display:none">For testing</p>
-
 
                   <div class="form-group login-group-checkbox">
                     <input type="checkbox" id="lg_remember" name="lg_remember">
@@ -106,11 +104,6 @@
             						<input type="password" class="form-control" id="reg_password_confirm" name="reg_password_confirm" placeholder="confirm password">
             					</div><br/>
 
-                      <!-- <div class="form-group">
-            						<label for="reg_email" class="sr-only">Email</label>
-            						<input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="email">
-            					</div> -->
-
                       <button type="button" id="registerButton" class="buttons" onclick="register();"> Register </button>
                       <span id="registerResult"></span>
                     </div>
@@ -147,10 +140,11 @@
         <select id="contactsList" style="display:none; visibility:hidden;">
           <!-- <option value="volvo">Volvo</option> -->
         </select><br /><br />
-
-        <input type="text" id="contactText" placeholder="Contact To Add">
+        <p>
+        <span class="glyphicon glyphicon-plus"></span>
         <button type="button" id="addContactButton" class="buttons" onclick="addContact()"> Add Contact </button><br />
         <span id="contactAddResult"></span>
+      </p>
         </div>
       </p>
         <div class="card">
