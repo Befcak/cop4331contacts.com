@@ -17,7 +17,7 @@
 		{
 			$stmt->bind_param('isssssiisss', $userID, $firstName, $lastName, $streetAddress, $city, $state, $zip, $phone, $email, $birthday, $notes);
 
-			$userId = $inData["userId"];
+			$userID = $inData["userId"];
 			$firstName = $inData["firstName"];
 			$lastName = $inData["lastName"];
 			$streetAddress = $inData["streetAddress"];
