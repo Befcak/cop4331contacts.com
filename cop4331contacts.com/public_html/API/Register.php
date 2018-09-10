@@ -22,7 +22,7 @@ INSERT INTO USERS (firstName, lastName, login, password) VALUES ('<firstName>', 
 		/*Need to check duplicate users?*/
 		/*firstName, lastName, and login are weakpoints that could be be SQL injected assumming password is hashed*/
 		/*$sql = "INSERT INTO users (firstName, lastName, login, password) VALUES ('".$inData["firstName"]."', '".$inData["lastName"]."', '".$inData["login"]."', '".$inData["password"]."');";*/
-		$sql = "INSERT INTO USERS (firstName, lastName, login, password) VALUES (?, ?, ?, ?)";
+		$sql = "INSERT INTO users (firstName, lastName, login, password) VALUES (?, ?, ?, ?)";
 		if($stmt = $conn->prepare($sql))
 		{
 			/*creates the prepared statement*/
