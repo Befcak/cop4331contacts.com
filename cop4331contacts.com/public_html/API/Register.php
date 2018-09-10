@@ -29,15 +29,18 @@ INSERT INTO USERS (firstName, lastName, login, password) VALUES ('<firstName>', 
 			$stmt->bind_param('ssss', $inData["firstName"], $inData["lastName"], $inData["login"], $inData["password"]);/*Binds params to markers*/
 			
 			$stmt->execute();
-			$result	= $stmt->get_result();
+			/*$result	= $stmt->get_result();
 			
 			
 			if( $result != TRUE )
 			{
 				returnWithError( $conn->error );
-			}
+			}*/
 		}
-		
+		else
+		{
+			returnWithError( $conn->error );
+		}
 		
 			
 			
@@ -65,6 +68,5 @@ INSERT INTO USERS (firstName, lastName, login, password) VALUES ('<firstName>', 
 	{
 		$retValue = '{"error":"' . $err . '"}';
 		sendResultInfoAsJson( $retValue );
-	}
-	
+	}	
 ?>
