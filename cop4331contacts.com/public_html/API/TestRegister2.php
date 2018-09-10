@@ -17,8 +17,14 @@ INSERT INTO USERS (firstName, lastName, login, password) VALUES ('<firstName>', 
 		/*firstName, lastName, and login are weakpoints that could be be SQL injected assumming password is hashed*/
 		/*$sql = "INSERT INTO users (firstName, lastName, login, password) VALUES ('".$inData["firstName"]."', '".$inData["lastName"]."', '".$inData["login"]."', '".$inData["password"]."');";*/
 		$sql = "INSERT INTO USERS (firstName, lastName, login, password) VALUES (?, ?, ?, ?)";
+
+		echo "echo1";
+
 		if($stmt = $conn->prepare($sql))
 		{
+
+			echo "echo2";
+
 			/*creates the prepared statement*/
 			$stmt->bind_param('ssss', $firstName, $lastName, $login, $password);/*Binds params to markers*/
 
@@ -35,14 +41,16 @@ INSERT INTO USERS (firstName, lastName, login, password) VALUES ('<firstName>', 
 			$stmt->execute();
 			$result	= $stmt->get_result();
 			
-			echo $sql;
-			
+			echo "echo3";
+
 			if( $result != TRUE )
 			{
 				//returnWithError( $conn->error );
 				returnWithError( $sql);
 			}
 		}
+		echo "echo4";
+		echo $sql;
 
 		$conn->close();
 	}
