@@ -17,7 +17,9 @@ INSERT INTO USERS (firstName, lastName, login, password) VALUES ('<firstName>', 
 		/*firstName, lastName, and login are weakpoints that could be be SQL injected assumming password is hashed*/
 		/*$sql = "INSERT INTO users (firstName, lastName, login, password) VALUES ('".$inData["firstName"]."', '".$inData["lastName"]."', '".$inData["login"]."', '".$inData["password"]."');";*/
 		$sql = "INSERT INTO USERS (firstName, lastName, login, password) VALUES (?, ?, ?, ?)";
-		$stmt = $conn->prepare($sql)
+
+		echo "echo0";
+		$stmt = $conn->prepare($sql);
 
 		echo "echo1";
 		if($stmt != false)
