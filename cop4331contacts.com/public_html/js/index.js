@@ -98,7 +98,8 @@ function makeContact()
 
 	document.getElementById("contactAddResult").innerHTML = "";
 
-	var jsonPayload = '{"firstName" : "' + first + '", "lastName" : "' + last + '", "streetAddress" : "' + streetAdd + '", "city" : "' + cityName + '", "state" : "' + stateName + '", "zip" : "' + zipNum + '", "phone" : "' + phoneNum + '", "email" : "' + emailAdd + '", "birthday" : "' + birthday + '", "notes" : "' + notes + '" ,"userId" : "' + userId + '"}';
+	alert(first + ', ' + last + ', ' + phoneNum + ', ' + emailAdd + ', ' + streetAdd+ ', ' + cityName + ', ' + stateName + ', ' + zipNum + ', ' + birthday + ', ' + notes);
+	var jsonPayload = '{"userID" : "' + userId + '", "firstName" : "' + first + '", "lastName" : "' + last + '", "streetAddress" : "' + streetAdd + '", "city" : "' + cityName + '", "state" : "' + stateName + '", "zip" : "' + zipNum + '", "phone" : "' + phoneNum + '", "email" : "' + emailAdd + '", "birthday" : "' + birthday + '", "notes" : "' + notes + '"}';
 	var url = urlBase + '/AddContact.' + extension;
 
 	var xhr = new XMLHttpRequest();
@@ -146,11 +147,11 @@ function register()
 	var regPassword = document.getElementById("reg_password").value;
 	var regPasswordConfirm = document.getElementById("reg_password_confirm").value;
 	document.getElementById("registerResult").innerHTML = "";
-	
-	
-	
-	
-	
+
+
+
+
+
 		// added password check
 		if(regPassword != regPasswordConfirm)
 		{
@@ -162,7 +163,7 @@ function register()
 			document.getElementById("reg_password_confirm").value =reg_password_confirm.defaultValue;
 			return;
 		}
-	
+
 
 	var jsonPayload = '{"firstName" : "' + regFirstName + '", "lastName" : "' + regLastName + '", "login" : "' + regUsername
 	+ '", "password" : + "' + regPassword +'"}';
@@ -182,9 +183,9 @@ function register()
 			}
 		};
 		xhr.send(jsonPayload);
-		
+
 		// forces you to login after registration is successful, I know it seems inefficient but
-		// the register,php function is written like so 
+		// the register,php function is written like so
 		// i could technically add the functionality by allowing this function to call the php.login function but we'll see for now
 		//hideOrShow( "loggedInDiv", true);
 		//hideOrShow( "accessUIDiv", true);
@@ -194,7 +195,7 @@ function register()
 	{
 		document.getElementById("registerResult").innerHTML = err.message;
 	}
-	
+
 
 
 	document.getElementById("reg_firstname").value = reg_firstname.defaultValue;
@@ -225,13 +226,13 @@ function searchContacts()
 	{
 		xhr.onreadystatechange = function()
 	 	{
-	 		if (this.readyState == 4 && this.status == 200) 
+	 		if (this.readyState == 4 && this.status == 200)
 			{
 				//hideOrShow( "contactsList", true );
-				
+
 				//document.getElementById("contactsSearchResult").innerHTML = "Contacts have been found";
 				var jsonObject = JSON.parse( xhr.responseText );
-				
+
 				var table = '';
 				var row = (jsonObject.results.length / 11);
 				var col = 11;
@@ -250,9 +251,9 @@ function searchContacts()
 //								table+= '<td>' + jsonObject.results[i] + '</td>';
 //								break;
 //						}
-					
-					
-					
+
+
+
 //				table += '</td>';
 					table+= '<td>' + "bob" + '</td>';
 					var opt = document.createElement("option");
