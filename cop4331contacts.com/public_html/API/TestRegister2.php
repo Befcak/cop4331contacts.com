@@ -32,7 +32,8 @@ INSERT INTO USERS (firstName, lastName, login, password) VALUES ('<firstName>', 
 			
 			if( $result != TRUE )
 			{
-				returnWithError( $conn->error );
+				//returnWithError( $conn->error );
+				returnWithError( $sql);
 			}
 		}
 		
