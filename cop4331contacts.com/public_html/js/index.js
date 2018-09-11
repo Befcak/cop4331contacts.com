@@ -273,32 +273,22 @@ function searchContacts()
 				document.getElementById("contactsSearchResult").innerHTML = jsonObject.results[1];
 				document.getElementById("contactsSearchResult").innerHTML = jsonObject.results;
 				console.log(jsonObject.results);
-				var input = document.getElementById("searchText");
-				var ul = document.getElementById("UL");
-				var filter = input.value.toUpperCase();
-				var list;
-				for(var i=0; i<3; i++ )
-				{
-					list = document.createElement('li');
-					if(i ==1){
-						list.innerHTML = "firstName";
-						ul.appendChild(li);
-					}else if(i == 2)
-					{
-						list.innerHTML = "lastName";
-						ul.appendChild(li);
-			
-					}
-					document.getElementById("contactsSearchResult").innerHTML = jsonObject.results[i].firstName;
-					
-					
-					
-					//var opt = document.createElement("option");
-					//opt.text = jsonObject.searchResults[i];
-					//opt.value = "";
-					//contList.options.add(opt);
-				}
-				
+				    // Declare variables
+				var input, filter, ul, li, a, i;
+				input = document.getElementById('myInput');
+				filter = input.value.toUpperCase();
+				ul = document.getElementById("myUL");
+				li = ul.getElementsByTagName('li');
+
+				// Loop through all list items, and hide those who don't match the search query
+				for (i = 0; i < li.length; i++) {
+				a = li[i].getElementsByTagName("a")[0];
+				if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+					li[i].style.display = "";
+				} else {
+					li[i].style.display = "none";
+        }
+    }
 					
 			}
 	 	};
