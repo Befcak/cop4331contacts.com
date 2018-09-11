@@ -291,7 +291,7 @@ function searchContacts()
 				console.log(jsonObject.results);
 				
 				var tempArray = ["test1", "test2", "test3"];
-				var tempList = "";
+				var tempList = " ";
 				
 				var ul = document.getElementById('myUL');
 				var input = document.getElementById("myInput");
