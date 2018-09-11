@@ -2,8 +2,8 @@
 	//TO DO: Link to front end (JavaScript) via getRequestInfo()
 	$inData = getRequestInfo();
 	
-	$userID = $inData["userID"];
-	$contactID = $inData["contactID"];
+	$userID = $inData["userId"];
+	$contactID = $inData["contactId"];
 
 	$conn = new mysqli("localhost", "root", "orlando", "contactBook");
 
