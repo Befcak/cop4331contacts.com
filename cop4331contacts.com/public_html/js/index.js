@@ -269,6 +269,7 @@ function searchContacts()
 				var jsonObject = JSON.parse( xhr.responseText );
 				var firstName = 
 				document.getElementById("contactsSearchResult").innerHTML = jsonObject.searchResults[0];
+				console.log(jsonObject.searchResults);
 				var input = document.getElementById("searchText");
 				var ul = document.getElementById("UL");
 				var filter = input.value.toUpperCase();
