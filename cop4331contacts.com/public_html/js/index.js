@@ -282,42 +282,40 @@ function searchContacts()
 	 		if (this.readyState == 4 && this.status == 200)
 			{
 				//hideOrShow( "contactsList", true );
-
-				//document.getElementById("contactsSearchResult").innerHTML = "Contacts have been found";
+				//var jsonObject = JSON.parse( xhr.responseText );
+				document.getElementById("contactsSearchResult").innerHTML = "Names should be below";
 				var jsonObject = JSON.parse( xhr.responseText );
-
-				var table = '';
-				var row = (jsonObject.results.length / 11);
-				var col = 11;
-				//if(row > 0)
-				//{
-					table += '<tr>';
-					for(var i=0; i<jsonObject.results.length; i++ )
+				document.getElementById("contactsSearchResult").innerHTML = jsonObject.result[1];
+				document.getElementById("contactsSearchResult").innerHTML = jsonObject.results[1];
+				document.getElementById("contactsSearchResult").innerHTML = jsonObject.results;
+				console.log(jsonObject.results);
+				var input = document.getElementById("searchText");
+				var ul = document.getElementById("UL");
+				var filter = input.value.toUpperCase();
+				var list;
+				for(var i=0; i<3; i++ )
+				{
+					list = document.createElement('li');
+					if(i ==1){
+						list.innerHTML = "firstName";
+						ul.appendChild(li);
+					}else if(i == 2)
 					{
-//						table += '<td>';
-//						switch(jsonObject.results.length mod 11)
-//						{
-//							case 1:
-//								table+= '<td>' + jsonObject.results[i] + '</td>';
-//								break;
-//							case 2:
-//								table+= '<td>' + jsonObject.results[i] + '</td>';
-//								break;
-//						}
-
-
-
-//				table += '</td>';
-					table+= '<td>' + "bob" + '</td>';
-					var opt = document.createElement("option");
-					opt.text = jsonObject.results[i];
-					opt.value = "";
-					contList.options.add(opt);
+						list.innerHTML = "lastName";
+						ul.appendChild(li);
+			
 					}
-					table += '</tr>';
-				//}
-				//contList = document.write('<table>'+ table +'</table>');
-				document.getElementById("contactTable").innerHTML = table;
+					document.getElementById("contactsSearchResult").innerHTML = jsonObject.results[i].firstName;
+					
+					
+					
+					//var opt = document.createElement("option");
+					//opt.text = jsonObject.searchResults[i];
+					//opt.value = "";
+					//contList.options.add(opt);
+				}
+				
+					
 			}
 	 	};
 	 	xhr.send(jsonPayload);
