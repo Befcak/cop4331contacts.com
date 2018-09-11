@@ -27,10 +27,12 @@ function doLogin()
 		}
 
 		if(password[i] === ';' || password[i] === '/' || password[i] === '-')
+		{
 			alert("There are illegal characters in your password.");
 			document.getElementById("loginName").value = loginName.defaultValue;
 			document.getElementById("loginPassword").value =loginPassword.defaultValue;
 			return;
+		}
 	}
 
 	document.getElementById("loginResult").innerHTML = "";
