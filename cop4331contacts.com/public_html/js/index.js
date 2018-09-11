@@ -267,7 +267,7 @@ function searchContacts()
 			{
 				//hideOrShow( "contactsList", true );
 
-				document.getElementById("contactsSearchResult").innerHTML = jsonObject.searchResults[1].firstName;
+				document.getElementById("contactsSearchResult").innerHTML = "This is a test.";
 				var jsonObject = JSON.parse( xhr.responseText );
 				var input = document.getElementById("searchText");
 				var ul = document.getElementById("UL");
