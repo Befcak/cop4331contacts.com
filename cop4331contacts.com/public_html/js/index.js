@@ -265,18 +265,18 @@ function searchContacts()
 	 	{
 	 		if (this.readyState == 4 && this.status == 200)
 			{
-				//hideOrShow( "contactsList", true );
+				hideOrShow( "contactsList", true );
 
-				//document.getElementById("contactsSearchResult").innerHTML = "Contacts have been found";
+				document.getElementById("contactsSearchResult").innerHTML = "Contacts have been found";
 				var jsonObject = JSON.parse( xhr.responseText );
 
 				var table = '';
-				var row = (jsonObject.results.length / 11);
+				var row = (jsonObject.searchResults.length / 11);
 				var col = 11;
 				//if(row > 0)
 				//{
 					table += '<tr>';
-					for(var i=0; i<jsonObject.results.length; i++ )
+					for(var i=0; i<jsonObject.searchResults.length; i++ )
 					{
 //						table += '<td>';
 //						switch(jsonObject.results.length mod 11)
@@ -292,16 +292,16 @@ function searchContacts()
 
 
 //				table += '</td>';
-					table+= '<td>' + "bob" + '</td>';
+					//table+= '<td>' + "bob" + '</td>';
 					var opt = document.createElement("option");
-					opt.text = jsonObject.results[i];
+					opt.text = jsonObject.searchResults[i];
 					opt.value = "";
 					contList.options.add(opt);
 					}
-					table += '</tr>';
+					//table += '</tr>';
 				//}
 				//contList = document.write('<table>'+ table +'</table>');
-				document.getElementById("contactTable").innerHTML = table;
+				//document.getElementById("contactTable").innerHTML = table;
 			}
 	 	};
 	 	xhr.send(jsonPayload);
