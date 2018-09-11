@@ -286,7 +286,7 @@ function searchContacts()
 				//		ul.appendChild(li);
 			
 				//	}
-					document.getElementById("contactsSearchResult").innerHTML = jsonObject.results[i];
+					document.getElementById("contactsSearchResult").innerHTML = jsonObject.results[i].firstName;
 					
 					
 					
