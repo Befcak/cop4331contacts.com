@@ -172,6 +172,15 @@ function makeContact()
 	document.getElementById('myModal').style.display = 'none';
 }
 
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 // added register function
 // works similarly to a mix of the addcolor function and the login function
 // currently follows the parameters set in the html file but can be later changed to match the php file idk
