@@ -267,25 +267,25 @@ function searchContacts()
 			{
 				//hideOrShow( "contactsList", true );
 				var jsonObject = JSON.parse( xhr.responseText );
-				document.getElementById("contactsSearchResult").innerHTML = jsonObject.results[1];
+				document.getElementById("contactsSearchResult").innerHTML = "Names should be below";
 				console.log(jsonObject.results);
 				var input = document.getElementById("searchText");
 				var ul = document.getElementById("UL");
 				var filter = input.value.toUpperCase();
 				var list;
-				for(var i=0; i<jsonObject.searchResults.length; i++ )
+				for(var i=0; i<jsonObject.results.length; i++ )
 				{
-					list = document.createElement('li');
-					if(i ==1){
-					list.innerHTML = jsonObject.searchResults[1];
-					ul.appendChild(li);
-					}else if(i == 2)
-					{
-					list.innerHTML = jsonObject.searchResults[2];
-					ul.appendChild(li);
-						
-					}
-					
+				//	list = document.createElement('li');
+				//	if(i ==1){
+				//		list.innerHTML = jsonObject.searchResults[1];
+				//		ul.appendChild(li);
+				//	}else if(i == 2)
+				//	{
+				//		list.innerHTML = jsonObject.searchResults[2];
+				//		ul.appendChild(li);
+			
+				//	}
+					document.getElementById("contactsSearchResult").innerHTML = jsonObject.results[i];
 					
 					
 					
