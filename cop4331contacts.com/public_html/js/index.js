@@ -22,12 +22,14 @@ function doLogin()
 		{
 			alert("There are illegal characters in your login");
 			document.getElementById("loginName").value = loginName.defaultValue;
+			document.getElementById("loginPassword").value =loginPassword.defaultValue;
 			return;
 		}
 
 		if(password[i] === ';' || password[i] === '/' || password[i] === '-')
 			alert("There are illegal characters in your password.");
-						document.getElementById("loginPassword").value =loginPassword.defaultValue;
+			document.getElementById("loginName").value = loginName.defaultValue;
+			document.getElementById("loginPassword").value =loginPassword.defaultValue;
 			return;
 	}
 
