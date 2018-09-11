@@ -299,7 +299,7 @@ function searchContacts()
 				
 				for(var i = 0; i < tempArray.length; i++)
 				{
-					tempList += "<li>"+tempArray[i]+"</li>";
+					tempList += "<li><a>"+tempArray[i]+"</a></li>";
 				}
 				ul.innerHTML = tempList;
 				
