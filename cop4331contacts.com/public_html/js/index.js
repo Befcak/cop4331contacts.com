@@ -7,72 +7,72 @@ var lastName = "";
 
 function doLogin()
 {
-	userId = 0;
-	firstName = "";
-	lastName = "";
-
-	var login = document.getElementById("loginName").value;
-	var password = md5(document.getElementById("loginPassword").value);
-
-	// sanitizing the login and Password
-	var i;
-	for(i = 0; i < login.length; i++)
-	{
-		if(login[i] === ';' || login[i] === '/' || login[i] === '-' || login[i] == ')' || login[i]=='(')
-		{
-			alert("There are illegal characters in your login");
-			document.getElementById("loginName").value = loginName.defaultValue;
-			document.getElementById("loginPassword").value =loginPassword.defaultValue;
-			return;
-		}
-
-		if(password[i] === ';' || password[i] === '/' || password[i] === '-'|| password[i] == ')' || password[i]=='(')
-		{
-			alert("There are illegal characters in your password.");
-			document.getElementById("loginName").value = loginName.defaultValue;
-			document.getElementById("loginPassword").value =loginPassword.defaultValue;
-			return;
-		}
-	}
-
-	document.getElementById("loginResult").innerHTML = "";
-
-	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
-	var url = urlBase + '/Login.' + extension;
-
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST", url, false);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	try
-	{
-		xhr.send(jsonPayload);
-
-		var jsonObject = JSON.parse( xhr.responseText );
-
-		userId = jsonObject.userID;
-
-		if( userId < 1 || userId == 'undefined' || userId == null)
-		{
-			document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
-			return;
-		}
-
-		firstName = jsonObject.firstName;
-		lastName = jsonObject.lastName;
-
-		document.getElementById("userName").innerHTML = firstName + " " + lastName;
-
-		document.getElementById("loginName").value = loginName.defaultValue;
-		document.getElementById("loginPassword").value =loginPassword.defaultValue;
+	// userId = 0;
+	// firstName = "";
+	// lastName = "";
+	//
+	// var login = document.getElementById("loginName").value;
+	// var password = md5(document.getElementById("loginPassword").value);
+	//
+	// // sanitizing the login and Password
+	// var i;
+	// for(i = 0; i < login.length; i++)
+	// {
+	// 	if(login[i] === ';' || login[i] === '/' || login[i] === '-' || login[i] == ')' || login[i]=='(')
+	// 	{
+	// 		alert("There are illegal characters in your login");
+	// 		document.getElementById("loginName").value = loginName.defaultValue;
+	// 		document.getElementById("loginPassword").value =loginPassword.defaultValue;
+	// 		return;
+	// 	}
+	//
+	// 	if(password[i] === ';' || password[i] === '/' || password[i] === '-'|| password[i] == ')' || password[i]=='(')
+	// 	{
+	// 		alert("There are illegal characters in your password.");
+	// 		document.getElementById("loginName").value = loginName.defaultValue;
+	// 		document.getElementById("loginPassword").value =loginPassword.defaultValue;
+	// 		return;
+	// 	}
+	// }
+	//
+	// document.getElementById("loginResult").innerHTML = "";
+	//
+	// var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
+	// var url = urlBase + '/Login.' + extension;
+	//
+	// var xhr = new XMLHttpRequest();
+	// xhr.open("POST", url, false);
+	// xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	// try
+	// {
+	// 	xhr.send(jsonPayload);
+	//
+	// 	var jsonObject = JSON.parse( xhr.responseText );
+	//
+	// 	userId = jsonObject.userID;
+	//
+	// 	if( userId < 1 || userId == 'undefined' || userId == null)
+	// 	{
+	// 		document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
+	// 		return;
+	// 	}
+	//
+	// 	firstName = jsonObject.firstName;
+	// 	lastName = jsonObject.lastName;
+	//
+	// 	document.getElementById("userName").innerHTML = firstName + " " + lastName;
+	//
+	// 	document.getElementById("loginName").value = loginName.defaultValue;
+	// 	document.getElementById("loginPassword").value =loginPassword.defaultValue;
 
 		hideOrShow( "loggedInDiv", true);
 		hideOrShow( "accessUIDiv", true);
 		hideOrShow( "loginDiv", false);
-	}
-	catch(err)
-	{
-		document.getElementById("loginResult").innerHTML = err.message;
-	}
+	// }
+	// catch(err)
+	// {
+	// 	document.getElementById("loginResult").innerHTML = err.message;
+	// }
 }
 
 function doLogout()
@@ -119,6 +119,7 @@ function makeContact()
 	var birthday = "" ;
 	var notes = "";
 
+	var li = document.createElement("li");
 	first = document.getElementById("firstN").value;
 	last = document.getElementById("lastN").value;
 	//this needs to only have numbers or it doesn't work
@@ -158,6 +159,14 @@ function makeContact()
 		document.getElementById("contactAddResult").innerHTML = err.message;
 	}
 
+	var t = document.createTextNode(first +' '+ last);
+	li.appendChild(t);
+	if (first === '' || last === '') {
+		alert("You must write something!");
+	} else {
+		document.getElementById("myUL").appendChild(li);
+	}
+
 	document.getElementById('firstN').value = firstN.defaultValue;
 	document.getElementById('lastN').value = lastN.defaultValue;
 	document.getElementById('phone').value = phone.defaultValue;
@@ -169,7 +178,14 @@ function makeContact()
 	document.getElementById('birth').value = birth.defaultValue;
 	document.getElementById('note').value = note.defaultValue;
 
+	var span = document.createElement("SPAN");
+	var txt = document.createTextNode("\u00D7");
+
+	span.appendChild(txt);
+
 	document.getElementById('myModal').style.display = 'none';
+
+
 }
 
 // added register function

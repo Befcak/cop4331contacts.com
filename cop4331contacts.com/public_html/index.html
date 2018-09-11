@@ -138,11 +138,17 @@
         <input type="text" id="searchText" placeholder="Contact To Search For"/>
         <button type="button" id="searchContactsButton" class="buttons" onclick="searchContacts();"> Search Contacts </button><br />
         <span id="contactsSearchResult"></span>
-        <select id="contactsList" style="display:none; visibility:hidden;">
-          <!-- <option value="volvo">Volvo</option> -->
-        </select><br /><br />
+        <!-- <select id="contactsList" style="display:none; visibility:hidden;">
+        </select><br /> -->
         <p>
-        <span class="glyphicon glyphicon-plus"></span>
+          <div class="scrollbar scrollbar-primary">
+            <div class="force-overflow">
+              <ul class="list-group" id="myUL" style="list-style-type:none">
+
+              </ul>
+            </div>
+          </div>
+
         <button type="button" id="addContactButton" class="buttons" onclick="addContact()"> Add Contact </button><br />
         <span id="contactAddResult"></span>
       </p>
