@@ -297,8 +297,7 @@ function searchContacts()
 				var input = document.getElementById("myInput");
 				var li = document.createElement("li");
 				
-				for(int i = 0; i < tempArray.length; i++)
-				{
+				for(int i = 0; i < tempArray.length; i++){
 					tempList += "<li>"+tempArray[i]+"</li>";
 				}
 				ul.innerHTML = tempList;
