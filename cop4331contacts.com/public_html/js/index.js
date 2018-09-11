@@ -14,6 +14,17 @@ function doLogin()
 	var login = document.getElementById("loginName").value;
 	var password = md5(document.getElementById("loginPassword").value);
 
+	// sanitizing the login and Password
+	var i;
+	for(i = 0; i < login.length; i++)
+	{
+		if(login[i] === ';' || login[i] === '/' || login[i] === '-')
+			alert("There are illegal characters in your login");
+
+		if(password[i] === ';' || password[i] === '/' || password[i] === '-')
+			alert("There are illegal characters in your password.");
+	}
+
 	document.getElementById("loginResult").innerHTML = "";
 
 	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
