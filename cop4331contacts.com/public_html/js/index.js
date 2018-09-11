@@ -269,8 +269,8 @@ function searchContacts()
 				//var jsonObject = JSON.parse( xhr.responseText );
 				document.getElementById("contactsSearchResult").innerHTML = "Names should be below";
 				var jsonObject = JSON.parse( xhr.responseText );
-				document.getElementById("contactsSearchResult").innerHTML = jsonObject.result[1];
-				document.getElementById("contactsSearchResult").innerHTML = jsonObject.results[1];
+				document.getElementById("contactsSearchResult").innerHTML = jsonObject.searchResult[1];
+				document.getElementById("contactsSearchResult").innerHTML = jsonObject.searchResults[1];
 				document.getElementById("contactsSearchResult").innerHTML = jsonObject.results;
 				console.log(jsonObject.results);
 				var input = document.getElementById("searchText");
