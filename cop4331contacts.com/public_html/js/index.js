@@ -19,10 +19,16 @@ function doLogin()
 	for(i = 0; i < login.length; i++)
 	{
 		if(login[i] === ';' || login[i] === '/' || login[i] === '-')
+		{
 			alert("There are illegal characters in your login");
+			document.getElementById("loginName").value = loginName.defaultValue;
+			return;
+		}
 
 		if(password[i] === ';' || password[i] === '/' || password[i] === '-')
 			alert("There are illegal characters in your password.");
+						document.getElementById("loginPassword").value =loginPassword.defaultValue;
+			return;
 	}
 
 	document.getElementById("loginResult").innerHTML = "";
