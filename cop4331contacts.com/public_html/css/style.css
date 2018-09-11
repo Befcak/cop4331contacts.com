@@ -158,10 +158,10 @@ p {
  }
 /* The Close Button */
 .close {
-	
+
 	position: absolute;
     right: 25px;
-    top: 0; 
+    top: 0;
     color: #aaa;
     font-size: 28px;
     font-weight: bold;
@@ -181,4 +181,3 @@ p {
  #addContactButton {
    text-align: left;
  }
- 
