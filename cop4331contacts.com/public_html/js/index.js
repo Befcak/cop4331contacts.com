@@ -374,7 +374,7 @@ function deleteContact()
 
 
 	//var jsonPayload = '{"userId": "'+ testUserId +'","contactId" : "' + testContactId + '"}';
-
+	alert( userId + " " + lastIdClicked);
 	var jsonPayload = '{"userID": "'+ userId +'","contactID" : "' + lastIdClicked + '"}';
 	var url = urlBase + '/DeleteContactSanitized.' + extension;
 
