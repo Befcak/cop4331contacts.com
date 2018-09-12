@@ -398,6 +398,6 @@ function deleteContact()
 		document.getElementById("deleteContactResult").innerHTML = err.message;
 	}
 
-	searchContacts();
+	setTimeout(searchContacts, 500);
 
 }
