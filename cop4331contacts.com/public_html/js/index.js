@@ -263,71 +263,71 @@ function register()
 
 function searchContacts()
 {
-// 	while(myUL.hasChildNodes())
-// 	{
-// 		myUL.removeChild(myUL.childNodes[0]);
-// 	}
-// 	//SELECT * FROM contacts WHERE userID = "1" AND (firstName LIKE 'bob' OR lastName LIKE '' OR email LIKE '')
-// 	var srch = document.getElementById("searchText").value;
-// 	// document.getElementById("contactsSearchResult").innerHTML = "";
-//
-// //	var contList = document.getElementById("contactsList");
-// 	//contList.innerHTML = "";
-//
-// 	var jsonPayload = '{"userID": "'+ userId +'","search" : "' + srch + '"}';
-// 	var url = urlBase + '/SearchContactsSanitized.' + extension;
-//
-// 	var xhr = new XMLHttpRequest();
-// 	xhr.open("POST", url, true);
-// 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-// 	try
-// 	{
-// 		xhr.onreadystatechange = function()
-// 	 	{
-// 	 		if (this.readyState == 4 && this.status == 200)
-// 			{
-// 				//hideOrShow( "contactsList", true );
-//
-// 				//document.getElementById("contactsSearchResult").innerHTML = "Contact(s) has been retrieved";
-// 				var jsonObject = JSON.parse( xhr.responseText );
-//
-// 				var i, j;
-// 				for( i=0; i<jsonObject.results.length-6; i+=11)
-// 				{
-// 					var li = document.createElement("li");
-// 					var t = document.createTextNode(jsonObject.results[i+1] + " " + jsonObject.results[i+2]);
-// 					li.appendChild(t);
-// 					document.getElementById("myUL").appendChild(li);
-// 					var span = document.createElement("SPAN");
-// 					var txt = document.createTextNode("\u00D7");
-// 					li.id = jsonObject.results[i];
-// 					li.setAttribute('onclick', "displayInfo(this.id)");
-// 					span.appendChild(txt);
-//
-// 					var div = document.createElement("div");
-// 					div.id = ("div" + li.id);
-// 					div.style.visibility = "hidden";
-// 					// document.getElementById("infoCard").insertAdjacentHTML('beforeend', div);
-// 					document.getElementById("infoCard").appendChild(div);
-// 					div.class = "inner";
-// 					for(j = i+1; j <= i+10; j++)
-// 					{
-// 						var paragraph = "<p>"+jsonObject.results[j]+"</p>";
-// 						document.getElementById(div.id).insertAdjacentHTML('beforeend', paragraph);
-//
-// 					}
-//
-// 				}
-//
-//
-// 			}
-// 	 	};
-// 	 	xhr.send(jsonPayload);
-// 	}
-// 	catch(err)
-// 	{
-// 		//document.getElementById("contactsSearchResult").innerHTML = err.message;
-// 	}
+	while(myUL.hasChildNodes())
+	{
+		myUL.removeChild(myUL.childNodes[0]);
+	}
+	//SELECT * FROM contacts WHERE userID = "1" AND (firstName LIKE 'bob' OR lastName LIKE '' OR email LIKE '')
+	var srch = document.getElementById("searchText").value;
+	// document.getElementById("contactsSearchResult").innerHTML = "";
+
+//	var contList = document.getElementById("contactsList");
+	//contList.innerHTML = "";
+
+	var jsonPayload = '{"userID": "'+ userId +'","search" : "' + srch + '"}';
+	var url = urlBase + '/SearchContactsSanitized.' + extension;
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function()
+	 	{
+	 		if (this.readyState == 4 && this.status == 200)
+			{
+				//hideOrShow( "contactsList", true );
+
+				//document.getElementById("contactsSearchResult").innerHTML = "Contact(s) has been retrieved";
+				var jsonObject = JSON.parse( xhr.responseText );
+
+				var i, j;
+				for( i=0; i<jsonObject.results.length-6; i+=11)
+				{
+					var li = document.createElement("li");
+					var t = document.createTextNode(jsonObject.results[i+1] + " " + jsonObject.results[i+2]);
+					li.appendChild(t);
+					document.getElementById("myUL").appendChild(li);
+					var span = document.createElement("SPAN");
+					var txt = document.createTextNode("\u00D7");
+					li.id = jsonObject.results[i];
+					li.setAttribute('onclick', "displayInfo(this.id)");
+					span.appendChild(txt);
+
+					var div = document.createElement("div");
+					div.id = ("div" + li.id);
+					div.style.visibility = "hidden";
+					// document.getElementById("infoCard").insertAdjacentHTML('beforeend', div);
+					document.getElementById("infoCard").appendChild(div);
+					div.class = "inner";
+					for(j = i+1; j <= i+10; j++)
+					{
+						var paragraph = "<p>"+jsonObject.results[j]+"</p>";
+						document.getElementById(div.id).insertAdjacentHTML('beforeend', paragraph);
+
+					}
+
+				}
+
+
+			}
+	 	};
+	 	xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		//document.getElementById("contactsSearchResult").innerHTML = err.message;
+	}
 
 
 }
@@ -349,42 +349,42 @@ function deleteContact()
 {
 
 
-	var testContactId = 60;
-	var testUserId = 41;
-
-    if (confirm("Confirm Delete")) {
-       document.getElementById("deleteContactResult").innerHTML = "Contact has been deleted!";
-    } else {
-        return;
-    }
-
-
-
-	var jsonPayload = '{"userId": "'+ testUserId +'","contactId" : "' + testContactId + '"}';
-
-	//var jsonPayload = '{"userID": "'+ userId +'","contactID" : "' + lastIdClicked + '"}';
-	var url = urlBase + '/DeleteContactSanitized.' + extension;
-
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	try
-	{
-		xhr.onreadystatechange = function()
-	 	{
-	 		if (this.readyState == 4 && this.status == 200)
-			{
-
-				document.getElementById("deleteContactResult").innerHTML = "Contact has been deleted!";
-			}
-	 	};
-	 	xhr.send(jsonPayload);
-	}
-	catch(err)
-	{
-		document.getElementById("deleteContactResult").innerHTML = err.message;
-	}
-
-
+	// var testContactId = 60;
+	// var testUserId = 41;
+	//
+  //   if (confirm("Confirm Delete")) {
+  //      document.getElementById("deleteContactResult").innerHTML = "Contact has been deleted!";
+  //   } else {
+  //       return;
+  //   }
+	//
+	//
+	//
+	// var jsonPayload = '{"userId": "'+ testUserId +'","contactId" : "' + testContactId + '"}';
+	//
+	// //var jsonPayload = '{"userID": "'+ userId +'","contactID" : "' + lastIdClicked + '"}';
+	// var url = urlBase + '/DeleteContactSanitized.' + extension;
+	//
+	// var xhr = new XMLHttpRequest();
+	// xhr.open("POST", url, true);
+	// xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	// try
+	// {
+	// 	xhr.onreadystatechange = function()
+	//  	{
+	//  		if (this.readyState == 4 && this.status == 200)
+	// 		{
+	//
+	// 			document.getElementById("deleteContactResult").innerHTML = "Contact has been deleted!";
+	// 		}
+	//  	};
+	//  	xhr.send(jsonPayload);
+	// }
+	// catch(err)
+	// {
+	// 	document.getElementById("deleteContactResult").innerHTML = err.message;
+	// }
+	//
+	//
 
 }
