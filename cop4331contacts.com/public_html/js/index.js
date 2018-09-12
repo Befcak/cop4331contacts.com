@@ -274,10 +274,10 @@ function searchContacts()
 				var jsonObject = JSON.parse( xhr.responseText );
 
 				var i;
-				for( i=0; i<jsonObject.results.length; i++ )
+				for( i=1; i<jsonObject.results.length-12; i+=12)
 				{
 					var opt = document.createElement("option");
-					opt.text = jsonObject.results[i];
+					opt.text = jsonObject.results[i] + "," + jsonObject.results[i+1];
 					opt.value = "";
 					contactsList.options.add(opt);
 				}
