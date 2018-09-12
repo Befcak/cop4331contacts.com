@@ -309,9 +309,11 @@ function searchContacts()
 					div.style.visibility = "hidden";
 					// document.getElementById("infoCard").insertAdjacentHTML('beforeend', div);
 					document.getElementById("infoCard").appendChild(div);
+					div.class = inner;
 					for(j = i+1; j <= i+10; j++)
 					{
 						var paragraph = "<p>"+jsonObject.results[j]+"</p>";
+						document.getElementById(div.id).insertAdjacentHTML('beforeend', paragraph);
 
 					}
 
@@ -345,8 +347,8 @@ if(lastIdClicked >= 1){
 
 function deleteContact()
 {
-	
-	
+
+
 	var testContactId = 60;
 	var testUserId = 41;
     if (confirm("Confirm Delete")) {
@@ -354,10 +356,17 @@ function deleteContact()
     } else {
         return;
     }
+<<<<<<< HEAD
     
 	
 	var jsonPayload = '{"userId": "'+ testUserId +'","contactId" : "' + testContactId + '"}';
 	
+=======
+
+
+	var jsonPayload = '{"userID": "'+ testUserId +'","contactID" : "' + testContactId + '"}';
+
+>>>>>>> 5bc928872c51ed7c798e722a7b9e26cd0a618ebf
 	//var jsonPayload = '{"userID": "'+ userId +'","contactID" : "' + lastIdClicked + '"}';
 	var url = urlBase + '/DeleteContactSanitized.' + extension;
 
@@ -370,7 +379,7 @@ function deleteContact()
 	 	{
 	 		if (this.readyState == 4 && this.status == 200)
 			{
-				
+
 				document.getElementById("deleteContactResult").innerHTML = "Contact has been deleted!";
 			}
 	 	};
@@ -380,11 +389,7 @@ function deleteContact()
 	{
 		document.getElementById("deleteContactResult").innerHTML = err.message;
 	}
-	
-	
-	
+
+
+
 }
-
-
-
-
