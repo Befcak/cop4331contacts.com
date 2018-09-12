@@ -134,13 +134,13 @@
       <div class="row">
       <div class="card">
       <h1>Contacts</h1>
-      <input type="text" id="searchText" name="search" placeholder="Search for names..">
+      <!-- <input type="text" id="searchText" name="search" placeholder="Search for names..">
       <button type="button" id="searchContactsButton" class="buttons" onclick="searchContacts()"> Search Contacts </button><br />
       <span id="contactsSearchResult"></span>
       <select id="contactsList" style="display:none; visibility:hidden;">
-      </select><br />
+      </select><br /> -->
       <p>
-        <!-- <input type="text" id="searchText" onkeyup="searchContacts()" placeholder="Search Contacts"/>
+        <input type="text" id="searchText" onkeyup="searchContacts()" placeholder="Search Contacts"/>
         <button type="button" id="searchContactsButton" class="buttons" onclick="searchContacts()"> Search Contacts </button><br />
         <span id="contactsSearchResult"></span>
         <select id="contactsList" style="display:none; visibility:hidden;">
@@ -152,7 +152,7 @@
 
               </ul>
             </div>
-          </div> -->
+          </div>
 
         <button type="button" id="addContactButton" class="buttons" onclick="addContact()"> Add Contact </button><br />
         <span id="contactAddResult"></span>
@@ -161,7 +161,9 @@
       </p>
         <div class="card">
         <h1>Info Display</h1>
+          <div id="infoDis" style="display:none; visibility:hidden;">
 
+          </div>
 
 
         </div>
