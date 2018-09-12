@@ -316,5 +316,7 @@ function searchContacts()
 
 function displayInfo()
 {
-	alert("working");
+	document.getElementById("infoDis").style.display = "block";
+
+
 }
