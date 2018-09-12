@@ -312,7 +312,7 @@ function searchContacts()
 					{
 						var paragraph = "<p>"+jsonObject.results[j]+ " "+"</p>";
 						alert(paragraph);
-						document.getElementById(div.id).insertAdjacentHTML('beforeend', paragraph);
+					//	document.getElementById(div.id).insertAdjacentHTML('beforeend', paragraph);
 						alert(paragraph);
 					}
 
