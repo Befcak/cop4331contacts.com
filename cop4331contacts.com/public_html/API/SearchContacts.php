@@ -15,7 +15,7 @@
 	else
 	{
        
-        $sql = "SELECT * FROM contacts WHERE userID = ".$inData["userID"]." AND (firstName LIKE '%".$inData["search"]."%' 
+        $sql = "SELECT * FROM contacts WHERE userId = ".$inData["userID"]." AND (firstName LIKE '%".$inData["search"]."%' 
     		OR lastName LIKE '%".$inData["search"]."%' OR email LIKE '%".$inData["search"]."%')";
         	$result = $conn->query($sql);
 		
