@@ -260,14 +260,17 @@ function register()
 
 function searchContacts()
 {
-	var srch = document.getElementById("searchText").value;
-	document.getElementById("contactSearchResult").innerHTML = "";
+	//SELECT * FROM contacts WHERE userID = "1" AND (firstName LIKE 'bob' OR lastName LIKE '' OR email LIKE '')
 
-	var contactList = document.getElementById("contactList");
-	contactList.innerHTML = "";
+	// ID from the HTML.
+	var srch = document.getElementById("searchText").value;
+	document.getElementById("contactsSearchResult").innerHTML = "";
+
+	var contList = document.getElementById("contactsList");
+	contList.innerHTML = "";
 
 	var jsonPayload = '{"search" : "' + srch + '"}';
-	var url = urlBase + '/searchContactsSanitized.' + extension;
+	var url = urlBase + '/SearchContacts.' + extension;
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -275,28 +278,39 @@ function searchContacts()
 	try
 	{
 		xhr.onreadystatechange = function()
-		{
-			if (this.readyState == 4 && this.status == 200)
+	 	{
+	 		if (this.readyState == 4 && this.status == 200)
 			{
-				hideOrShow( "contactList", true );
-
-				document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
+				//hideOrShow( "contactsList", true );
+				//var jsonObject = JSON.parse( xhr.responseText );
+				document.getElementById("contactsSearchResult").innerHTML = "Names should be below";
 				var jsonObject = JSON.parse( xhr.responseText );
+				document.getElementById("contactsSearchResult").innerHTML = jsonObject.result[1];
+				document.getElementById("contactsSearchResult").innerHTML = jsonObject.results[1];
+				document.getElementById("contactsSearchResult").innerHTML = jsonObject.results;
+				console.log(jsonObject.results);
 
-				var i;
-				for( i=1; i<jsonObject.results.length; i+=12)
+				var tempArray = ["test1", "test2", "test3"];
+				var tempList = " ";
+
+				var ul = document.getElementById('myUL');
+				var input = document.getElementById("myInput");
+				var li = document.createElement("li");
+
+				for(var i = 0; i < tempArray.length; i++)
 				{
-					var opt = document.createElement("option");
-					opt.text = jsonObject.results[i] + ' ' + jsonObject.result[i];
-					opt.value = "";
-					contactList.options.add(opt);
+					tempList += "<li><a>"+tempArray[i]+"</a></li>";
 				}
+				ul.innerHTML = tempList;
+
+
+
 			}
-		};
-		xhr.send(jsonPayload);
+	 	};
+	 	xhr.send(jsonPayload);
 	}
 	catch(err)
 	{
-		document.getElementById("contactSearchResult").innerHTML = err.message;
+		document.getElementById("contactsSearchResult").innerHTML = err.message;
 	}
 }
