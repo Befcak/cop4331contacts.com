@@ -284,13 +284,12 @@ function searchContacts()
 				var jsonObject = (xhr.responseText);
 
 				var i;
-				for( i=1; i<jsonObject.results.length; i+=12)
+				for( i=0; i<jsonObject.results.length; i++)
 				{
 					var opt = document.createElement("option");
-					alert(jsonObject.results[i]);
-					// opt.text = jsonObject.results[i] + ' ' + jsonObject.results[i];
-					// opt.value = "";
-					// contactList.options.add(opt);
+					opt.text = jsonObject.results[i] + ' ' + jsonObject.results[i];
+					opt.value = "";
+					contactList.options.add(opt);
 				}
 			}
 		};
