@@ -324,20 +324,63 @@ function searchContacts()
 					// document.getElementById("infoDis").insertAdjacentHTML('beforeend', div);
 					document.getElementById("infoDis").appendChild(div);
 					div.class = "inner";
-					for(j = i+1; j <= i+10; j++)
+		//			for(j = i+1; j <= i+10; j++)
+		//			{
+		//				if (jsonObject.results[j] != "")
+		//				{
+		//					var paragraph = "<p>"+jsonObject.results[j]+"</p>";
+		//					document.getElementById(div.id).insertAdjacentHTML('beforeend', paragraph);
+		//				}
+		//				
+//
+//					}
+					
+				
+					var paragraph = "<p>Name: "+jsonObject.results[i+1]+" "+ jsonObject.results[i+2] + "</p>";
+					document.getElementById(div.id).insertAdjacentHTML('beforeend', paragraph);
+					
+		
+					if (jsonObject.results[i+3] != "")
 					{
-						if (jsonObject.results[j] != "")
-						{
-							var paragraph = "<p>"+jsonObject.results[j]+"</p>";
-							document.getElementById(div.id).insertAdjacentHTML('beforeend', paragraph);
-						}
-						
-
+						var paragraph = "<p>Address: "+jsonObject.results[i+3]+"</p>";
+						document.getElementById(div.id).insertAdjacentHTML('beforeend', paragraph);
 					}
-
+					if (jsonObject.results[i+4] != "")
+					{
+						var paragraph = "<p>City: "+jsonObject.results[i+4]+"</p>";
+						document.getElementById(div.id).insertAdjacentHTML('beforeend', paragraph);
+					}
+					if (jsonObject.results[i+5] != "")
+					{
+						var paragraph = "<p>State: "+jsonObject.results[i+5]+"</p>";
+						document.getElementById(div.id).insertAdjacentHTML('beforeend', paragraph);
+					}
+					if (jsonObject.results[i+6] != "")
+					{
+						var paragraph = "<p>Zip: "+jsonObject.results[i+6]+"</p>";
+						document.getElementById(div.id).insertAdjacentHTML('beforeend', paragraph);
+					}
+					if (jsonObject.results[i+7] != "")
+					{
+						var paragraph = "<p>Phone: "+jsonObject.results[i+7]+"</p>";
+						document.getElementById(div.id).insertAdjacentHTML('beforeend', paragraph);
+					}
+					if (jsonObject.results[i+8] != "")
+					{
+						var paragraph = "<p>Email: "+jsonObject.results[i+8]+"</p>";
+						document.getElementById(div.id).insertAdjacentHTML('beforeend', paragraph);
+					}
+					if (jsonObject.results[i+9] != "")
+					{
+						var paragraph = "<p>Birthday: "+jsonObject.results[i+9]+"</p>";
+						document.getElementById(div.id).insertAdjacentHTML('beforeend', paragraph);
+					}
+					if (jsonObject.results[i+10] != "")
+					{
+						var paragraph = "<p>Notes: "+jsonObject.results[i+10]+"</p>";
+						document.getElementById(div.id).insertAdjacentHTML('beforeend', paragraph);
+					}	
 				}
-
-
 			}
 	 	};
 	 	xhr.send(jsonPayload);
