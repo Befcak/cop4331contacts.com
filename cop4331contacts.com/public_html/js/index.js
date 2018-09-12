@@ -126,13 +126,19 @@ function makeContact()
 	first = document.getElementById("firstN").value;
 	last = document.getElementById("lastN").value;
 	//this needs to only have numbers or it doesn't work
-	phoneNum = document.getElementById("phone").value;
+	if (phoneNum = document.getElementById("phone").value != "0")
+	{
+		phoneNum = document.getElementById("phone").value;
+	}
 	emailAdd = document.getElementById("email").value;
 	streetAdd = document.getElementById("streetAddress").value;
 	cityName = document.getElementById("city").value;
 	// this needs to only hold 2 letters or it doesn't work
 	stateName = document.getElementById("state").value;
-	zipNum = document.getElementById("zip").value;
+	if (zipNum = document.getElementById("zip").value != "0")
+	{
+		zipNum = document.getElementById("zip").value;
+	}
 	birthday = document.getElementById("birth").value;
 	notes = document.getElementById("note").value;
 
