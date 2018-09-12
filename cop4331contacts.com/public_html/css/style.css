@@ -189,8 +189,11 @@ p {
 }
 
 .btn-success {
-  background-image: linear-gradient(120deg, #fbc2eb 0%, #a6c1ee 100%);
+  background-color:##60a37d;
   border: white;
+  border-left-width: 20px;
+  border-style: solid;
+  border-right-width: 20px;
 }
 
 /* Include the padding and border in an element's total width and height */
