@@ -193,7 +193,8 @@ function makeContact()
 	span.appendChild(txt);
 
 	document.getElementById('myModal').style.display = 'none';
-
+	
+	searchContacts();
 
 }
 
@@ -396,6 +397,6 @@ function deleteContact()
 		document.getElementById("deleteContactResult").innerHTML = err.message;
 	}
 
-
+	searchContacts();
 
 }
