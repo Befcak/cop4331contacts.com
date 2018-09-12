@@ -264,7 +264,7 @@ function searchContacts()
 {
 	//SELECT * FROM contacts WHERE userID = "1" AND (firstName LIKE 'bob' OR lastName LIKE '' OR email LIKE '')
 	var srch = document.getElementById("searchText").value;
-	document.getElementById("contactsSearchResult").innerHTML = "";
+	// document.getElementById("contactsSearchResult").innerHTML = "";
 
 //	var contList = document.getElementById("contactsList");
 	//contList.innerHTML = "";
@@ -283,7 +283,7 @@ function searchContacts()
 			{
 				//hideOrShow( "contactsList", true );
 
-				document.getElementById("contactsSearchResult").innerHTML = "Contact(s) has been retrieved";
+				//document.getElementById("contactsSearchResult").innerHTML = "Contact(s) has been retrieved";
 				var jsonObject = JSON.parse( xhr.responseText );
 
 				var i;
@@ -304,7 +304,7 @@ function searchContacts()
 	}
 	catch(err)
 	{
-		document.getElementById("contactsSearchResult").innerHTML = err.message;
+		//document.getElementById("contactsSearchResult").innerHTML = err.message;
 	}
 
 
