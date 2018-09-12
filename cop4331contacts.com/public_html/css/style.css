@@ -197,9 +197,10 @@ p {
 }
 
 .logoutButtonClass{
-  background-color: #276358;
+  background-color: green;
   color: white;
   padding: 2px;
+
 }
 
 #loggedInDiv{
