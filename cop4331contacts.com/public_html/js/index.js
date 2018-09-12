@@ -228,8 +228,8 @@ function register()
 		return;
 	}
 
-	// Check passwor exits
-	if(regPassword == "" || regPasswordConfirm == "")
+	// Check passwor exists
+	if(regPassword == "" || regPassword == null || regPassword == undefined || regPasswordConfirm == "" || regPasswordConfirm == null || regPasswordConfirm == undefined)
 	{
 		document.getElementById("registerResult").innerHTML = "Invalid password!";
 		//document.getElementById("reg_firstname").value = reg_firstname.defaultValue;
