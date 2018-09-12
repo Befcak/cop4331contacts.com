@@ -306,6 +306,7 @@ function searchContacts()
 
 					var div = document.createElement("div");
 					div.id = ("div" + li.id);
+					div.style.display = "none";
 					div.style.visibility = "hidden";
 					// document.getElementById("infoCard").insertAdjacentHTML('beforeend', div);
 					document.getElementById("infoCard").appendChild(div);
