@@ -266,8 +266,8 @@ function searchContacts()
 	var srch = document.getElementById("searchText").value;
 	document.getElementById("contactsSearchResult").innerHTML = "";
 
-	var contList = document.getElementById("contactsList");
-	contList.innerHTML = "";
+	//var contList = document.getElementById("myUL");
+	//contList.innerHTML = "";
 
 	var jsonPayload = '{"search" : "' + srch + '"}';
 	var url = urlBase + '/SearchContacts.' + extension;
@@ -281,27 +281,22 @@ function searchContacts()
 	 	{
 	 		if (this.readyState == 4 && this.status == 200)
 			{
-				//hideOrShow( "contactsList", true );
-				//var jsonObject = JSON.parse( xhr.responseText );
-				document.getElementById("contactsSearchResult").innerHTML = "Names should be below";
 				var jsonObject = JSON.parse( xhr.responseText );
-				document.getElementById("contactsSearchResult").innerHTML = jsonObject.result[1];
-				document.getElementById("contactsSearchResult").innerHTML = jsonObject.results[1];
-				document.getElementById("contactsSearchResult").innerHTML = jsonObject.results;
-				console.log(jsonObject.results);
-				
-				var tempArray = ["test1", "test2", "test3"];
-				var tempList = " ";
-				
-				var ul = document.getElementById('myUL');
-				var input = document.getElementById("myInput");
-				var li = document.createElement("li");
+				var tempArray = ["First","Second","Third"];
+				// Create a unordered list.
+				var conList = document.createElement("ul");
+				conList.className="list";
+				var container = document.getElementById("list");
 				
 				for(var i = 0; i < tempArray.length; i++)
 				{
-					tempList += "<li><a>"+tempArray[i]+"</a></li>";
+					
+					var li = document.createElement("li");
+					var listValue = document.createTextNode(tempArray[i]);
+					li.appendChild(listValue);
+					conList.appendChild(li);
 				}
-				ul.innerHTML = tempList;
+				container.appendChild(conList);
 				
 				
 					
