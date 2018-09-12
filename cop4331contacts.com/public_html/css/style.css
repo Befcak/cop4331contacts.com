@@ -235,11 +235,3 @@ ul li:hover {
 .force-overflow {
     min-height: 500px;
 }
-
-#infoCard
-{
-  position: relative;
-}
-.inner{
-  position: absolute;
-}
