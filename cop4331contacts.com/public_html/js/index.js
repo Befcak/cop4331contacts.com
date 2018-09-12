@@ -321,8 +321,8 @@ function searchContacts()
 					div.id = ("div" + li.id);
 					div.style.display = "none";
 					div.style.visibility = "hidden";
-					// document.getElementById("infoCard").insertAdjacentHTML('beforeend', div);
-					document.getElementById("infoCard").appendChild(div);
+					// document.getElementById("infoDis").insertAdjacentHTML('beforeend', div);
+					document.getElementById("infoDis").appendChild(div);
 					div.class = "inner";
 					for(j = i+1; j <= i+10; j++)
 					{
