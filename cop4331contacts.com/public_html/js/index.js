@@ -257,7 +257,7 @@ function searchContacts()
 	contList.innerHTML = "";
 
 	var jsonPayload = '{"userID": "'+ userId +'","search" : "' + srch + '"}';
-	var url = urlBase + '/SearchContacts.' + extension;
+	var url = urlBase + '/SearchContactsSanitized.' + extension;
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
