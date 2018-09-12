@@ -4,7 +4,6 @@ var extension = "php";
 var userId = 0;
 var firstName = "";
 var lastName = "";
-var lastIdClicked = "";
 
 function doLogin()
 {
@@ -160,7 +159,7 @@ function makeContact()
 	}
 	catch(err)
 	{
-		document.getElementById("contactAddResult").innerHTML = err.message;
+		//document.getElementById("contactAddResult").innerHTML = err.message;
 	}
 
 	var t = document.createTextNode(first +' '+ last);
