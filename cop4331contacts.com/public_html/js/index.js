@@ -10,6 +10,7 @@ function doLogin()
 	userId = 0;
 	firstName = "";
 	lastName = "";
+	lastIdClicked = "";
 
 	var login = document.getElementById("loginName").value;
 	var password = md5(document.getElementById("loginPassword").value);
@@ -300,14 +301,17 @@ function searchContacts()
 					var span = document.createElement("SPAN");
 					var txt = document.createTextNode("\u00D7");
 					li.id = jsonObject.results[i];
-					li.setAttribute('onclick', "displayInfo()");
+					li.setAttribute('onclick', "displayInfo(li.id)");
 					span.appendChild(txt);
 
 					var div = document.createElement("div");
+					div.id = ("div" + li.id);
+					div.setAttribute('style', 'visibility: hidden');
+					document.getElementById("infoCard").insertAdjacentHTML('beforeend', div);
 					for(j = i+1; j <= i+10; j++)
 					{
 						var paragraph = "<p>"+jsonObject.results[j]+"</p>";
-						document.getElementById("infoDis").insertAdjacentHTML('beforeend', paragraph);
+						document.getElementById(div.id).insertAdjacentHTML('beforeend', paragraph);
 					}
 
 				}
@@ -325,11 +329,15 @@ function searchContacts()
 
 }
 
-function displayInfo()
+function displayInfo(id)
 {
-	document.getElementById("infoDis").style.display = "block";
-	document.getElementById("infoDis").style.visibility = "visible";
 
+	document.getElementById("div" + lastIdClicked).style.display = "none";
+	document.getElementById("div" + lastIdClicked).style.visibility = "hidden";
 
+	document.getElementById("div" + id).style.display = "block";
+	document.getElementById("div" + id).style.visibility = "visible";
+
+	lastIdClicked = id;
 
 }
