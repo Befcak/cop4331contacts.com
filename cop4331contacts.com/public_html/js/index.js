@@ -269,7 +269,7 @@ function searchContacts()
 	var contList = document.getElementById("contactsList");
 	contList.innerHTML = "";
 
-	var jsonPayload = '{"search" : "' + srch + '"}';
+	var jsonPayload = '{"userID": "'+ userId +'","search" : "' + srch + '"}';
 	var url = urlBase + '/SearchContacts.' + extension;
 
 	var xhr = new XMLHttpRequest();
