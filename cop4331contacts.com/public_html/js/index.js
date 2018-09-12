@@ -264,7 +264,7 @@ function searchContacts()
 {
 	while(myUL.hasChildNodes())
 	{
-		myUL.removeChild(li);
+		myUL.removeChild(myUL.childNodes[0]);
 	}
 	//SELECT * FROM contacts WHERE userID = "1" AND (firstName LIKE 'bob' OR lastName LIKE '' OR email LIKE '')
 	var srch = document.getElementById("searchText").value;
