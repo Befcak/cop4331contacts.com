@@ -17,7 +17,10 @@ html {
 }
 
 .header{
-  
+  padding: 12px;
+  text-align:center;
+  background: white;
+  box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
 }
 
 h1 {
