@@ -356,17 +356,17 @@ function deleteContact()
     } else {
         return;
     }
-<<<<<<< HEAD
+
     
 	
 	var jsonPayload = '{"userId": "'+ testUserId +'","contactId" : "' + testContactId + '"}';
 	
-=======
+
 
 
 	var jsonPayload = '{"userID": "'+ testUserId +'","contactID" : "' + testContactId + '"}';
 
->>>>>>> 5bc928872c51ed7c798e722a7b9e26cd0a618ebf
+
 	//var jsonPayload = '{"userID": "'+ userId +'","contactID" : "' + lastIdClicked + '"}';
 	var url = urlBase + '/DeleteContactSanitized.' + extension;
 
