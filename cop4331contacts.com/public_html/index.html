@@ -21,7 +21,7 @@
 
 </head>
 
-<body onload="searchContacts()">
+<body>
 
   <div id="root">
 
@@ -134,7 +134,7 @@
       <div class="row">
       <div class="card">
       <h1>Contacts</h1>
-      <p><!-- 
+      <p>
         <input type="text" id="searchText" onkeyup="searchContacts()" placeholder="Search Contacts"/>
         <button type="button" id="searchContactsButton" class="buttons" onclick="searchContacts()"> Search Contacts </button><br />
         <span id="contactsSearchResult"></span>
@@ -154,9 +154,15 @@
       </p>
         </div>
       </p>
-        <div class="card" id = "list">
+        <div class="card">
         <h1>Info Display</h1>
 			
+			<input type="text" id="myInput" onkeyup="searchContacts()" placeholder="Search for names..">
+
+				<ul id="myUL">
+				<li><a>firstUser</a></li>
+				<li><a>secondUser</a></li>
+				</ul> 
         </div>
       </div>
     </div>
