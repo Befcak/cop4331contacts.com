@@ -196,6 +196,11 @@ p {
   border-right-width: 20px;
 }
 
+#loggedInDiv{
+  float:right;
+  text-align: center;
+}
+
 /* Include the padding and border in an element's total width and height */
 * {
     box-sizing: border-box;
