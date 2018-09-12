@@ -306,14 +306,13 @@ function searchContacts()
 
 					var div = document.createElement("div");
 					div.id = ("div" + li.id);
-					div.setAttribute('style', 'visibility: hidden');
-					document.getElementById("infoCard").insertAdjacentHTML('beforeend', div);
+					div.style.visibility = "hidden";
+					// document.getElementById("infoCard").insertAdjacentHTML('beforeend', div);
+					document.getElementById("infoCard").appendChild(div);
 					for(j = i+1; j <= i+10; j++)
 					{
-						var paragraph = "<p>"+jsonObject.results[j]+ " "+"</p>";
-						alert(paragraph);
-					//	document.getElementById(div.id).insertAdjacentHTML('beforeend', paragraph);
-						alert(paragraph);
+						var paragraph = "<p>"+jsonObject.results[j]+"</p>";
+
 					}
 
 				}
