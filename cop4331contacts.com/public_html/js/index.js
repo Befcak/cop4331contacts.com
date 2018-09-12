@@ -10,6 +10,7 @@ function doLogin()
 	userId = 0;
 	firstName = "";
 	lastName = "";
+	lastIdClicked = "";
 
 	var login = document.getElementById("loginName").value;
 	var password = md5(document.getElementById("loginPassword").value);
@@ -290,7 +291,7 @@ function searchContacts()
 				//document.getElementById("contactsSearchResult").innerHTML = "Contact(s) has been retrieved";
 				var jsonObject = JSON.parse( xhr.responseText );
 
-				var i;
+				var i, j;
 				for( i=0; i<jsonObject.results.length-6; i+=11)
 				{
 					var li = document.createElement("li");
@@ -300,8 +301,19 @@ function searchContacts()
 					var span = document.createElement("SPAN");
 					var txt = document.createTextNode("\u00D7");
 					li.id = jsonObject.results[i];
-					li.setAttribute('onclick', "displayInfo()");
+					li.setAttribute('onclick', "displayInfo(li.id)");
 					span.appendChild(txt);
+
+					var div = document.createElement("div");
+					div.id = ("div" + li.id);
+					div.style.visibility = "hidden";
+					// document.getElementById("infoCard").insertAdjacentHTML('beforeend', div);
+					document.getElementById("infoCard").appendChild(div);
+					for(j = i+1; j <= i+10; j++)
+					{
+						var paragraph = "<p>"+jsonObject.results[j]+"</p>";
+
+					}
 
 				}
 
@@ -318,12 +330,16 @@ function searchContacts()
 
 }
 
-function displayInfo()
+function displayInfo(id)
 {
-	document.getElementById("infoDis").style.display = "block";
-	document.getElementById("infoDis").style.visibility = "visible";
 
+	document.getElementById("div" + lastIdClicked).style.display = "none";
+	document.getElementById("div" + lastIdClicked).style.visibility = "hidden";
 
+	document.getElementById("div" + id).style.display = "block";
+	document.getElementById("div" + id).style.visibility = "visible";
+
+	lastIdClicked = id;
 
 }
 

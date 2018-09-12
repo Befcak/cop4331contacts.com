@@ -126,7 +126,7 @@
     	<button type="button" id="logoutButton" class="buttons" onclick="doLogout()"> Log Out </button>
     </div>
 
-    <div id="accessUIDiv" style="display:block; visibility:visible">
+    <div id="accessUIDiv" style="display:block; visibility:hidden">
   	<br />
 
     <!-- Main Page -->
@@ -136,8 +136,6 @@
       <h1>Contacts</h1>
       <p>
         <input type="text" id="searchText" onkeyup="searchContacts()" placeholder="Search Contacts"/>
-        <!-- <button type="button" id="searchContactsButton" class="buttons" onclick="searchContacts()"> Search Contacts </button> -->
-        <!-- <span id="contactsSearchResult"></span> -->
         <p>
           <div class="scrollbar scrollbar-primary">
             <div class="force-overflow">
@@ -152,10 +150,12 @@
       </p>
         </div>
       </p>
-        <div class="card">
+        <div class="card" id="infoCard">
         <h1>Info Display</h1>
           <div id="infoDis" style="display:none; visibility:hidden;">
 		  
+          <div id="infoDis" style="display:none; visibility:hidden;">
+
             <p id="firstName">first</p>
             <p id="lastName">last</p>
             <p id="street">street</p>
@@ -171,6 +171,8 @@
           </div>
 			<button type="button" id="deleteButton" class="buttons" onclick="deleteContact()">Delete</button><br />
 			 <span id="deleteContactResult"></span>
+
+          </div> 
         </div>
       </div>
     </div>
