@@ -281,7 +281,7 @@ function searchContacts()
 				hideOrShow( "contactList", true );
 
 				document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
-				var jsonObject = JSON.parse(xhr.responseText);
+				var jsonObject = JSON.parse(JSON.stringify(xhr.responseText));
 
 				alert(jsonObject.results);
 				var i;
