@@ -126,7 +126,7 @@ function makeContact()
 	first = document.getElementById("firstN").value;
 	last = document.getElementById("lastN").value;
 	//this needs to only have numbers or it doesn't work
-	if (phoneNum = document.getElementById("phone").value != "0")
+	if (phoneNum = document.getElementById("phone").value.length >= 10)
 	{
 		phoneNum = document.getElementById("phone").value;
 	}
@@ -135,7 +135,7 @@ function makeContact()
 	cityName = document.getElementById("city").value;
 	// this needs to only hold 2 letters or it doesn't work
 	stateName = document.getElementById("state").value;
-	if (zipNum = document.getElementById("zip").value != "0")
+	if (zipNum = document.getElementById("zip").value.length == 5)
 	{
 		zipNum = document.getElementById("zip").value;
 	}
