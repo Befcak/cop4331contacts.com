@@ -290,7 +290,7 @@ function searchContacts()
 				//document.getElementById("contactsSearchResult").innerHTML = "Contact(s) has been retrieved";
 				var jsonObject = JSON.parse( xhr.responseText );
 
-				var i;
+				var i, j;
 				for( i=0; i<jsonObject.results.length-6; i+=11)
 				{
 					var li = document.createElement("li");
@@ -302,6 +302,13 @@ function searchContacts()
 					li.id = jsonObject.results[i];
 					li.setAttribute('onclick', "displayInfo()");
 					span.appendChild(txt);
+
+					var div = document.createElement("div");
+					for(j = i+1; j <= i+10; j++)
+					{
+						var paragraph = "<p>"+jsonObject.results[j]+"</p>";
+						document.getElementById("infoDis").insertAdjacentHTML('beforeend', paragraph);
+					}
 
 				}
 
