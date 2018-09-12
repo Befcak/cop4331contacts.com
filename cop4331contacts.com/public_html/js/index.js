@@ -260,14 +260,14 @@ function register()
 
 function searchContacts()
 {
-	var srch = document.getElementById("myInput").value;
+	var srch = document.getElementById("searchText").value;
 	document.getElementById("contactSearchResult").innerHTML = "";
 
 	var contactList = document.getElementById("contactList");
 	contactList.innerHTML = "";
 
 	var jsonPayload = '{"search" : "' + srch + '"}';
-	var url = urlBase + '/SearchContactsSanitized.' + extension;
+	var url = urlBase + '/searchContactsSanitized.' + extension;
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
