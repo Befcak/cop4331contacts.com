@@ -194,7 +194,9 @@ function makeContact()
 */
 	document.getElementById('myModal').style.display = 'none';
 	
-	searchContacts();
+	setTimeout(searchContacts, 500);
+	
+	//searchContacts();
 
 }
 
