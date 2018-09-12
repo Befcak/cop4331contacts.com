@@ -62,10 +62,7 @@
 				returnWithError( "No Records Found" );
         		}
         	}
-		else 
-		{
-			echo "fail";
-		}
+	
 		$conn->close();
 	}
 	returnWithInfo( $searchResults );
