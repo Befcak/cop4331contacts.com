@@ -264,7 +264,7 @@ function searchContacts()
 {
 	//SELECT * FROM contacts WHERE userID = "1" AND (firstName LIKE 'bob' OR lastName LIKE '' OR email LIKE '')
 
-	// ID from the HTML.
+	var li = document.createElement("li");
 	var srch = document.getElementById("searchText").value;
 	document.getElementById("contactsSearchResult").innerHTML = "";
 
@@ -294,6 +294,7 @@ function searchContacts()
 					var opt = document.createElement("option");
 					opt.text = jsonObject.results[i] + " " + jsonObject.results[i+1];
 					opt.value = "";
+					myUL.
 					contactsList.options.add(opt);
 				}
 			}
@@ -304,4 +305,17 @@ function searchContacts()
 	{
 		document.getElementById("contactsSearchResult").innerHTML = err.message;
 	}
+
+	var t = document.createTextNode(first +' '+ last);
+	li.appendChild(t);
+	if (first === '' || last === '') {
+		alert("You must write something!");
+	} else {
+		document.getElementById("myUL").appendChild(li);
+	}
+	var span = document.createElement("SPAN");
+	var txt = document.createTextNode("\u00D7");
+
+	span.appendChild(txt);
+
 }
