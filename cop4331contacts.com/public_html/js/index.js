@@ -66,9 +66,12 @@ function doLogin()
 		document.getElementById("loginName").value = loginName.defaultValue;
 		document.getElementById("loginPassword").value =loginPassword.defaultValue;
 
-		hideOrShow( "loggedInDiv", true);
+		document.getElementById("loggedInDiv").style.display = "inline";
+		document.getElementById("loggedInDiv").style.visibility = "visible";
+	//	hideOrShow( "loggedInDiv", true);
 		hideOrShow( "accessUIDiv", true);
 		hideOrShow( "loginDiv", false);
+	
 	}
 	catch(err)
 	{
