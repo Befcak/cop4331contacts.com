@@ -310,7 +310,11 @@ function searchContacts()
 					li.id = jsonObject.results[i];
 					li.setAttribute('onclick', "displayInfo(this.id)");
 					span.appendChild(txt);
-
+					
+					if(document.body.contains(getElementById("div" + li.id)))
+					{
+						continue;
+					}
 					var div = document.createElement("div");
 					div.id = ("div" + li.id);
 					div.style.display = "none";
