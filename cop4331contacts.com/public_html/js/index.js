@@ -7,72 +7,72 @@ var lastName = "";
 
 function doLogin()
 {
-	// userId = 0;
-	// firstName = "";
-	// lastName = "";
-	//
-	// var login = document.getElementById("loginName").value;
-	// var password = md5(document.getElementById("loginPassword").value);
-	//
-	// // sanitizing the login and Password
-	// var i;
-	// for(i = 0; i < login.length; i++)
-	// {
-	// 	if(login[i] === ';' || login[i] === '/' || login[i] === '-' || login[i] == ')' || login[i]=='(')
-	// 	{
-	// 		alert("There are illegal characters in your login");
-	// 		document.getElementById("loginName").value = loginName.defaultValue;
-	// 		document.getElementById("loginPassword").value =loginPassword.defaultValue;
-	// 		return;
-	// 	}
-	//
-	// 	if(password[i] === ';' || password[i] === '/' || password[i] === '-'|| password[i] == ')' || password[i]=='(')
-	// 	{
-	// 		alert("There are illegal characters in your password.");
-	// 		document.getElementById("loginName").value = loginName.defaultValue;
-	// 		document.getElementById("loginPassword").value =loginPassword.defaultValue;
-	// 		return;
-	// 	}
-	// }
-	//
-	// document.getElementById("loginResult").innerHTML = "";
-	//
-	// var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
-	// var url = urlBase + '/Login.' + extension;
-	//
-	// var xhr = new XMLHttpRequest();
-	// xhr.open("POST", url, false);
-	// xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	// try
-	// {
-	// 	xhr.send(jsonPayload);
-	//
-	// 	var jsonObject = JSON.parse( xhr.responseText );
-	//
-	// 	userId = jsonObject.userID;
-	//
-	// 	if( userId < 1 || userId == 'undefined' || userId == null)
-	// 	{
-	// 		document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
-	// 		return;
-	// 	}
-	//
-	// 	firstName = jsonObject.firstName;
-	// 	lastName = jsonObject.lastName;
-	//
-	// 	document.getElementById("userName").innerHTML = firstName + " " + lastName;
-	//
-	// 	document.getElementById("loginName").value = loginName.defaultValue;
-	// 	document.getElementById("loginPassword").value =loginPassword.defaultValue;
+	userId = 0;
+	firstName = "";
+	lastName = "";
+
+	var login = document.getElementById("loginName").value;
+	var password = md5(document.getElementById("loginPassword").value);
+
+	// sanitizing the login and Password
+	var i;
+	for(i = 0; i < login.length; i++)
+	{
+		if(login[i] === ';' || login[i] === '/' || login[i] === '-' || login[i] == ')' || login[i]=='(')
+		{
+			alert("There are illegal characters in your login");
+			document.getElementById("loginName").value = loginName.defaultValue;
+			document.getElementById("loginPassword").value =loginPassword.defaultValue;
+			return;
+		}
+
+		if(password[i] === ';' || password[i] === '/' || password[i] === '-'|| password[i] == ')' || password[i]=='(')
+		{
+			alert("There are illegal characters in your password.");
+			document.getElementById("loginName").value = loginName.defaultValue;
+			document.getElementById("loginPassword").value =loginPassword.defaultValue;
+			return;
+		}
+	}
+
+	document.getElementById("loginResult").innerHTML = "";
+
+	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
+	var url = urlBase + '/Login.' + extension;
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, false);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.send(jsonPayload);
+
+		var jsonObject = JSON.parse( xhr.responseText );
+
+		userId = jsonObject.userID;
+
+		if( userId < 1 || userId == 'undefined' || userId == null)
+		{
+			document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
+			return;
+		}
+
+		firstName = jsonObject.firstName;
+		lastName = jsonObject.lastName;
+
+		document.getElementById("userName").innerHTML = firstName + " " + lastName;
+
+		document.getElementById("loginName").value = loginName.defaultValue;
+		document.getElementById("loginPassword").value =loginPassword.defaultValue;
 
 		hideOrShow( "loggedInDiv", true);
 		hideOrShow( "accessUIDiv", true);
 		hideOrShow( "loginDiv", false);
-	// }
-	// catch(err)
-	// {
-	// 	document.getElementById("loginResult").innerHTML = err.message;
-	// }
+	}
+	catch(err)
+	{
+		document.getElementById("loginResult").innerHTML = err.message;
+	}
 }
 
 function doLogout()
@@ -289,23 +289,22 @@ function searchContacts()
 				document.getElementById("contactsSearchResult").innerHTML = jsonObject.results[1];
 				document.getElementById("contactsSearchResult").innerHTML = jsonObject.results;
 				console.log(jsonObject.results);
-				    // Declare variables
-				var input, filter, ul, li, a, i;
-				input = document.getElementById('myInput');
-				filter = input.value.toUpperCase();
-				ul = document.getElementById("myUL");
-				li = ul.getElementsByTagName('li');
 
-				// Loop through all list items, and hide those who don't match the search query
-				for (i = 0; i < li.length; i++) {
-				a = li[i].getElementsByTagName("a")[0];
-				if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-					li[i].style.display = "";
-				} else {
-					li[i].style.display = "none";
-        }
-    }
-					
+				var tempArray = ["test1", "test2", "test3"];
+				var tempList = " ";
+
+				var ul = document.getElementById('myUL');
+				var input = document.getElementById("myInput");
+				var li = document.createElement("li");
+
+				for(var i = 0; i < tempArray.length; i++)
+				{
+					tempList += "<li><a>"+tempArray[i]+"</a></li>";
+				}
+				ul.innerHTML = tempList;
+
+
+
 			}
 	 	};
 	 	xhr.send(jsonPayload);
