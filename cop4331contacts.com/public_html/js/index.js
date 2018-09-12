@@ -122,7 +122,7 @@ function makeContact()
 	var birthday = "" ;
 	var notes = "";
 
-	var li = document.createElement("li");
+	//var li = document.createElement("li");
 	first = document.getElementById("firstN").value;
 	last = document.getElementById("lastN").value;
 	//this needs to only have numbers or it doesn't work
@@ -167,7 +167,7 @@ function makeContact()
 	{
 		document.getElementById("contactAddResult").innerHTML = err.message;
 	}
-
+/*
 	var t = document.createTextNode(first +' '+ last);
 	li.appendChild(t);
 	if (first === '' || last === '') {
@@ -175,7 +175,7 @@ function makeContact()
 	} else {
 		document.getElementById("myUL").appendChild(li);
 	}
-/*
+
 	document.getElementById('firstN').value = firstN.defaultValue;
 	document.getElementById('lastN').value = lastN.defaultValue;
 	document.getElementById('phone').value = phone.defaultValue;
