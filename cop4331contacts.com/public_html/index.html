@@ -123,7 +123,7 @@
 
     <div id="loggedInDiv" style="display:block; visibility:hidden;">
     	<span id="userName"></span><br />
-    	<button type="button" id="logoutButton" class="buttons" onclick="doLogout()"> Log Out </button>
+    	<button type="button" id="logoutButton" class="btn btn-success my-2 my-sm-0" onclick="doLogout()"> Log Out </button>
     </div>
 
     <div id="accessUIDiv" style="display:block; visibility:hidden">
@@ -145,7 +145,7 @@
             </div>
           </div>
 
-        <button type="button" id="addContactButton" class="buttons" onclick="addContact()"> Add Contact </button><br />
+        <button type="button" id="addContactButton" class="btn btn-success my-2 my-sm-0" onclick="addContact()"> Add Contact </button><br />
         <span id="contactAddResult"></span>
       </p>
         </div>
@@ -165,12 +165,11 @@
             <p id="birthday">birthday</p>
             <p id="note">note</p>
 			
+			<button type="button" id="deleteButton" class="btn btn-success my-2 my-sm-0" onclick="deleteContact()">Delete</button><br />
+			 <span id="deleteContactResult"></span>
 			
           </div>
-		  
-			<button type="button" id="deleteButton" class="buttons" onclick="deleteContact()">Delete</button><br />
-			 <span id="deleteContactResult"></span>
-
+		  </div>
           </div> 
         </div>
       </div>

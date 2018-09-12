@@ -348,8 +348,11 @@ if(lastIdClicked >= 1){
 function deleteContact()
 {
 
-
 	var testContactId = 60;
+
+	//var testUserId = 35;
+	
+
 	var testUserId = 41;
 
     if (confirm("Confirm Delete")) {
@@ -357,10 +360,10 @@ function deleteContact()
     } else {
         return;
     }
-
-
-
-	var jsonPayload = '{"userId": "'+ testUserId +'","contactId" : "' + testContactId + '"}';
+	
+	var jsonPayload = '{"userId": "'+ userId +'","contactId" : "' + testContactId + '"}';
+	
+//	var jsonPayload = '{"userId": "'+ testUserId +'","contactId" : "' + testContactId + '"}';
 
 	//var jsonPayload = '{"userID": "'+ userId +'","contactID" : "' + lastIdClicked + '"}';
 	var url = urlBase + '/DeleteContactSanitized.' + extension;
@@ -386,5 +389,42 @@ function deleteContact()
 	}
 
 
+	// var testContactId = 60;
+	// var testUserId = 41;
+	//
+  //   if (confirm("Confirm Delete")) {
+  //      document.getElementById("deleteContactResult").innerHTML = "Contact has been deleted!";
+  //   } else {
+  //       return;
+  //   }
+	//
+	//
+	//
+	// var jsonPayload = '{"userId": "'+ testUserId +'","contactId" : "' + testContactId + '"}';
+	//
+	// //var jsonPayload = '{"userID": "'+ userId +'","contactID" : "' + lastIdClicked + '"}';
+	// var url = urlBase + '/DeleteContactSanitized.' + extension;
+	//
+	// var xhr = new XMLHttpRequest();
+	// xhr.open("POST", url, true);
+	// xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	// try
+	// {
+	// 	xhr.onreadystatechange = function()
+	//  	{
+	//  		if (this.readyState == 4 && this.status == 200)
+	// 		{
+	//
+	// 			document.getElementById("deleteContactResult").innerHTML = "Contact has been deleted!";
+	// 		}
+	//  	};
+	//  	xhr.send(jsonPayload);
+	// }
+	// catch(err)
+	// {
+	// 	document.getElementById("deleteContactResult").innerHTML = err.message;
+	// }
+	//
+	//
 
 }
