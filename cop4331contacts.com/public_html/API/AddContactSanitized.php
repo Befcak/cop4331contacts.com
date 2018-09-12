@@ -17,7 +17,7 @@
 		{
 			$stmt->bind_param('isssssiisss', $userID, $firstName, $lastName, $streetAddress, $city, $state, $zip, $phone, $email, $birthday, $notes);
 
-			$userID = $inData["userId"];
+			$userID = $inData["userID"];
 			$firstName = $inData["firstName"];
 			$lastName = $inData["lastName"];
 			$streetAddress = $inData["streetAddress"];
@@ -28,7 +28,6 @@
 			$email = $inData["email"];
 			$birthday = $inData["birthday"];
 			$notes = $inData["notes"];
-			//$conn = new mysqli("localhost", "root", "orlando");
 
 			$stmt->execute();
 		}
