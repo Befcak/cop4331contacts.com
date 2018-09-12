@@ -389,8 +389,8 @@ function deleteContact()
 	 	{
 	 		if (this.readyState == 4 && this.status == 200)
 			{
-
-				document.getElementById("deleteContactResult").innerHTML = "Contact has been deleted!";
+				;
+				//document.getElementById("deleteContactResult").innerHTML = "Contact has been deleted!";
 			}
 	 	};
 	 	xhr.send(jsonPayload);
