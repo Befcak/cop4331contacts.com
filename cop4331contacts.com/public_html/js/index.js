@@ -286,10 +286,10 @@ function searchContacts()
 				var i;
 				for( i=1; i<jsonObject.results.length-12; i+=12)
 				{
-					var opt = document.createElement("option");
-					opt.text = jsonObject.results[i] + ' ' + jsonObject.result[i];
-					opt.value = "";
-					contactList.options.add(opt);
+					// var opt = document.createElement("option");
+					// opt.text = jsonObject.results[i] + ' ' + jsonObject.result[i];
+					// opt.value = "";
+					// contactList.options.add(opt);
 				}
 			}
 		};
