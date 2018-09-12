@@ -281,15 +281,15 @@ function searchContacts()
 				hideOrShow( "contactList", true );
 
 				document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
-				var jsonObject = JSON.parse( xhr.responseText );
+				var jsonObject = xhr.responseText;
 
 				var i;
 				for( i=1; i<jsonObject.results.length-12; i+=12)
 				{
-					// var opt = document.createElement("option");
-					// opt.text = jsonObject.results[i] + ' ' + jsonObject.result[i];
-					// opt.value = "";
-					// contactList.options.add(opt);
+					var opt = document.createElement("option");
+					opt.text = jsonObject.results[i] + ' ' + jsonObject.result[i];
+					opt.value = "";
+					contactList.options.add(opt);
 				}
 			}
 		};
