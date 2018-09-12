@@ -283,15 +283,16 @@ function searchContacts()
 				document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
 				var jsonObject = xhr.responseText;
 
-				var i;
-				for( i=1; i<jsonObject.results.length-12; i+=12)
-				{
-					var opt = document.createElement("option");
-					alert(jsonObject.results[i]);
-					// opt.text = jsonObject.results[i] + ' ' + jsonObject.results[i];
-					// opt.value = "";
-					// contactList.options.add(opt);
-				}
+				alert("jsonObject.results[1]");
+				// var i;
+				// for( i=1; i<jsonObject.results.length-12; i+=12)
+				// {
+				// 	var opt = document.createElement("option");
+				// 	alert(jsonObject.results[i]);
+				// 	// opt.text = jsonObject.results[i] + ' ' + jsonObject.results[i];
+				// 	// opt.value = "";
+				// 	// contactList.options.add(opt);
+				// }
 			}
 		};
 		xhr.send(jsonPayload);
