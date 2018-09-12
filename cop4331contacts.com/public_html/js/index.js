@@ -283,7 +283,7 @@ function searchContacts()
 				document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
 				var jsonObject = JSON.parse(JSON.stringify(xhr.responseText));
 
-				alert(jsonObject.results[3]);
+				alert(jsonObject.results);
 				var i;
 				for( i=0; i<jsonObject.results.length; i++)
 				{
