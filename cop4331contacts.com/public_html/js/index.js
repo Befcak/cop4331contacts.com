@@ -311,7 +311,7 @@ function searchContacts()
 					for(j = i+1; j <= i+10; j++)
 					{
 						var paragraph = "<p>"+jsonObject.results[j]+"</p>";
-						alert(div.id);
+						alert(paragraph);
 						document.getElementById(div.id).insertAdjacentHTML('beforeend', paragraph);
 					}
 
