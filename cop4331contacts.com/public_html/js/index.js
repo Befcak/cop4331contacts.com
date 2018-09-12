@@ -287,19 +287,15 @@ function searchContacts()
 				var jsonObject = JSON.parse( xhr.responseText );
 
 				var i;
-				for( i=1; i<jsonObject.results.length-6; i+=11)
+				for( i=0; i<jsonObject.results.length-6; i+=11)
 				{
-					//var opt = document.createElement("option");
-					//opt.text = jsonObject.results[i] + " " + jsonObject.results[i+1];
-					//opt.value = "";
 					var li = document.createElement("li");
-					var t = document.createTextNode(jsonObject.results[i] + " " + jsonObject.results[i+1]);
+					var t = document.createTextNode(jsonObject.results[i+1] + " " + jsonObject.results[i+2]);
 					li.appendChild(t);
 					document.getElementById("myUL").appendChild(li);
-					//contactsList.options.add(opt);
 					var span = document.createElement("SPAN");
 					var txt = document.createTextNode("\u00D7");
-
+					li.id = jsonObject.results[i]
 					span.appendChild(txt);
 				}
 			}
