@@ -16,7 +16,7 @@
 	else
 	{  
 	$sql = "SELECT * FROM contacts WHERE userID = ? AND (firstName LIKE ? 
-		OR lastName LIKE ? OR email LIKE ?)";
+		OR lastName LIKE ? OR email LIKE ?) ORDER BY 'lastName'";
 	$stmt = 0;
 
 		if($stmt = $conn->prepare($sql))
