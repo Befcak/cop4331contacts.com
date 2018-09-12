@@ -4,6 +4,8 @@
 	
 	$searchResults = "";
 	$searchCount = 0;
+	$inData["search"] = 'b';
+	$inData["userID"] = 1;
 	
 	$test = "%".$inData["search"]."%";
 	$conn = new mysqli("localhost", "root", "orlando", "contactBook");
