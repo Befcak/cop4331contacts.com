@@ -269,31 +269,18 @@ function searchContacts()
 	 		if (this.readyState == 4 && this.status == 200)
 			{
 				hideOrShow( "contactsList", true );
-				var jsonObject = JSON.parse(xhr.responseText);
-				// document.getElementById("contactsSearchResult").innerHTML = "Names should be below";
-				// var jsonObject = JSON.parse( xhr.responseText );
 
-					console.log(jsonObject);
-				document.getElementById("contactsSearchResult").innerHTML = jsonObject.results[1];
-				document.getElementById("contactsSearchResult").innerHTML = jsonObject.results[1];
-				document.getElementById("contactsSearchResult").innerHTML = jsonObject.results;
-				console.log(jsonObject.results);
+				document.getElementById("contactsSearchResult").innerHTML = "Contact(s) has been retrieved";
+				var jsonObject = JSON.parse( xhr.responseText );
 
-				var tempArray = ["test1", "test2", "test3"];
-				var tempList = " ";
-
-				var ul = document.getElementById('myUL');
-				var input = document.getElementById("myInput");
-				var li = document.createElement("li");
-
-				for(var i = 0; i < tempArray.length; i++)
+				var i;
+				for( i=0; i<jsonObject.results.length; i++ )
 				{
-					tempList += "<li><a>"+tempArray[i]+"</a></li>";
+					var opt = document.createElement("option");
+					opt.text = jsonObject.results[i];
+					opt.value = "";
+					contactsList.options.add(opt);
 				}
-				ul.innerHTML = tempList;
-
-
-
 			}
 	 	};
 	 	xhr.send(jsonPayload);
