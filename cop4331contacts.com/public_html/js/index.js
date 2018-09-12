@@ -295,7 +295,7 @@ function searchContacts()
 					document.getElementById("myUL").appendChild(li);
 					var span = document.createElement("SPAN");
 					var txt = document.createTextNode("\u00D7");
-					li.id = jsonObject.results[i]
+					li.id = jsonObject.results[i];
 					span.appendChild(txt);
 				}
 			}
