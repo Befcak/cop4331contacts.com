@@ -287,9 +287,10 @@ function searchContacts()
 				for( i=1; i<jsonObject.length-12; i+=12)
 				{
 					var opt = document.createElement("option");
-					opt.text = jsonObject.results[i] + ' ' + jsonObject.result[i];
-					opt.value = "";
-					contactList.options.add(opt);
+					alert(jsonObject[i]);
+					// opt.text = jsonObject.results[i] + ' ' + jsonObject.result[i];
+					// opt.value = "";
+					// contactList.options.add(opt);
 				}
 			}
 		};
