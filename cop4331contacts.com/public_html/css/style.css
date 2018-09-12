@@ -265,3 +265,9 @@ ul li:hover {
 }
 .force-overflow {
 }
+
+#searchText{
+  padding: 0px;
+  margin: 0px;
+  float:center;
+}
