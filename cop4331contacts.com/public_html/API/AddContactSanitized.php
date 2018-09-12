@@ -28,7 +28,7 @@
 			$email = $inData["email"];
 			$birthday = $inData["birthday"];
 			$notes = $inData["notes"];
-			$conn = new mysqli("localhost", "root", "orlando");
+			//$conn = new mysqli("localhost", "root", "orlando");
 
 			$stmt->execute();
 		}
