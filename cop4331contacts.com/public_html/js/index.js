@@ -281,10 +281,10 @@ function searchContacts()
 	 	{
 	 		if (this.readyState == 4 && this.status == 200)
 			{
-				//hideOrShow( "contactsList", true );
-				//var jsonObject = JSON.parse( xhr.responseText );
-				document.getElementById("contactsSearchResult").innerHTML = "Names should be below";
+				hideOrShow( "contactsList", true );
 				var jsonObject = JSON.parse( xhr.responseText );
+				// document.getElementById("contactsSearchResult").innerHTML = "Names should be below";
+				// var jsonObject = JSON.parse( xhr.responseText );
 				document.getElementById("contactsSearchResult").innerHTML = jsonObject.result[1];
 				document.getElementById("contactsSearchResult").innerHTML = jsonObject.results[1];
 				document.getElementById("contactsSearchResult").innerHTML = jsonObject.results;
