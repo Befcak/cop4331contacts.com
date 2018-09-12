@@ -366,11 +366,13 @@ if(lastIdClicked >= 1){
 function deleteContact()
 {
     if (confirm("Confirm Delete")) {
-       document.getElementById("deleteContactResult").innerHTML = "Contact has been deleted!";
+       ;
+	    //document.getElementById("deleteContactResult").innerHTML = "Contact has been deleted!";
     } else {
         return;
     }
-
+	document.getElementById("div" + lastIdClicked).style.display = "none";
+	document.getElementById("div" + lastIdClicked).style.visibility = "hidden";
 
 
 	//var jsonPayload = '{"userId": "'+ testUserId +'","contactId" : "' + testContactId + '"}';
