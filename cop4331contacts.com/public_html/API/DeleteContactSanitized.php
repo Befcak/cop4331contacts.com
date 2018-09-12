@@ -9,7 +9,7 @@
 	} 
 	else
 	{	
-		$sql = "DELETE FROM contacts WHERE userID = ? AND contactID = ?;";
+		$sql = "DELETE FROM contacts WHERE userId = ? AND contactId = ?;";
 
 		$stmt = $conn->prepare($sql);
 
