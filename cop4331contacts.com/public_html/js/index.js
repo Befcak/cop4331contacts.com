@@ -216,22 +216,29 @@ function register()
 	var regPasswordConfirm = md5(document.getElementById("reg_password_confirm").value);
 	document.getElementById("registerResult").innerHTML = "";
 
+	// Check passwords match
+	if(regPassword != regPasswordConfirm)
+	{
+		document.getElementById("registerResult").innerHTML = "Passwords don't match!";
+		//document.getElementById("reg_firstname").value = reg_firstname.defaultValue;
+		//document.getElementById("reg_lastname").value =reg_lastname.defaultValue;
+		//document.getElementById("reg_username").value =reg_username.defaultValue;
+		document.getElementById("reg_password").value =reg_password.defaultValue;
+		document.getElementById("reg_password_confirm").value =reg_password_confirm.defaultValue;
+		return;
+	}
 
-
-
-
-		// added password check
-		if(regPassword != regPasswordConfirm)
-		{
-			document.getElementById("registerResult").innerHTML = "Passwords don't match!";
-			//document.getElementById("reg_firstname").value = reg_firstname.defaultValue;
-			//document.getElementById("reg_lastname").value =reg_lastname.defaultValue;
-			//document.getElementById("reg_username").value =reg_username.defaultValue;
-			document.getElementById("reg_password").value =reg_password.defaultValue;
-			document.getElementById("reg_password_confirm").value =reg_password_confirm.defaultValue;
-			return;
-		}
-
+	// Check passwor exits
+	if(regPassword == "" || regPasswordConfirm == "")
+	{
+		document.getElementById("registerResult").innerHTML = "Invalid password!";
+		//document.getElementById("reg_firstname").value = reg_firstname.defaultValue;
+		//document.getElementById("reg_lastname").value =reg_lastname.defaultValue;
+		//document.getElementById("reg_username").value =reg_username.defaultValue;
+		document.getElementById("reg_password").value =reg_password.defaultValue;
+		document.getElementById("reg_password_confirm").value =reg_password_confirm.defaultValue;
+		return;
+	}
 
 	var jsonPayload = '{"firstName" : "' + regFirstName + '", "lastName" : "' + regLastName + '", "login" : "' + regUsername
 	+ '", "password" : "' + regPassword +'"}';
