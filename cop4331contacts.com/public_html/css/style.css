@@ -236,6 +236,10 @@ ul li:hover {
     min-height: 500px;
 }
 
+#infoCard
+{
+  position: relative;
+}
 .inner{
   position: absolute;
 }
