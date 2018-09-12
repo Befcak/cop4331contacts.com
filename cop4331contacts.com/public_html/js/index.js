@@ -266,8 +266,8 @@ function searchContacts()
 	var srch = document.getElementById("searchText").value;
 	document.getElementById("contactsSearchResult").innerHTML = "";
 
-	var contList = document.getElementById("contactsList");
-	contList.innerHTML = "";
+//	var contList = document.getElementById("contactsList");
+	//contList.innerHTML = "";
 
 	var jsonPayload = '{"userID": "'+ userId +'","search" : "' + srch + '"}';
 	var url = urlBase + '/SearchContactsSanitized.' + extension;
@@ -281,7 +281,7 @@ function searchContacts()
 	 	{
 	 		if (this.readyState == 4 && this.status == 200)
 			{
-				hideOrShow( "contactsList", true );
+				//hideOrShow( "contactsList", true );
 
 				document.getElementById("contactsSearchResult").innerHTML = "Contact(s) has been retrieved";
 				var jsonObject = JSON.parse( xhr.responseText );
