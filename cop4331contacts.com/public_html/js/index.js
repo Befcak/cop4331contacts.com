@@ -313,8 +313,12 @@ function searchContacts()
 					div.class = "inner";
 					for(j = i+1; j <= i+10; j++)
 					{
-						var paragraph = "<p>"+jsonObject.results[j]+"</p>";
-						document.getElementById(div.id).insertAdjacentHTML('beforeend', paragraph);
+						if (jsonObject.results[j] != "")
+						{
+							var paragraph = "<p>"+jsonObject.results[j]+"</p>";
+							document.getElementById(div.id).insertAdjacentHTML('beforeend', paragraph);
+						}
+						
 
 					}
 
