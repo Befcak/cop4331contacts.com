@@ -301,7 +301,7 @@ function searchContacts()
 					var span = document.createElement("SPAN");
 					var txt = document.createTextNode("\u00D7");
 					li.id = jsonObject.results[i];
-					li.setAttribute('onclick', "displayInfo(li.id)");
+					li.setAttribute('onclick', "displayInfo(this.id)");
 					span.appendChild(txt);
 
 					var div = document.createElement("div");
@@ -332,7 +332,7 @@ function searchContacts()
 
 function displayInfo(id)
 {
-if(lastIdClicked > 1){
+if(lastIdClicked >= 1){
 	document.getElementById("div" + lastIdClicked).style.display = "none";
 	document.getElementById("div" + lastIdClicked).style.visibility = "hidden";
 }
