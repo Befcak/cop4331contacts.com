@@ -284,7 +284,7 @@ function searchContacts()
 				var jsonObject = xhr.responseText;
 
 				var i;
-				for( i=1; i<jsonObject.length-12; i+=12)
+				for( i=1; i<jsonObject.length()-12; i+=12)
 				{
 					var opt = document.createElement("option");
 					opt.text = jsonObject.results[i] + ' ' + jsonObject.result[i];
