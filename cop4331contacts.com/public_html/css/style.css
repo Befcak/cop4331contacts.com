@@ -235,3 +235,7 @@ ul li:hover {
 .force-overflow {
     min-height: 500px;
 }
+
+.inner{
+  position: absolute;
+}
