@@ -38,7 +38,7 @@ function doLogin()
 	document.getElementById("loginResult").innerHTML = "";
 
 	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
-	var url = urlBase + '/LoginSanitized.' + extension;
+	var url = urlBase + '/Login.' + extension;
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, false);
