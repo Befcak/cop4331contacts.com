@@ -311,7 +311,7 @@ function searchContacts()
 					li.setAttribute('onclick', "displayInfo(this.id)");
 					span.appendChild(txt);
 					
-					if(document.body.contains(getElementById("div" + li.id)))
+					if(document.getElementById("div" + li.id) != null)
 					{
 						continue;
 					}
