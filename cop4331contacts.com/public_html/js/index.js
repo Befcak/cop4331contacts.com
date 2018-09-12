@@ -296,6 +296,7 @@ function searchContacts()
 					var span = document.createElement("SPAN");
 					var txt = document.createTextNode("\u00D7");
 					li.id = jsonObject.results[i];
+					li.attachEvent('onclick', displayInfo);
 					span.appendChild(txt);
 				}
 			}
@@ -307,7 +308,9 @@ function searchContacts()
 		//document.getElementById("contactsSearchResult").innerHTML = err.message;
 	}
 
+}
 
-
-
+function displayInfo()
+{
+	alert("working");
 }
