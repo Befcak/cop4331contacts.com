@@ -262,6 +262,10 @@ function register()
 
 function searchContacts()
 {
+	while(myUL.hasChildNodes())
+	{
+		myUL.removeChild(li);
+	}
 	//SELECT * FROM contacts WHERE userID = "1" AND (firstName LIKE 'bob' OR lastName LIKE '' OR email LIKE '')
 	var srch = document.getElementById("searchText").value;
 	// document.getElementById("contactsSearchResult").innerHTML = "";
@@ -296,9 +300,9 @@ function searchContacts()
 					var span = document.createElement("SPAN");
 					var txt = document.createTextNode("\u00D7");
 					li.id = jsonObject.results[i];
-					//li.addEventListener('onclick', displayInfo);
 					li.setAttribute('onclick', "displayInfo()");
 					span.appendChild(txt);
+
 				}
 
 
@@ -318,6 +322,7 @@ function displayInfo()
 {
 	document.getElementById("infoDis").style.display = "block";
 	document.getElementById("infoDis").style.visibility = "visible";
+
 
 
 }
