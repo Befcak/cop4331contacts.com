@@ -175,7 +175,7 @@ function makeContact()
 	} else {
 		document.getElementById("myUL").appendChild(li);
 	}
-
+/*
 	document.getElementById('firstN').value = firstN.defaultValue;
 	document.getElementById('lastN').value = lastN.defaultValue;
 	document.getElementById('phone').value = phone.defaultValue;
@@ -191,7 +191,7 @@ function makeContact()
 	var txt = document.createTextNode("\u00D7");
 
 	span.appendChild(txt);
-
+*/
 	document.getElementById('myModal').style.display = 'none';
 	
 	searchContacts();
