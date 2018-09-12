@@ -309,7 +309,7 @@ function searchContacts()
 					div.style.visibility = "hidden";
 					// document.getElementById("infoCard").insertAdjacentHTML('beforeend', div);
 					document.getElementById("infoCard").appendChild(div);
-					div.class = inner;
+					div.class = "inner";
 					for(j = i+1; j <= i+10; j++)
 					{
 						var paragraph = "<p>"+jsonObject.results[j]+"</p>";
