@@ -291,11 +291,17 @@ function searchContacts()
 				var i;
 				for( i=1; i<jsonObject.results.length-6; i+=11)
 				{
-					var opt = document.createElement("option");
-					opt.text = jsonObject.results[i] + " " + jsonObject.results[i+1];
-					opt.value = "";
-					myUL.
-					contactsList.options.add(opt);
+					//var opt = document.createElement("option");
+					//opt.text = jsonObject.results[i] + " " + jsonObject.results[i+1];
+					//opt.value = "";
+					var t = document.createTextNode(jsonObject.results[i] + " " + jsonObject.results[i+1]);
+					li.appendChild(t);
+					document.getElementById("myUL").appendChild(li);
+					//contactsList.options.add(opt);
+					var span = document.createElement("SPAN");
+					var txt = document.createTextNode("\u00D7");
+
+					span.appendChild(txt);
 				}
 			}
 	 	};
@@ -306,16 +312,7 @@ function searchContacts()
 		document.getElementById("contactsSearchResult").innerHTML = err.message;
 	}
 
-	var t = document.createTextNode(first +' '+ last);
-	li.appendChild(t);
-	if (first === '' || last === '') {
-		alert("You must write something!");
-	} else {
-		document.getElementById("myUL").appendChild(li);
-	}
-	var span = document.createElement("SPAN");
-	var txt = document.createTextNode("\u00D7");
 
-	span.appendChild(txt);
+
 
 }
