@@ -141,7 +141,7 @@ function makeContact()
 	alert(userId + ',' + first + ', ' + last + ', ' + phoneNum + ', ' + emailAdd + ', ' + streetAdd+ ', ' + cityName + ', ' + stateName + ', ' + zipNum + ', ' + birthday + ', ' + notes);
 	var jsonPayload = '{"userID" : "' + userId + '", "firstName" : "' + first + '", "lastName" : "' + last + '", "streetAddress" : "' + streetAdd + '", "city" : "' + cityName + '", "state" : "' + stateName + '", "zip" : "' + zipNum + '", "phone" : "' + phoneNum + '", "email" : "' + emailAdd + '", "birthday" : "' + birthday + '", "notes" : "' + notes + '"}';
 
-	var url = urlBase + '/AddContactSanitized.' + extension;
+	var url = urlBase + '/AddContact.' + extension;
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -351,17 +351,17 @@ function deleteContact()
 
 	var testContactId = 60;
 	var testUserId = 41;
-	
+
     if (confirm("Confirm Delete")) {
        document.getElementById("deleteContactResult").innerHTML = "Contact has been deleted!";
     } else {
         return;
     }
 
-    
-	
+
+
 	var jsonPayload = '{"userId": "'+ testUserId +'","contactId" : "' + testContactId + '"}';
-	
+
 	//var jsonPayload = '{"userID": "'+ userId +'","contactID" : "' + lastIdClicked + '"}';
 	var url = urlBase + '/DeleteContactSanitized.' + extension;
 
