@@ -56,6 +56,7 @@
                                  		. $streetAddress . '","' . $city . '","' . $state . '","' . $zip . '","' 
                                  		. $phone . '","' . $email . '","' . $birthday . '","'. $notes .'"';
 				}
+				returnWithInfo( $searchResults );
 			}
 			else
 			{
@@ -65,7 +66,6 @@
 	
 		$conn->close();
 	}
-	returnWithInfo( $searchResults );
 
 	function getRequestInfo()
 	{
