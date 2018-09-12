@@ -197,9 +197,10 @@ p {
 }
 
 .logoutButtonClass{
-  background-color: green;
+  background-color: #7ed3a7;
   color: white;
   padding: 2px;
+  text-align: center;
 
 }
 
