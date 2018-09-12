@@ -10,7 +10,7 @@ function doLogin()
 	userId = 0;
 	firstName = "";
 	lastName = "";
-	lastIdClicked = "";
+	lastIdClicked = 0;
 
 	var login = document.getElementById("loginName").value;
 	var password = md5(document.getElementById("loginPassword").value);
@@ -332,10 +332,10 @@ function searchContacts()
 
 function displayInfo(id)
 {
-
+if(lastIdClicked > 1){
 	document.getElementById("div" + lastIdClicked).style.display = "none";
 	document.getElementById("div" + lastIdClicked).style.visibility = "hidden";
-
+}
 	document.getElementById("div" + id).style.display = "block";
 	document.getElementById("div" + id).style.visibility = "visible";
 
