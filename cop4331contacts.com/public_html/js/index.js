@@ -349,18 +349,22 @@ function deleteContact()
 {
 
 	var testContactId = 60;
+
 	//var testUserId = 35;
 	
+
+	var testUserId = 41;
+
     if (confirm("Confirm Delete")) {
        document.getElementById("deleteContactResult").innerHTML = "Contact has been deleted!";
     } else {
         return;
     }
-
-    
 	
 	var jsonPayload = '{"userId": "'+ userId +'","contactId" : "' + testContactId + '"}';
 	
+//	var jsonPayload = '{"userId": "'+ testUserId +'","contactId" : "' + testContactId + '"}';
+
 	//var jsonPayload = '{"userID": "'+ userId +'","contactID" : "' + lastIdClicked + '"}';
 	var url = urlBase + '/DeleteContactSanitized.' + extension;
 
