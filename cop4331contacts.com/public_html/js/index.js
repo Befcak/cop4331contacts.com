@@ -299,6 +299,11 @@ function searchContacts()
 					li.attachEvent('onclick', displayInfo);
 					span.appendChild(txt);
 				}
+
+				var displayInfo = function()
+				{
+					alert("wokring");
+				}
 			}
 	 	};
 	 	xhr.send(jsonPayload);
@@ -308,9 +313,5 @@ function searchContacts()
 		//document.getElementById("contactsSearchResult").innerHTML = err.message;
 	}
 
-}
 
-function displayInfo()
-{
-	alert("working");
 }
