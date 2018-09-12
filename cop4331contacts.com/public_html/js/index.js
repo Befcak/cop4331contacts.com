@@ -286,11 +286,6 @@ function searchContacts()
 				//document.getElementById("contactsSearchResult").innerHTML = "Contact(s) has been retrieved";
 				var jsonObject = JSON.parse( xhr.responseText );
 
-				var displayInfo = function()
-				{
-					alert("wokring");
-				}
-
 				var i;
 				for( i=0; i<jsonObject.results.length-6; i+=11)
 				{
@@ -317,4 +312,9 @@ function searchContacts()
 	}
 
 
+}
+
+function displayInfo()
+{
+	alert("working");
 }
