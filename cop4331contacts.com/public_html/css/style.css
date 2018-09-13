@@ -273,3 +273,9 @@ ul li:hover {
   height: 50px;
   font-size: 14pt;
 }
+#deleteButton{
+  float: right;
+  padding: 5px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
