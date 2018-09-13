@@ -24,14 +24,14 @@
 <body>
   <div class="header">
 	<div id="loggedInDiv" style="display:none; visibility:hidden;">
-      <span id="userName"> </span> 
+      <span id="userName"> </span>
       <button type="button" id="logoutButton" class="logoutButtonClass" onclick="doLogout()"> Log Out </button>
     </div>
 	<br />
     <div id="words" style="float:center; display:inline">
     contactBook
   </div>
-    
+
   </div>
   <div id="root">
 
@@ -140,11 +140,11 @@
   	<br />
   <div class="row">
     <!-- Main Page -->
-	
+
 	<div class="col-sm-6">
       <div class="card">
       <h1>Contacts</h1>
-       
+
 		<center>
         <input type="text" id="searchText" class="searchBar" onkeyup="searchContacts()" placeholder="Search Contacts"/>
 		</center>
@@ -161,7 +161,7 @@
 			 <br/>
 			 <br/>
         </div>
-      
+
 	  </div>
 	  <div class="col-sm-6">
         <div class="card" id="infoCard">
@@ -169,13 +169,13 @@
           <div id="infoDis" style="display:block;">
           </div>
 			<center>
-				<button type="button" id="deleteButton" class="btn btn-success my-2 my-sm-0" onclick="deleteContact()">Delete</button><br />
-			
+				<button style="display:none; visibility:hidden" type="button" id="deleteButton" class="btn btn-success my-2 my-sm-0" onclick="deleteContact()">Delete</button><br />
+
 			</center>
 		 <span id="deleteContactResult"></span>
 		 <br/>
 		<br/>
-		
+
 		</div>
       </div>
 	  </div>
@@ -214,7 +214,7 @@
   </div>
 
 
- 
+
 
 </body>
 
