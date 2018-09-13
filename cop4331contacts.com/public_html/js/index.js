@@ -1,4 +1,4 @@
-var urlBase = 'http://cop4331contactmanager.xyz';
+var urlBase = 'http://cop4331contactmanager.xyz/API';
 var extension = "php";
 
 var userId = 0;
@@ -241,7 +241,7 @@ function register()
 		document.getElementById("reg_password_confirm").value =reg_password_confirm.defaultValue;
 		return;
 	}
-	
+
 	// sanitizing the login and Password
 	var i;
 	for(i = 0; i < regUsername.length; i++)
@@ -264,7 +264,7 @@ function register()
 			return;
 		}
 	}
-	
+
 		regPassword =  md5(regtempPassword);
 
 	var jsonPayload = '{"firstName" : "' + regFirstName + '", "lastName" : "' + regLastName + '", "login" : "' + regUsername
