@@ -23,13 +23,15 @@
 
 <body>
   <div class="header">
+	<div id="loggedInDiv" style="display:none; visibility:hidden;">
+      <span id="userName"> </span> 
+      <button type="button" id="logoutButton" class="logoutButtonClass" onclick="doLogout()"> Log Out </button>
+    </div>
+	<br />
     <div id="words" style="float:center; display:inline">
     contactBook
   </div>
-    <div id="loggedInDiv" style="display:none; visibility:hidden;">
-      <span id="userName"></span>
-      <button type="button" id="logoutButton" class="logoutButtonClass" onclick="doLogout()"> Log Out </button>
-    </div>
+    
   </div>
   <div id="root">
 
@@ -61,7 +63,7 @@
                     <input type="password" class="form-control" id="loginPassword" name="lg_password" placeholder="password">
                   </div><br/>
 
-                    <button type="button" id="loginButton" class="buttons" onclick="doLogin()">Login</button>
+                    <button type="button" id="loginButton" class="btn btn-success" onclick="doLogin()">Login</button>
 	                  <span id="loginResult"></span>
 
                   <div class="form-group login-group-checkbox">
@@ -113,7 +115,7 @@
             						<input type="password" class="form-control" id="reg_password_confirm" name="reg_password_confirm" placeholder="confirm password">
             					</div><br/>
 
-                      <button type="button" id="registerButton" class="buttons" onclick="register();"> Register </button>
+                      <button type="button" id="registerButton" class="btn btn-success" onclick="register();"> Register </button>
                       <span id="registerResult"></span>
                     </div>
                   </div>
@@ -136,14 +138,16 @@
 
     <div id="accessUIDiv" style="display:none; visibility:hidden">
   	<br />
-
+  <div class="row">
     <!-- Main Page -->
-    <div class="container">
+	
+	<div class="col-sm-6">
       <div class="card">
       <h1>Contacts</h1>
-      <p style="padding: 0px; margin: 0px auto;">
-        <input style="width:100%" type="text" id="searchText" onkeyup="searchContacts()" placeholder="Search Contacts"/>
-        <p>
+       
+		<center>
+        <input type="text" id="searchText" class="searchBar" onkeyup="searchContacts()" placeholder="Search Contacts"/>
+		</center>
           <div class="scrollbar scrollbar-primary">
             <div class="force-overflow">
               <ul class="list-group" id="myUL" style="list-style-type:none">
@@ -151,25 +155,32 @@
               </ul>
             </div>
           </div>
-
-        <button type="button" id="addContactButton" class="btn btn-success my-2 my-sm-0" onclick="addContact()"> Add Contact </button><br />
-        <span id="contactAddResult"></span>
-      </p>
+			<center><button type="button" id="addContactButton" class="btn btn-success my-2 my-sm-0" onclick="addContact()"> Add Contact </button><br />
+			 </center>
+			 <span id="contactAddResult"></span>
+			 <br/>
+			 <br/>
         </div>
-      </p>
+      
+	  </div>
+	  <div class="col-sm-6">
         <div class="card" id="infoCard">
         <h1>Info Display</h1>
           <div id="infoDis" style="display:block;">
-
-			<button type="button" id="deleteButton" class="btn btn-success my-2 my-sm-0" onclick="deleteContact()">Delete</button><br />
-			 <span id="deleteContactResult"></span>
-
           </div>
+			<center>
+				<button type="button" id="deleteButton" class="btn btn-success my-2 my-sm-0" onclick="deleteContact()">Delete</button><br />
+			
+			</center>
+		 <span id="deleteContactResult"></span>
+		 <br/>
+		<br/>
+		
 		</div>
-        </div>
       </div>
+	  </div>
     </div>
-
+	</div>
 
   <!-- Create New Contact Modal -->
   <div id="myModal" class="modal">
@@ -203,7 +214,7 @@
   </div>
 
 
-  </div>
+ 
 
 </body>
 
