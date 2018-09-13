@@ -432,9 +432,6 @@ function searchContacts()
 
 function displayInfo(id)
 {
-	document.getElementById(deleteButton).style.display = "block";
-	document.getElementById(deleteButton).style.visibility = "visibile";
-
 if(lastIdClicked >= 1){
 	document.getElementById("div" + lastIdClicked).style.display = "none";
 	document.getElementById("div" + lastIdClicked).style.visibility = "hidden";
