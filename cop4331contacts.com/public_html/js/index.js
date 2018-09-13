@@ -1,4 +1,4 @@
-var urlBase = 'http://167.99.12.10/API';
+var urlBase = 'http://cop4331contactmanager.xyz';
 var extension = "php";
 
 var userId = 0;
@@ -71,7 +71,7 @@ function doLogin()
 	//	hideOrShow( "loggedInDiv", true);
 		hideOrShow( "accessUIDiv", true);
 		hideOrShow( "loginDiv", false);
-	
+
 	}
 	catch(err)
 	{
@@ -196,9 +196,9 @@ function makeContact()
 	span.appendChild(txt);
 */
 	document.getElementById('myModal').style.display = 'none';
-	
+
 	setTimeout(searchContacts, 500);
-	
+
 	//searchContacts();
 
 }
@@ -322,7 +322,7 @@ function searchContacts()
 					li.id = jsonObject.results[i];
 					li.setAttribute('onclick', "displayInfo(this.id)");
 					span.appendChild(txt);
-					
+
 					if(document.getElementById("div" + li.id) != null)
 					{
 						continue;
@@ -341,15 +341,15 @@ function searchContacts()
 		//					var paragraph = "<p>"+jsonObject.results[j]+"</p>";
 		//					document.getElementById(div.id).insertAdjacentHTML('beforeend', paragraph);
 		//				}
-		//				
+		//
 //
 //					}
-					
-				
+
+
 					var paragraph = "<p>Name: "+jsonObject.results[i+1]+" "+ jsonObject.results[i+2] + "</p>";
 					document.getElementById(div.id).insertAdjacentHTML('beforeend', paragraph);
-					
-		
+
+
 					if (jsonObject.results[i+3] != "")
 					{
 						var paragraph = "<p>Address: "+jsonObject.results[i+3]+"</p>";
@@ -389,7 +389,7 @@ function searchContacts()
 					{
 						var paragraph = "<p>Notes: "+jsonObject.results[i+10]+"</p>";
 						document.getElementById(div.id).insertAdjacentHTML('beforeend', paragraph);
-					}	
+					}
 				}
 			}
 	 	};
@@ -429,10 +429,10 @@ function deleteContact()
 
 
 	//var jsonPayload = '{"userId": "'+ testUserId +'","contactId" : "' + testContactId + '"}';
-	
+
 	var jsonPayload = '{"userId": "'+ userId +'","contactId" : "' + lastIdClicked + '"}';
 	var url = urlBase + '/DeleteContactSanitized.' + extension;
-	
+
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
