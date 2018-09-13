@@ -210,15 +210,16 @@ function makeContact()
 // -Updated 9/8/2018
 function register()
 {
+	var regPassword;
 	var regFirstName = document.getElementById("reg_firstname").value;
 	var regLastName = document.getElementById("reg_lastname").value;
 	var regUsername = document.getElementById("reg_username").value;
-	var regPassword = md5(document.getElementById("reg_password").value);
-	var regPasswordConfirm = md5(document.getElementById("reg_password_confirm").value);
+	var regtempPassword = document.getElementById("reg_password").value;
+	var regPasswordConfirm = document.getElementById("reg_password_confirm").value;
 	document.getElementById("registerResult").innerHTML = "";
 
 	// Check passwords match
-	if(regPassword != regPasswordConfirm)
+	if(regtempPassword != regPasswordConfirm)
 	{
 		document.getElementById("registerResult").innerHTML = "Passwords don't match!";
 		//document.getElementById("reg_firstname").value = reg_firstname.defaultValue;
@@ -229,8 +230,8 @@ function register()
 		return;
 	}
 
-	// Check passwor exists
-	if(regPassword == "" || regPassword == null || regPassword == undefined || regPasswordConfirm == "" || regPasswordConfirm == null || regPasswordConfirm == undefined)
+	// Check password exists
+	if(regtempPassword == "" || regtempPassword == null || regtempPassword == undefined || regtempPassword == "" || regtempPassword == null || regPasswordConfirm == undefined)
 	{
 		document.getElementById("registerResult").innerHTML = "Invalid password!";
 		//document.getElementById("reg_firstname").value = reg_firstname.defaultValue;
@@ -240,6 +241,31 @@ function register()
 		document.getElementById("reg_password_confirm").value =reg_password_confirm.defaultValue;
 		return;
 	}
+	
+	// sanitizing the login and Password
+	var i;
+	for(i = 0; i < regUsername.length; i++)
+	{
+		if(regUsername[i] === ';' || regUsername[i] === '/' || regUsername[i] === '-' || regUsername[i] == ')' || regUsername[i]=='(')
+		{
+			alert("There are illegal characters in your username");
+			document.getElementById("regUsername").value = regUsername.defaultValue;
+			document.getElementById("regPassword").value =regPassword.defaultValue;
+			return;
+		}
+	}
+	for(i = 0; i < regtempPassword.length; i++)
+	{
+		if(regtempPassword[i] === ';' || regtempPassword[i] === '/' || regtempPassword[i] === '-'|| regtempPassword[i] == ')' || regtempPassword[i]=='(')
+		{
+			alert("There are illegal characters in your password.");
+			document.getElementById("loginName").value = loginName.defaultValue;
+			document.getElementById("loginPassword").value =loginPassword.defaultValue;
+			return;
+		}
+	}
+	
+		regPassword =  md5(regtempPassword);
 
 	var jsonPayload = '{"firstName" : "' + regFirstName + '", "lastName" : "' + regLastName + '", "login" : "' + regUsername
 	+ '", "password" : "' + regPassword +'"}';

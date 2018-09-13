@@ -252,6 +252,12 @@ ul li:hover {
   padding-bottom: 10px;
 }
 
+.searchBar {
+	margin-left: 25px;
+    margin-right: 25px;
+	width: auto;
+}
+
 .scrollbar {
     margin-left: 25px;
     margin-right: 25px;
@@ -274,7 +280,8 @@ ul li:hover {
   font-size: 14pt;
 }
 #deleteButton{
-  float: right;
+  background: #c96464;
+  float: center;
   padding: 5px;
   padding-left: 25px;
   padding-right: 25px;
